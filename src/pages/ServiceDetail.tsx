@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
-  CheckCircle, Phone, Shield, Clock, Award, Star,
-  ChevronDown, Users, Sparkles, MapPin, CalendarDays,
+  CheckCircle, Phone, Shield, Award, Star,
+  ArrowRight, Users, Sparkles, MapPin, CalendarDays,
 } from 'lucide-react';
 import { SEO, createServiceSchema, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
@@ -730,28 +730,27 @@ export const ServiceDetail: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+          <div className="flex flex-col lg:grid lg:grid-cols-[1fr_420px] gap-8 lg:gap-14 lg:items-center">
 
             {/* Left: copy */}
             <div className="text-white space-y-5 animate-fadeInUp">
-              {/* Service label */}
-              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest">
-                <Icon className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
-                {service.name}
+              {/* Pills row — urgency + location (same as homepage) */}
+              <div className="flex flex-wrap items-center gap-2 animate-fadeInDown">
+                <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
+                  <span className="relative flex h-2 w-2 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-70" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-700" />
+                  </span>
+                  Few slots left this week
+                </div>
+                <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white border border-white/25 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
+                  <MapPin className="w-3 h-3 flex-shrink-0 text-secondary" />
+                  Serving CT &amp; NJ
+                </div>
               </div>
 
-              {/* Urgency pill */}
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-orange-500 text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold shadow-lg uppercase tracking-wide">
-                <span className="relative flex h-2 w-2 flex-shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-700" />
-                </span>
-                <Clock className="w-3.5 h-3.5 flex-shrink-0" />
-                <span>Limited slots this week</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.08] tracking-tight" style={{ animationDelay: '0.08s' }}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.08] tracking-tight">
                 {content.hero.headline}
               </h1>
 
@@ -763,11 +762,18 @@ export const ServiceDetail: React.FC = () => {
                 {content.hero.subheadline}
               </p>
 
-              <div className="space-y-2.5">
-                {content.hero.trustBadges.map((badge) => (
-                  <div key={badge} className="flex items-center gap-2.5">
-                    <CheckCircle className="w-4.5 h-4.5 text-green-400 flex-shrink-0" style={{ width: 18, height: 18 }} />
-                    <span className="text-sm font-medium text-gray-100">{badge}</span>
+              {/* Trust chips — same style as homepage */}
+              <div className="flex flex-wrap gap-2">
+                {content.hero.trustBadges.map((badge, i) => (
+                  <div
+                    key={badge}
+                    className="inline-flex items-center gap-1.5 bg-black/50 border border-white/15 rounded-lg px-2.5 py-1.5 backdrop-blur-sm animate-badgePop"
+                    style={{ animationDelay: `${0.32 + i * 0.07}s` }}
+                  >
+                    <div className="w-5 h-5 flex-shrink-0 bg-primary/20 border border-primary/30 rounded flex items-center justify-center">
+                      <CheckCircle className="w-3 h-3 text-primary" />
+                    </div>
+                    <span className="text-xs font-bold text-white leading-tight whitespace-nowrap">{badge}</span>
                   </div>
                 ))}
               </div>
@@ -804,24 +810,25 @@ export const ServiceDetail: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-10">
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              <div className="flex flex-col gap-4 mb-8">
                 {content.needSection.items.map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                       <CheckCircle className="w-3.5 h-3.5 text-primary" />
                     </div>
-                    <span className="text-gray-700 font-medium leading-snug">{item}</span>
+                    <span className="text-gray-900 font-bold leading-snug">{item}</span>
                   </div>
                 ))}
               </div>
               <div className="text-center">
-                <a
-                  href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
                   className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-base hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
                 >
                   <CalendarDays className="w-5 h-5" />
                   {content.needSection.ctaLabel}
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -838,7 +845,7 @@ export const ServiceDetail: React.FC = () => {
               decoding="async"
             />
             <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-8 xl:right-14 w-[38%]">
-              <div className="bg-gray-900/50 border border-white/15 rounded-2xl px-8 py-8 shadow-2xl">
+              <div className="rounded-2xl px-6 py-7 shadow-2xl border border-white/10" style={{ backgroundColor: 'rgba(10,10,10,0.92)' }}>
                 <WhyUsContent content={content.whyUs} phone={region.phoneNumbers[0]} />
               </div>
             </div>
@@ -906,15 +913,6 @@ export const ServiceDetail: React.FC = () => {
         {/* ── SECTION 6: Reviews ────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
-                <Star className="w-3.5 h-3.5" />
-                Customer Reviews
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-                What Our Customers Say
-              </h2>
-            </div>
             <ReviewCarousel />
           </div>
         </section>
@@ -937,13 +935,14 @@ export const ServiceDetail: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <a
-                href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
                 className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-base hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
               >
-                <Phone className="w-5 h-5" />
-                Call Now: {region.phoneNumbers[0]}
-              </a>
+                <CalendarDays className="w-5 h-5" />
+                Schedule My Inspection
+              </button>
             </div>
           </div>
         </section>
@@ -968,14 +967,14 @@ export const ServiceDetail: React.FC = () => {
                   >
                     <span className="text-sm md:text-base font-bold text-gray-900 leading-snug">{faq.q}</span>
                     <span className={`flex-shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${openFAQ === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'}`}>
-                      <ChevronDown className={`w-3.5 h-3.5 transition-all duration-200 ${openFAQ === i ? 'text-primary -rotate-45' : 'text-gray-400'}`} />
+                      <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${openFAQ === i ? 'text-primary -rotate-45' : 'text-gray-400 rotate-45'}`} />
                     </span>
                   </button>
-                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQ === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="px-5 pb-5 pt-1 bg-gray-50">
-                      <p className="text-sm text-gray-600 leading-relaxed">{faq.a}</p>
+                  {openFAQ === i && (
+                    <div className="px-5 pb-5 text-sm text-gray-500 leading-relaxed font-medium border-t border-gray-50 bg-gray-50/50 animate-fadeInDown">
+                      <p className="pt-4">{faq.a}</p>
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -1021,20 +1020,21 @@ export const ServiceDetail: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
                   className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl"
                 >
-                  <Phone className="w-5 h-5" />
+                  <CalendarDays className="w-5 h-5" />
                   Get My Appointment
-                </a>
-                <a
-                  href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
+                </button>
+                <Link
+                  to={`${statePrefix}/contact`}
                   className="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white/40 text-white px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   <Award className="w-5 h-5" />
                   Speak With An Expert
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -1073,31 +1073,46 @@ export const ServiceDetail: React.FC = () => {
 function WhyUsContent({ content, phone }: { content: ServiceContent['whyUs']; phone: string }) {
   return (
     <>
-      <div className="inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5">
-        <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block" />
+      <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5">
+        <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
         Why Homeowners Choose Us
       </div>
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-[1.1] text-white mb-4">
+      <h2 className="text-2xl md:text-3xl font-black leading-tight text-white mb-3">
         {content.headline}
       </h2>
-      <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-6">
+      <p className="text-sm leading-relaxed text-gray-300 mb-6">
         {content.body}
       </p>
-      <div className="space-y-2.5 mb-6">
-        {content.bullets.map((b) => (
-          <div key={b} className="flex items-center gap-2.5">
-            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-            <span className="text-sm font-medium text-gray-200">{b}</span>
+      <div className="grid grid-cols-2 gap-3 mb-6">
+        {[
+          { stat: '15+',       label: 'Years Experience' },
+          { stat: '1,000+',    label: 'Chimneys Served' },
+          { stat: '100%',      label: 'Labor Guaranteed' },
+          { stat: 'Same-Week', label: 'Appointments' },
+        ].map(({ stat, label }) => (
+          <div key={label} className="bg-white/5 border border-white/15 rounded-xl px-3 py-3">
+            <div className="text-xl font-black text-primary leading-none mb-1">{stat}</div>
+            <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide">{label}</div>
           </div>
         ))}
       </div>
-      <a
-        href={`tel:${phone.replace(/\D/g, '')}`}
-        className="inline-flex items-center gap-2 bg-primary hover:bg-red-700 text-white px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
-      >
-        <Phone className="w-4 h-4" />
-        {phone}
-      </a>
+      <div className="flex items-center gap-3 flex-wrap">
+        <a
+          href={`tel:${phone.replace(/\D/g, '')}`}
+          className="inline-flex items-center gap-2 bg-primary hover:bg-red-700 text-white px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 shadow-md hover:scale-105 active:scale-95"
+        >
+          <Phone className="w-4 h-4" />
+          {phone}
+        </a>
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
+          className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-900 border-2 border-gray-900 px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 hover:scale-105 active:scale-95"
+        >
+          <CalendarDays className="w-4 h-4" />
+          Book Now
+        </button>
+      </div>
     </>
   );
 }

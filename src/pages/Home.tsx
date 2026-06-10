@@ -264,7 +264,7 @@ export const Home: React.FC = () => {
   const yearsCount        = useCountUp(15,    1400, statsStarted);
   const jobsCount         = useCountUp(10000, 2000, statsStarted);
   const satisfactionCount = useCountUp(100,   1200, statsStarted);
-  const reviewsCount      = useCountUp(500,   1600, statsStarted);
+  const reviewsCount      = useCountUp(98,    1600, statsStarted);
 
   useEffect(() => {
     const revealObserver = new IntersectionObserver(

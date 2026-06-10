@@ -26,7 +26,7 @@ function ServiceTeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
         {[
           { stat: '15+', label: 'Years Experience' },
           { stat: '10k+', label: 'Homes Served' },
-          { stat: '500+', label: '5-Star Reviews' },
+          { stat: '98+', label: '5-Star Reviews' },
           { stat: '100%', label: 'Labor Guaranteed' },
         ].map(({ stat, label }) => (
           <div key={label} className="bg-gray-900/95 border border-white/15 rounded-xl px-3 py-3">

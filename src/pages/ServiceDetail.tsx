@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   CheckCircle, Phone, Shield, Award, Star,
-  ArrowRight, Users, Sparkles, MapPin, CalendarDays,
+  ArrowRight, Users, Sparkles, MapPin, CalendarDays, Info,
 } from 'lucide-react';
 import { SEO, createServiceSchema, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
@@ -774,6 +774,15 @@ export const ServiceDetail: React.FC = () => {
                 <Users className="w-4 h-4 text-yellow-400" />
                 <span><strong className="text-white">10,000+</strong> homeowners served in CT &amp; NJ</span>
               </div>
+
+              {slug === 'gas-fireplace-log-sets' && (
+                <div className="flex items-start gap-2.5 bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-sm max-w-xl">
+                  <Info className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    <span className="font-bold text-white">Sub-contractor disclosure:</span> The gas plumbing portions of this service may be performed by qualified, licensed sub-contractors on our behalf.
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Right: form */}

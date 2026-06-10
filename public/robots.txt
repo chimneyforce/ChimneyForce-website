@@ -1,0 +1,24 @@
+# Robots.txt for Chimney Force
+# Allow all search engines to crawl the entire site
+
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://chimneyforce.com/sitemap.xml
+
+# Popular search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl-delay for polite crawling (optional)
+Crawl-delay: 1

@@ -24,7 +24,7 @@ const SERVICE_OPTIONS = [
 const TRUST_CHIPS = [
   { icon: Shield,       label: 'Licensed & Insured' },
   { icon: CheckCircle,  label: 'Labor Guarantee' },
-  { icon: CalendarDays, label: 'Same-Week Service' },
+  { icon: CalendarDays, label: 'Same-Week Booking' },
   { icon: Users,        label: 'Family-Owned' },
 ];
 

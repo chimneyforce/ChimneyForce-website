@@ -10,7 +10,6 @@ const CityPage = lazy(() => import('./pages/CityPage').then(module => ({ default
 const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })));
 const Contact = lazy(() => import('./pages/Contact').then(module => ({ default: module.Contact })));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail').then(module => ({ default: module.ServiceDetail })));
-const GasFireplaceLogSets = lazy(() => import('./pages/GasFireplaceLogSets').then(module => ({ default: module.GasFireplaceLogSets })));
 const Sitemap = lazy(() => import('./pages/Sitemap').then(module => ({ default: module.Sitemap })));
 const NotFound = lazy(() => import('./pages/NotFound').then(module => ({ default: module.NotFound })));
 const AdminReviews = lazy(() => import('./pages/AdminReviews'));
@@ -43,13 +42,10 @@ function App() {
                   <Route path="/sitemap" element={<Sitemap />} />
                   <Route path="/admin/reviews" element={<AdminReviews />} />
                   <Route path="/services/:slug" element={<ServiceDetail />} />
-                  <Route path="/services/gas-fireplace-log-sets" element={<GasFireplaceLogSets />} />
                   <Route path="/ct/about" element={<About />} />
                   <Route path="/nj/about" element={<About />} />
                   <Route path="/ct/contact" element={<Contact />} />
                   <Route path="/nj/contact" element={<Contact />} />
-                  <Route path="/ct/services/gas-fireplace-log-sets" element={<GasFireplaceLogSets />} />
-                  <Route path="/nj/services/gas-fireplace-log-sets" element={<GasFireplaceLogSets />} />
                   <Route path="/ct/services/:slug" element={<ServiceDetail />} />
                   <Route path="/nj/services/:slug" element={<ServiceDetail />} />
                   <Route path="/ct/:city" element={<CityPage />} />

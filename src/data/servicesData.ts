@@ -1,74 +1,54 @@
-export interface Service {
+import { Sparkles, Search, Droplets, Wrench, Shield, Layers, Flame } from 'lucide-react';
+import type { ComponentType } from 'react';
+
+export interface ServiceItem {
   name: string;
   slug: string;
+  icon: ComponentType<{ className?: string }>;
+  tagline: string;
 }
 
-export interface ServiceColumn {
-  title: string;
-  icon: string;
-  services: Service[];
-}
-
-export const MEGA_MENU_SERVICES: ServiceColumn[] = [
+export const SERVICES: ServiceItem[] = [
   {
-    title: 'Inspections',
-    icon: 'Search',
-    services: [
-      { name: 'Chimney Inspection (Level 1 - Safety)', slug: 'chimney-inspection' },
-      { name: 'Real Estate Inspection (Level 2 - Camera)', slug: 'real-estate-inspection' },
-      { name: 'Gas Fireplace Inspection', slug: 'gas-fireplace-inspection' },
-      { name: 'Pellet Stove Inspection', slug: 'pellet-stove-inspection' },
-      { name: 'Drone Roof & Chimney Analysis', slug: 'drone-analysis' },
-    ],
+    name: 'Chimney Sweep & Cleaning',
+    slug: 'chimney-sweep-cleaning',
+    icon: Sparkles,
+    tagline: 'Remove creosote, improve draft, stay safe',
   },
   {
-    title: 'Cleaning',
-    icon: 'Sparkles',
-    services: [
-      { name: 'Standard Chimney Sweep', slug: 'chimney-sweep' },
-      { name: 'PCR Deep Cleaning (Glazed Creosote)', slug: 'pcr-deep-cleaning' },
-      { name: 'Smoke Chamber Cleaning', slug: 'smoke-chamber-cleaning' },
-      { name: 'Animal Removal & Nest Blockage', slug: 'animal-removal' },
-      { name: 'Dryer Vent Cleaning', slug: 'dryer-vent-cleaning' },
-    ],
+    name: 'Chimney Inspections',
+    slug: 'chimney-inspections',
+    icon: Search,
+    tagline: 'Certified level 1 & 2 safety inspections',
   },
   {
-    title: 'Masonry Repairs',
-    icon: 'Wrench',
-    services: [
-      { name: 'Brick Repair & Replacement', slug: 'brick-repair' },
-      { name: 'Stone Restoration', slug: 'stone-restoration' },
-      { name: 'Tuckpointing & Repointing', slug: 'tuckpointing' },
-      { name: 'Chimney Crown Repair (Cement)', slug: 'crown-repair' },
-      { name: 'Firebox Repair (Re-bricking)', slug: 'firebox-repair' },
-    ],
+    name: 'Chimney Leaks & Water Damage',
+    slug: 'chimney-leaks-water-damage',
+    icon: Droplets,
+    tagline: 'Flashing, waterproofing & leak diagnostics',
   },
   {
-    title: 'Waterproofing & Leaks',
-    icon: 'Droplets',
-    services: [
-      { name: 'Chimney Leak Diagnostic', slug: 'leak-diagnostic' },
-      { name: 'Flashing Repair (Lead/Copper)', slug: 'flashing-repair' },
-      { name: 'Chimney Waterproofing (Sealant)', slug: 'waterproofing' },
-      { name: 'Chimney Cap Installation (Stainless/Copper)', slug: 'cap-installation' },
-      { name: 'Chase Cover Replacement', slug: 'chase-cover' },
-    ],
+    name: 'Chimney Repair & Masonry',
+    slug: 'chimney-repair-masonry',
+    icon: Wrench,
+    tagline: 'Brick repair, tuckpointing & crown restoration',
   },
   {
-    title: 'Liners',
-    icon: 'Layers',
-    services: [
-      { name: 'Stainless Steel Liner Installation', slug: 'steel-liner' },
-      { name: 'Clay Tile Repair (HeatShield)', slug: 'clay-tile-repair' },
-      { name: 'Aluminum Liners (Gas Heaters)', slug: 'aluminum-liners' },
-      { name: 'Furnace Flue Relining', slug: 'furnace-relining' },
-    ],
+    name: 'Chimney Caps & Covers',
+    slug: 'chimney-caps-covers',
+    icon: Shield,
+    tagline: 'Custom stainless & copper caps installed',
   },
   {
-    title: 'Gas Fireplace & Log Sets',
-    icon: 'Flame',
-    services: [
-      { name: 'Gas Fireplace & Log Set Solutions', slug: 'gas-fireplace-log-sets' },
-    ],
+    name: 'Chimney Liners',
+    slug: 'chimney-liners',
+    icon: Layers,
+    tagline: 'Stainless steel liner installation & relining',
+  },
+  {
+    name: 'Gas Fireplace & Log Sets',
+    slug: 'gas-fireplace-log-sets',
+    icon: Flame,
+    tagline: 'Gas fireplace service, repair & log set installs',
   },
 ];

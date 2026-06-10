@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Home, Info, Mail, MapPin, Wrench } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
-import { MEGA_MENU_SERVICES } from '../data/servicesData';
+import { SERVICES } from '../data/servicesData';
 import { CT_CITIES, NJ_CITIES } from '../data/cityData';
 
 export const Sitemap: React.FC = () => {
@@ -65,29 +65,27 @@ export const Sitemap: React.FC = () => {
               </ul>
             </div>
 
-            {/* Services by Category */}
-            {MEGA_MENU_SERVICES.map((column, colIndex) => (
-              <div key={colIndex} className="bg-white p-6 rounded-2xl shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
-                    <Wrench className="w-5 h-5 text-primary" />
-                  </div>
-                  <h2 className="text-xl font-extrabold text-black">{column.title}</h2>
+            {/* Services */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                  <Wrench className="w-5 h-5 text-primary" />
                 </div>
-                <ul className="space-y-2">
-                  {column.services.map((service) => (
-                    <li key={service.slug}>
-                      <Link
-                        to={`${statePrefix}/services/${service.slug}`}
-                        className="text-primary hover:text-red-700 font-bold hover:underline"
-                      >
-                        {service.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <h2 className="text-xl font-extrabold text-black">Services</h2>
               </div>
-            ))}
+              <ul className="space-y-2">
+                {SERVICES.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      to={`${statePrefix}/services/${service.slug}`}
+                      className="text-primary hover:text-red-700 font-bold hover:underline"
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {/* Connecticut Cities */}
             <div className="bg-white p-6 rounded-2xl shadow-lg">

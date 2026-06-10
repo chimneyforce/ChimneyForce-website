@@ -165,18 +165,18 @@ export const Hero: React.FC<HeroProps> = ({
               <span className="text-gray-300 text-sm font-medium">10,000+ homeowners served</span>
             </div>
 
-            {/* Trust chips 2×2 */}
-            <div className="grid grid-cols-2 gap-2 animate-fadeInUp" style={{ animationDelay: '0.28s' }}>
+            {/* Trust chips */}
+            <div className="flex flex-wrap gap-2 animate-fadeInUp" style={{ animationDelay: '0.28s' }}>
               {TRUST_CHIPS.map(({ icon: Icon, label }, i) => (
                 <div
                   key={label}
-                  className="flex items-center gap-2 bg-black/50 border border-white/15 rounded-lg px-3 py-2 animate-badgePop backdrop-blur-sm"
+                  className="inline-flex items-center gap-1.5 bg-black/50 border border-white/15 rounded-lg px-2.5 py-1.5 animate-badgePop backdrop-blur-sm"
                   style={{ animationDelay: `${0.32 + i * 0.07}s` }}
                 >
-                  <div className="w-6 h-6 flex-shrink-0 bg-primary/20 border border-primary/30 rounded-md flex items-center justify-center">
+                  <div className="w-5 h-5 flex-shrink-0 bg-primary/20 border border-primary/30 rounded flex items-center justify-center">
                     <Icon className="w-3 h-3 text-primary" />
                   </div>
-                  <span className="text-xs font-bold text-white leading-tight">{label}</span>
+                  <span className="text-xs font-bold text-white leading-tight whitespace-nowrap">{label}</span>
                 </div>
               ))}
             </div>

@@ -918,31 +918,79 @@ export const ServiceDetail: React.FC = () => {
         </section>
 
         {/* ── SECTION 7: Offer ──────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-gray-50">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-primary/10 to-red-700/5 border-2 border-primary/20 rounded-2xl p-8 md:p-12 text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-6 leading-tight">
-                {content.offer.headline}
-              </h2>
-              <div className="inline-flex flex-col gap-3 text-left mb-8">
-                {content.offer.items.map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-gray-800 font-semibold">{item}</span>
+        <section className="py-16 md:py-20 bg-gray-950">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-3xl">
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 md:p-12 lg:p-14">
+
+                {/* Top row */}
+                <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
+                  <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
+                    <span className="relative flex h-2 w-2 flex-shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-70" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-red-700" />
+                    </span>
+                    Limited Availability This Week
                   </div>
-                ))}
+                  <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Starting at $99</div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-10 items-center">
+                  {/* Left: headline + checklist + CTA */}
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-6">
+                      {content.offer.headline}
+                    </h2>
+                    <div className="space-y-3 mb-8">
+                      {content.offer.items.map((item) => (
+                        <div key={item} className="flex items-center gap-3">
+                          <div className="w-6 h-6 flex-shrink-0 bg-primary/20 border border-primary/40 rounded-full flex items-center justify-center">
+                            <CheckCircle className="w-3.5 h-3.5 text-primary" />
+                          </div>
+                          <span className="text-white font-semibold text-base">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
+                      className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-base hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl"
+                    >
+                      <CalendarDays className="w-5 h-5" />
+                      Schedule My Inspection
+                    </button>
+                  </div>
+
+                  {/* Right: stat grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { stat: '$99',     label: 'Starting Price' },
+                      { stat: '15+',    label: 'Years Experience' },
+                      { stat: '1,000+', label: 'Chimneys Served' },
+                      { stat: '100%',   label: 'Satisfaction Guaranteed' },
+                    ].map(({ stat, label }) => (
+                      <div key={label} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+                        <div className="text-2xl font-black text-primary mb-1">{stat}</div>
+                        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide leading-tight">{label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom guarantee strip */}
+                <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-gray-400 text-sm">
+                  {['Labor Guarantee', 'No Hidden Fees', 'Licensed & Insured', 'Same-Week Appointments'].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <span className="font-semibold">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <button
-                type="button"
-                onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
-                className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-base hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
-              >
-                <CalendarDays className="w-5 h-5" />
-                Schedule My Inspection
-              </button>
+
+              {/* Decorative glows */}
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
             </div>
           </div>
         </section>

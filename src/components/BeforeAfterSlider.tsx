@@ -69,7 +69,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   }, [isDragging, handleMouseMove, handleTouchMove, handleEnd]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto select-none">
+    <div className="w-full select-none">
       <div
         ref={containerRef}
         className="relative aspect-[4/3] overflow-hidden rounded-xl cursor-ew-resize shadow-2xl touch-none bg-gray-200 select-none"

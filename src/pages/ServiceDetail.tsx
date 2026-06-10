@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   CheckCircle, Phone, Shield, Award, Star,
@@ -7,7 +7,6 @@ import {
 import { SEO, createServiceSchema, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
-import { TrustBadgeBar } from '../components/TrustBadgeBar';
 import { ReviewCarousel } from '../components/ReviewCarousel';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
 import { submitQuoteRequest } from '../lib/contactSubmission';
@@ -633,6 +632,22 @@ function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
   );
 }
 
+function useCountUp(target: number, duration = 1800, started = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!started) return;
+    let start: number | null = null;
+    const step = (ts: number) => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      setCount(Math.floor(p * target));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, started]);
+  return count;
+}
+
 /* ─────────────────────────────────────────────────────────── */
 /*  Main component                                             */
 /* ─────────────────────────────────────────────────────────── */
@@ -642,6 +657,14 @@ export const ServiceDetail: React.FC = () => {
   const { region, statePrefix, isCT, isNJ } = useRegion();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
+  // Stats bar count-up
+  const [statsStarted, setStatsStarted] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const yearsCount        = useCountUp(15,    1400, statsStarted);
+  const jobsCount         = useCountUp(10000, 2000, statsStarted);
+  const satisfactionCount = useCountUp(100,   1200, statsStarted);
+  const reviewsCount      = useCountUp(98,    1600, statsStarted);
+
   const [staticLoaded, setStaticLoaded] = useState(false);
   const [showAnimated, setShowAnimated] = useState(false);
   useEffect(() => {
@@ -650,6 +673,16 @@ export const ServiceDetail: React.FC = () => {
       return () => clearTimeout(t);
     }
   }, [staticLoaded]);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setStatsStarted(true); obs.disconnect(); }
+    }, { threshold: 0.2 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   const getRegionText = () => {
     if (isCT) return 'Connecticut';
@@ -793,7 +826,30 @@ export const ServiceDetail: React.FC = () => {
         </div>
       </div>
 
-      <TrustBadgeBar />
+      <div ref={statsRef} className="bg-gray-900 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            {[
+              { value: yearsCount,        suffix: '+', label: 'Years Experience',  icon: Award  },
+              { value: jobsCount,         suffix: '+', label: 'Homes Served',      icon: Users  },
+              { value: satisfactionCount, suffix: '%', label: 'Satisfaction Rate', icon: Shield },
+              { value: reviewsCount,      suffix: '+', label: '5-Star Reviews',    icon: Star   },
+            ].map(({ value, suffix, label, icon: Icon }) => (
+              <div key={label} className="flex items-center gap-3">
+                <div className="w-9 h-9 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon className="text-primary" style={{ width: 18, height: 18 }} />
+                </div>
+                <div>
+                  <div className="text-xl md:text-2xl font-black text-white tabular-nums leading-none">
+                    {value.toLocaleString()}{suffix}
+                  </div>
+                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mt-0.5">{label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <main id="main-content">
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Shield, Phone, Users, CalendarDays, Star } from 'lucide-react';
+import { CheckCircle, Shield, Phone, Users, CalendarDays, Star, MapPin } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/contactSubmission';
+import { useRegion } from '../context/RegionContext';
 
 interface HeroProps {
   title: React.ReactNode;
@@ -32,6 +33,8 @@ export const Hero: React.FC<HeroProps> = ({
   backgroundImage = '/hero-fireplace.jpg',
   animatedImage   = '/hero-fireplace.gif',
 }) => {
+  const { region } = useRegion();
+
   const [formData, setFormData] = useState({ name: '', phone: '', service: 'not-sure' });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -120,13 +123,19 @@ export const Hero: React.FC<HeroProps> = ({
           {/* ── Left: Copy ───────────────────────────────── */}
           <div className="text-white space-y-5">
 
-            {/* Urgency pill */}
-            <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md animate-fadeInDown">
-              <span className="relative flex h-2 w-2 flex-shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-70" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-700" />
-              </span>
-              Few slots left this week
+          {/* Urgency pill + location pill */}
+            <div className="flex flex-wrap items-center gap-2 animate-fadeInDown">
+              <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-70" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-700" />
+                </span>
+                Few slots left this week
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white border border-white/25 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
+                <MapPin className="w-3 h-3 flex-shrink-0 text-secondary" />
+                Serving {region.regionName}
+              </div>
             </div>
 
             {/* Headline */}

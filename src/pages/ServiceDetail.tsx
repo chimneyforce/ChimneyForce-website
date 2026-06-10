@@ -641,17 +641,9 @@ export const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { region, statePrefix, isCT, isNJ } = useRegion();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [showStickyBar, setShowStickyBar] = useState(false);
 
   const [staticLoaded, setStaticLoaded] = useState(false);
   const [showAnimated, setShowAnimated] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setShowStickyBar(window.scrollY > 600);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   useEffect(() => {
     if (staticLoaded) {
       const t = setTimeout(() => setShowAnimated(true), 100);
@@ -1091,25 +1083,6 @@ export const ServiceDetail: React.FC = () => {
       </main>
 
       {/* Sticky mobile bar */}
-      {showStickyBar && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 shadow-2xl z-50 md:hidden">
-          <div className="px-4 py-4 flex items-center justify-between gap-4">
-            <a
-              href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
-              className="flex-1 bg-primary text-white px-6 py-4 rounded-lg font-extrabold text-center hover:bg-red-700 transition-colors flex items-center justify-center min-h-[56px]"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Call Now
-            </a>
-            <Link
-              to={`${statePrefix}/contact`}
-              className="flex-1 bg-gray-800 text-white px-6 py-4 rounded-lg font-extrabold text-center hover:bg-gray-700 transition-colors min-h-[56px] flex items-center justify-center"
-            >
-              Get Quote
-            </Link>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

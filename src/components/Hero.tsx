@@ -99,18 +99,18 @@ export const Hero: React.FC<HeroProps> = ({
           fetchPriority="high"
           decoding="async"
           onLoad={() => setStaticLoaded(true)}
-          style={{ display: showAnimated ? 'none' : 'block' }}
           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }}
         />
-        {showAnimated && animatedImage && (
+        {animatedImage && (
           <img
             src={animatedImage}
             alt=""
             aria-hidden="true"
-            className="w-full h-full object-cover absolute inset-0"
+            className="w-full h-full object-cover absolute inset-0 transition-opacity duration-700"
+            style={{ opacity: showAnimated ? 1 : 0 }}
             loading="lazy"
             decoding="async"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            onError={(e) => { (e.target as HTMLImageElement).style.opacity = '0'; }}
           />
         )}
         <div className="absolute inset-0 bg-black/60" />
@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="inline-flex items-center gap-3 bg-gray-900/80 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 shadow-lg">
                 <Users className="w-5 h-5 text-secondary flex-shrink-0" />
                 <span className="text-white text-sm font-medium">
-                  <strong className="font-extrabold text-white">10,000+</strong> homeowners served in CT &amp; NJ
+                  <strong className="font-extrabold text-white">10,000+</strong> homeowners served
                 </span>
               </div>
             </div>

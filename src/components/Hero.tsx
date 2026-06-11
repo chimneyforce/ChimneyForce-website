@@ -128,14 +128,7 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Urgency pill + location pill */}
             <div className="flex flex-wrap items-center gap-2 animate-fadeInDown">
               <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
-                <span className="relative flex h-2 w-2 flex-shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-70" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-700" />
-                </span>
-                Few slots left this week
-              </div>
-              <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white border border-white/25 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
-                <MapPin className="w-3 h-3 flex-shrink-0 text-secondary" />
+                <MapPin className="w-3 h-3 flex-shrink-0" />
                 Serving {region.regionName}
               </div>
             </div>

@@ -9,6 +9,7 @@ import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { ReviewCarousel } from '../components/ReviewCarousel';
 import { BeforeAfterSlider, BeforeAfterGallery } from '../components/BeforeAfterSlider';
+import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 
 /* ─────────────────────────────────────────────────────────── */
@@ -183,49 +184,69 @@ const CONTENT: Record<string, ServiceContent> = {
 
   'chimney-leaks-water-damage': {
     hero: {
-      headline: 'Stop Chimney Leaks Before They Damage Your Home',
-      offer: 'Chimney Leak Diagnosis, Flashing Repair & Waterproofing',
-      subheadline: 'Water is the number-one enemy of your chimney. Our experts find the source fast and fix it right — protecting your home from costly structural damage.',
-      trustBadges: ['Leak Diagnosis Included', 'Flashing Repair Specialists', 'Professional Waterproofing', 'Photo Documentation', 'Licensed & Insured'],
+      headline: 'Stop Chimney Leaks Before They Cause Costly Water Damage',
+      offer: 'Professional Chimney Leak Inspection & Repair Solutions',
+      subheadline: 'Stop water damage in its tracks. We pinpoint chimney leaks and recommend the exact repair you need.',
+      trustBadges: ['Leak Detection Pros', 'Book Same-Week', 'Photos Included', 'Licensed & Insured'],
     },
     needSection: {
       title: 'You May Have a Chimney Leak If:',
       items: [
-        'You see water stains on the ceiling near the chimney',
-        'You notice rust inside the firebox',
-        'Bricks or mortar are crumbling or cracking',
-        'There are white stains (efflorescence) on the chimney',
-        'You hear dripping sounds during rain',
-        'You smell musty odors from the fireplace',
+        'Water appears inside your fireplace',
+        'You notice stains on walls or ceilings',
+        'Bricks are crumbling or deteriorating',
+        'You see white staining on the chimney exterior',
+        'A musty smell appears after rain',
+        'Water drips into your firebox',
+        'Rust appears on the damper or fireplace components',
       ],
       ctaLabel: 'Find My Leak',
     },
     whyUs: {
-      headline: 'We Find the Source — Then Fix It Right',
-      body: 'Chimney leaks rarely have just one cause. Our technicians trace water intrusion to its source and address every contributing factor.',
-      bullets: ['Thorough Leak Diagnostics', 'Flashing Repair & Replacement', 'Professional-Grade Waterproofing', 'Crown Repair & Sealing', 'Cap & Cover Installation', 'Photo Documentation Throughout'],
+      headline: 'Local Chimney Leak Experts You Can Count On',
+      body: "For years, we've helped homeowners stop leaks, prevent water damage, and protect their homes from expensive chimney repairs.",
+      bullets: ['Licensed & Insured', '1,000+ Chimneys Served', 'Leak Detection Specialists', 'Before & After Photos Included', 'Written Repair Recommendations', 'No High-Pressure Sales'],
     },
     included: {
       headline: 'Our Leak Service Includes',
-      items: ['Complete leak diagnostic', 'Source identification with photos', 'Flashing inspection & repair', 'Crown & cap evaluation', 'Waterproofing application', 'Written repair report'],
+      items: [
+        'Full exterior chimney evaluation',
+        'Flashing inspection',
+        'Crown inspection',
+        'Chimney cap inspection',
+        'Masonry assessment',
+        'Moisture intrusion evaluation',
+        'Before & After Photos',
+        'Written repair recommendations',
+      ],
     },
     offer: {
-      headline: 'Comprehensive Chimney Leak Repair',
-      items: ['Leak source diagnostic', 'Flashing repair or replacement', 'Professional waterproofing sealant', 'Photo documentation throughout'],
+      headline: 'Complete Chimney Leak Evaluation Included',
+      items: [
+        'Professional Leak Inspection',
+        'Photo Documentation',
+        'Moisture Damage Assessment',
+        'Written Condition Report',
+        'Repair Recommendations',
+      ],
     },
     faqs: [
-      { q: 'Why is my chimney leaking?', a: 'Chimney leaks typically stem from one or more of these causes: damaged or improperly installed flashing, a cracked or missing crown, deteriorated mortar, a missing or damaged chimney cap, or porous brick.' },
-      { q: 'How serious is a chimney leak?', a: "A chimney leak can cause wood rot, mold growth, deteriorating masonry, and interior water damage. It's important to address leaks promptly to avoid escalating repair costs." },
-      { q: 'Can you fix chimney leaks on the same visit?', a: 'Many minor leaks — such as crown sealing and cap installation — can be addressed on the same visit as the diagnostic. More involved repairs such as flashing replacement are typically scheduled as a follow-up.' },
-      { q: 'What is flashing and why does it leak?', a: 'Flashing is the metal seal between your chimney and the roof. Over time, caulking dries out, metal corrodes, and expansion/contraction cycles pull flashing away from the chimney — allowing water in.' },
-      { q: 'Does waterproofing really work?', a: 'Yes. Professional-grade chimney waterproofing penetrates the masonry and repels water while still allowing the chimney to breathe. It significantly extends the life of your chimney.' },
-      { q: 'How much does chimney leak repair cost?', a: 'Cost depends on the source of the leak. A crown seal or cap installation starts around $150–$250. Flashing repair ranges from $300–$800. Contact us for a free diagnostic and quote.' },
+      { q: 'Why is water entering my fireplace?', a: 'Common causes include damaged flashing, cracked crowns, missing chimney caps, deteriorated masonry, or failed waterproofing.' },
+      { q: 'Can a chimney leak cause structural damage?', a: 'Yes. Water intrusion can damage brickwork, framing, ceilings, drywall, insulation, and fireplace components if left untreated.' },
+      { q: 'How do you determine where the leak is coming from?', a: 'We perform a detailed visual inspection of the chimney system and identify common entry points using photos and moisture indicators.' },
+      { q: 'Do all chimney leaks require major repairs?', a: 'No. Many leaks can be resolved with targeted repairs such as flashing repair, crown sealing, cap replacement, or waterproofing.' },
+      { q: 'Can I just waterproof my chimney?', a: 'Not always. Waterproofing helps protect masonry but will not solve leaks caused by flashing, crown, or cap issues.' },
+      { q: 'Will I receive photos of the damage?', a: 'Yes. We provide photos showing the condition of your chimney and any areas of concern.' },
+      { q: 'How soon should I address a chimney leak?', a: 'As soon as possible. Water damage worsens over time and can significantly increase repair costs.' },
+      { q: 'Are your technicians licensed and insured?', a: 'Yes. Our team is fully insured and trained to diagnose and repair chimney leaks safely and professionally.' },
+      { q: 'How much does chimney leak repair cost?', a: "Costs vary depending on the cause and extent of the damage. After the inspection, we'll provide clear recommendations and pricing options." },
+      { q: 'Why choose us instead of another chimney company?', a: "Because we focus on identifying the true source of the leak—not just treating the symptoms. Every inspection includes photos, honest recommendations, and solutions tailored to your chimney's needs." },
     ],
     finalCta: {
-      headline: 'Don\'t Let a Small Leak Become a Big Problem',
-      subheadline: 'Water damage compounds quickly. The sooner you address a chimney leak, the less damage — and the lower the repair cost.',
+      headline: 'Protect Your Home From Water Damage',
+      subheadline: 'Water intrusion rarely gets better on its own. The sooner a chimney leak is identified, the easier and more affordable it is to repair.',
       callout: 'Book Your Leak Inspection Today',
-      bullets: ['Same-Week Appointments', 'Photo Documentation Included', 'Honest, Itemized Quote'],
+      bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Written Condition Report'],
     },
     beforeAfter: {
       before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg',
@@ -956,7 +977,7 @@ export const ServiceDetail: React.FC = () => {
 
         {/* ── SECTION 5: Before & After ─────────────────────── */}
         {slug === 'chimney-inspections' ? (
-          <BeforeAfterGallery />
+          <BeforeAfterTabSection defaultTab={1} />
         ) : (
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

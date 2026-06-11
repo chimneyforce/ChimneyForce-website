@@ -787,9 +787,25 @@ export const ServiceDetail: React.FC = () => {
                 {content.hero.subheadline}
               </p>
 
-              <div className="inline-flex items-center gap-2.5 bg-black/60 border border-white/10 rounded-lg px-4 py-2.5 backdrop-blur-sm">
-                <Users className="w-4 h-4 text-yellow-400 flex-shrink-0" />
-                <span className="text-sm text-gray-200"><strong className="text-white font-extrabold">10,000+</strong> homeowners served in CT &amp; NJ</span>
+              {/* Trust chips — same style as homepage */}
+              <div className="flex flex-wrap gap-2">
+                {content.hero.trustBadges.map((badge, i) => (
+                  <div
+                    key={badge}
+                    className="inline-flex items-center gap-1.5 bg-black/50 border border-white/15 rounded-lg px-2.5 py-1.5 backdrop-blur-sm animate-badgePop"
+                    style={{ animationDelay: `${0.32 + i * 0.07}s` }}
+                  >
+                    <div className="w-5 h-5 flex-shrink-0 bg-primary/20 border border-primary/30 rounded flex items-center justify-center">
+                      <CheckCircle className="w-3 h-3 text-primary" />
+                    </div>
+                    <span className="text-xs font-bold text-white leading-tight whitespace-nowrap">{badge}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 text-gray-300 text-sm">
+                <Users className="w-4 h-4 text-yellow-400" />
+                <span><strong className="text-white">10,000+</strong> homeowners served in CT &amp; NJ</span>
               </div>
 
               {slug === 'gas-fireplace-log-sets' && (

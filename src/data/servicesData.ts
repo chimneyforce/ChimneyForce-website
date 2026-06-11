@@ -19,7 +19,7 @@ export const SERVICES: ServiceItem[] = [
     name: 'Chimney Inspections',
     slug: 'chimney-inspections',
     icon: Search,
-    tagline: 'Certified level 1 & 2 safety inspections',
+    tagline: 'Certified chimney safety inspections',
   },
   {
     name: 'Chimney Leaks & Water Damage',

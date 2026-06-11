@@ -62,7 +62,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Protect Your Home From Chimney Fires',
       offer: 'Professional Chimney Sweeping & Safety Inspection Starting at $99',
       subheadline: 'Remove dangerous creosote, boost performance, and ensure seasonal safety.',
-      trustBadges: ['Certified Technicians', 'Same-Week Booking', 'Mess-Free Service', 'Before/After Photos'],
+      trustBadges: ['Certified Pros', 'Book Same-Week', 'Mess-Free Service', 'Before/After Photos'],
     },
     needSection: {
       title: 'It May Be Time For A Chimney Sweep If:',
@@ -121,7 +121,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Chimney Inspections For Safety, Performance & Peace Of Mind',
       offer: 'Get Clear Answers About The Condition Of Your Chimney',
       subheadline: 'Overdue for an inspection? We\'ll make sure your fireplace is safe and ready for the season.',
-      trustBadges: ['Comprehensive Evaluations', 'Photos Included', 'Book Same-Week', 'Certified Inspectors'],
+      trustBadges: ['Full Evaluations', 'Photos Included', 'Book Same-Week', 'Pro Inspectors'],
     },
     needSection: {
       title: 'Is It Time For A Chimney Inspection?',
@@ -187,7 +187,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Stop Chimney Leaks Before They Cause Costly Water Damage',
       offer: 'Professional Chimney Leak Inspection & Repair Solutions',
       subheadline: 'Stop water damage in its tracks. We pinpoint chimney leaks and recommend the exact repair you need.',
-      trustBadges: ['Leak Detection Pros', 'Book Same-Week', 'Photos Included', 'Licensed & Insured'],
+      trustBadges: ['Leak Detect Pros', 'Book Same-Week', 'Photos Included', 'Licensed & Insured'],
     },
     needSection: {
       title: 'You May Have a Chimney Leak If:',
@@ -407,7 +407,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Chimney Liner Installation For Safe, Efficient Venting',
       offer: 'Chimney Liner Installation For Safe, Efficient Venting',
       subheadline: 'A properly sized chimney liner helps improve drafting, protect your chimney structure, and safely vent smoke and gases from your home.',
-      trustBadges: ['Certified Chimney Pros', 'Book Same-Week', 'Lifetime Warranty Option', 'Licensed & Insured'],
+      trustBadges: ['Certified Pros', 'Book Same-Week', 'Lifetime Warranty', 'Licensed & Insured'],
     },
     needSection: {
       title: 'Your Chimney May Need A New Liner If:',
@@ -478,7 +478,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Gas Fireplace & Log Set Solutions For Comfort & Peace Of Mind',
       offer: 'Gas Fireplace & Log Set Solutions For Comfort & Peace Of Mind',
       subheadline: "Whether your gas fireplace isn't performing properly or you're considering new gas logs, we'll help you understand your options and find the right solution for your home.",
-      trustBadges: ['Convenient Scheduling', 'Honest Recommendations', 'Book Same-Week', 'Clear Next Steps'],
+      trustBadges: ['Easy Scheduling', 'Honest Recommendations', 'Book Same-Week', 'Clear Next Steps'],
     },
     needSection: {
       title: 'It May Be Time For A Gas Fireplace Evaluation If:',
@@ -648,8 +648,7 @@ function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
   return (
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden ring-1 ring-black/5">
       <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4">
-        <h2 className="text-xl font-extrabold text-white leading-tight">Get Your Free Quote</h2>
-        <p className="text-gray-400 text-xs font-medium mt-0.5">We call back within 2 hours · No obligation</p>
+        <h2 className="text-lg font-extrabold text-white leading-tight">Get a Free Consultation</h2>
       </div>
       <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
         <span className="relative flex h-2 w-2 flex-shrink-0">
@@ -658,7 +657,7 @@ function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
         </span>
         <span className="text-green-800 text-xs font-semibold"><strong>47 homeowners</strong> requested a quote this week</span>
       </div>
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         {submitted ? (
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 text-center animate-scaleIn">
             <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -673,7 +672,7 @@ function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
             </div>
             <p className="text-sm text-gray-600 mb-1">We'll call <strong>{form.phone}</strong> within 2 hours</p>
             <p className="text-xs text-green-600 font-bold mb-4">Sun–Thu 8am–8pm · Fri 8am–4:30pm · Emergency 24/7</p>
-            <div className="bg-white rounded-xl border border-green-100 p-4 text-left">
+            <div className="bg-white rounded-xl border border-green-100 p-4 text-left mb-4">
               <p className="text-xs font-extrabold text-gray-700 mb-2">What happens next:</p>
               <ol className="space-y-1.5">
                 {['Our team reviews your request immediately', 'Expert technician calls to discuss your needs', 'We schedule at your most convenient time', 'Professional service — labor guarantee included'].map((s, i) => (
@@ -683,6 +682,14 @@ function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
                 ))}
               </ol>
             </div>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
+              className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-red-700 text-white rounded-xl font-extrabold text-sm active:scale-[0.98] transition-all duration-200 shadow-md min-h-[50px]"
+            >
+              <CalendarDays className="w-4 h-4 flex-shrink-0" />
+              Schedule My Inspection
+            </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -692,25 +699,25 @@ function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
               </div>
             )}
             <div>
-              <label htmlFor="sd-name" className="block text-xs font-extrabold text-gray-600 uppercase tracking-wide mb-1.5">Your Name *</label>
+              <label htmlFor="sd-name" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">Your Name *</label>
               <input id="sd-name" type="text" name="name" placeholder="John Smith" required autoComplete="given-name"
                 value={form.name} onChange={handleChange}
-                className="w-full px-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all min-h-[50px] hover:border-gray-300 placeholder:text-gray-300 bg-gray-50 focus:bg-white" />
+                className="w-full px-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all min-h-[52px] hover:border-gray-300 placeholder:text-gray-400 bg-gray-50 focus:bg-white" />
             </div>
             <div>
-              <label htmlFor="sd-phone" className="block text-xs font-extrabold text-gray-600 uppercase tracking-wide mb-1.5">Best Phone Number *</label>
+              <label htmlFor="sd-phone" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">Best Phone Number *</label>
               <div className="relative">
                 <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300 pointer-events-none" />
                 <input id="sd-phone" type="tel" name="phone" placeholder="(555) 123-4567" required inputMode="tel" autoComplete="tel"
                   value={form.phone} onChange={handleChange}
-                  className="w-full pl-10 pr-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all min-h-[50px] hover:border-gray-300 placeholder:text-gray-300 bg-gray-50 focus:bg-white" />
+                  className="w-full pl-10 pr-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all min-h-[52px] hover:border-gray-300 placeholder:text-gray-400 bg-gray-50 focus:bg-white" />
               </div>
             </div>
             <div>
-              <label htmlFor="sd-service" className="block text-xs font-extrabold text-gray-600 uppercase tracking-wide mb-1.5">Service Needed</label>
+              <label htmlFor="sd-service" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">Service Needed</label>
               <div className="relative">
                 <select id="sd-service" name="service" value={form.service} onChange={handleChange}
-                  className="w-full px-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all appearance-none bg-gray-50 focus:bg-white min-h-[50px] hover:border-gray-300 cursor-pointer">
+                  className="w-full px-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all appearance-none bg-gray-50 focus:bg-white min-h-[52px] hover:border-gray-300 cursor-pointer">
                   {SERVICE_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
                 </select>
                 <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -719,15 +726,17 @@ function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
               </div>
             </div>
             <button type="submit" disabled={submitting}
-              className="w-full bg-gradient-to-r from-primary to-red-700 text-white rounded-xl font-extrabold text-base hover:from-red-700 hover:to-primary active:scale-[0.98] transition-all duration-200 shadow-lg hover:shadow-xl min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group">
-              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-              <span className="relative flex items-center gap-2">
-                {submitting ? (
-                  <><svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>Sending...</>
-                ) : 'Get My Free Quote →'}
-              </span>
+              className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-red-700 text-white rounded-xl font-extrabold text-base active:scale-[0.98] transition-all duration-200 shadow-lg hover:shadow-xl min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed">
+              {submitting ? (
+                <><svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>Sending...</>
+              ) : (
+                <><Phone className="w-4 h-4 flex-shrink-0" />Chat With An Expert</>
+              )}
             </button>
-            <p className="text-center text-xs text-gray-400 font-medium">No obligation · No spam · 100% private</p>
+            <div className="flex items-center justify-center gap-2 bg-gray-100 rounded-full px-4 py-2">
+              <Shield className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+              <span className="text-xs font-semibold text-gray-500">No obligation &nbsp;·&nbsp; No spam &nbsp;·&nbsp; 100% private</span>
+            </div>
           </form>
         )}
       </div>
@@ -970,7 +979,7 @@ export const ServiceDetail: React.FC = () => {
             </div>
 
             {/* Signs grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 max-w-2xl mx-auto">
               {content.needSection.items.map((item, idx) => (
                 <div
                   key={item}
@@ -1033,7 +1042,7 @@ export const ServiceDetail: React.FC = () => {
                 {content.included.headline}
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
               {content.included.items.map((item) => (
                 <div key={item} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-4 group hover:border-success/20 hover:bg-success/5 transition-all duration-200">
                   <div className="w-8 h-8 flex-shrink-0 bg-success/10 rounded-lg flex items-center justify-center group-hover:bg-success/20 transition-colors">
@@ -1057,6 +1066,8 @@ export const ServiceDetail: React.FC = () => {
           <BeforeAfterTabSection defaultTab={5} />
         ) : slug === 'gas-fireplace-log-sets' ? (
           <BeforeAfterTabSection defaultTab={6} />
+        ) : slug === 'chimney-leaks-water-damage' ? (
+          <BeforeAfterTabSection defaultTab={2} />
         ) : (
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

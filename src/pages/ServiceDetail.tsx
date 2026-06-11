@@ -61,7 +61,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Protect Your Home From Chimney Fires',
       offer: 'Professional Chimney Sweeping & Safety Inspection Starting at $99',
       subheadline: 'Remove dangerous creosote buildup, improve fireplace performance, and make sure your chimney is safe for the season.',
-      trustBadges: ['Certified Technicians', 'Same-Week Booking', 'Mess-Free Service', 'Before/After Photos', 'Family-Owned & Insured'],
+      trustBadges: ['Certified Technicians', 'Same-Week Booking', 'Mess-Free Service', 'Before/After Photos'],
     },
     needSection: {
       title: 'It May Be Time For A Chimney Sweep If:',
@@ -788,7 +788,7 @@ export const ServiceDetail: React.FC = () => {
               </p>
 
               {/* Trust chips — same style as homepage */}
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                 {content.hero.trustBadges.map((badge, i) => (
                   <div
                     key={badge}

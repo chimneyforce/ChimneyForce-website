@@ -332,49 +332,67 @@ const CONTENT: Record<string, ServiceContent> = {
 
   'chimney-caps-covers': {
     hero: {
-      headline: 'Keep Water, Animals & Debris Out of Your Chimney',
-      offer: 'Custom Chimney Cap & Cover Installation — Stainless & Copper Available',
-      subheadline: "A properly fitted chimney cap is one of the most cost-effective ways to protect your chimney. We measure, source, and install the right cap for your chimney.",
-      trustBadges: ['Custom-Fit Caps', 'Stainless & Copper Options', 'Animal Blockage Prevention', 'Same-Week Installation', 'Licensed & Insured'],
+      headline: 'Chimney Caps & Covers Installed To Keep Water & Animals Out',
+      offer: 'Chimney Caps & Covers Installed To Keep Water & Animals Out',
+      subheadline: 'A properly installed chimney cap or cover helps keep water, animals, debris, and costly damage out of your chimney system.',
+      trustBadges: ['Chimney Cap Pros', 'Book Same-Week', 'Premium Material', 'Licensed & Insured'],
     },
     needSection: {
-      title: 'You May Need a New Chimney Cap If:',
+      title: 'Your Chimney May Need A New Cap Or Cover If:',
       items: [
-        'Your chimney has no cap at all',
-        'Your existing cap is rusted, bent, or broken',
-        'You\'ve had animals or birds nesting in the flue',
-        'Water is entering the chimney during rain',
-        'Leaves and debris are falling into the firebox',
-        "Your chase cover is missing or deteriorating",
+        'Water enters your fireplace after rain',
+        'You hear animals in your chimney',
+        'Your current cap is rusted or damaged',
+        'Leaves and debris collect inside the chimney',
+        'Your chase cover is rusting',
+        'You notice stains around the fireplace',
+        'Your chimney has no cap installed',
       ],
-      ctaLabel: 'Get My Cap Installed',
+      ctaLabel: 'Schedule My Evaluation',
     },
     whyUs: {
-      headline: 'The Right Cap, Installed Right',
-      body: 'A poorly fitted cap is almost as bad as no cap. We measure your flue precisely and install caps that seal properly and last.',
-      bullets: ['Precision Measurement & Fitting', 'Stainless Steel & Copper Options', 'Multi-Flue Caps Available', 'Chase Cover Replacement', 'Animal Deterrent Screens', 'Installed Same Day in Most Cases'],
+      headline: 'Local Chimney Protection Experts You Can Count On',
+      body: "For years, we've helped homeowners protect their chimneys from water intrusion, animal entry, and premature deterioration.",
+      bullets: ['Licensed & Insured', '1,000+ Chimneys Serviced', 'Custom-Fit Solutions', 'Before & After Photos Included', 'Honest Recommendations — No Pressure'],
     },
     included: {
-      headline: 'Our Cap Installation Service Includes',
-      items: ['Flue measurement & assessment', 'Cap selection & sourcing', 'Professional installation', 'Seal & fit verification', 'Post-install inspection', 'Photo documentation'],
+      headline: 'Every Chimney Cap & Cover Evaluation Includes',
+      items: [
+        'Existing cap inspection',
+        'Chase cover inspection',
+        'Water intrusion assessment',
+        'Animal entry point evaluation',
+        'Chimney condition review',
+        'Photo documentation',
+        'Written recommendations',
+      ],
     },
     offer: {
-      headline: 'Chimney Cap Installation Package',
-      items: ['Precise flue measurement', 'Premium stainless steel cap', 'Professional installation', 'Post-install photo documentation'],
+      headline: 'Get Answers From A Chimney Expert',
+      items: [
+        'Photo Documentation Included',
+        'Honest Recommendations',
+        'Protection Options Explained Clearly',
+        'No High-Pressure Sales',
+      ],
     },
     faqs: [
-      { q: 'Why does my chimney need a cap?', a: 'A chimney cap keeps rain, snow, animals, and debris out of your flue. It also prevents sparks from escaping the chimney, which is a fire hazard.' },
-      { q: 'What is the difference between a chimney cap and a chase cover?', a: "A chimney cap sits on top of individual flue tiles. A chase cover is a flat or sloped cover that seals the top of an entire prefabricated chimney chase. Both serve as protective covers but are different products." },
-      { q: 'How long do chimney caps last?', a: 'Stainless steel caps typically last 15–25 years. Galvanized caps last 5–10 years. Copper caps can last 50+ years with minimal maintenance.' },
-      { q: 'Can you install a cap on the same day?', a: 'Yes, in most cases. We carry a wide range of standard size caps in our vehicles and can often install on the initial visit.' },
-      { q: 'What if an animal is already in my chimney?', a: "We handle animal removal as part of the service and then install a cap to prevent re-entry. We do not seal the chimney until any animals have been safely cleared." },
-      { q: 'How much does chimney cap installation cost?', a: 'Standard stainless steel cap installation starts around $150–$300. Custom caps for non-standard flues or copper material are priced based on size and specification.' },
+      { q: 'What does a chimney cap do?', a: 'A chimney cap helps prevent rain, animals, leaves, and debris from entering your chimney.' },
+      { q: 'What is a chase cover?', a: 'A chase cover protects the top of a prefabricated chimney system from water intrusion and deterioration.' },
+      { q: 'Can a missing chimney cap cause leaks?', a: 'Yes. Rainwater can enter the chimney and contribute to moisture-related damage.' },
+      { q: 'Can chimney caps keep animals out?', a: 'Yes. Properly installed chimney caps help prevent birds, squirrels, raccoons, and other animals from entering.' },
+      { q: 'How do I know if my chimney cap needs replacement?', a: 'Common signs include rust, corrosion, visible damage, loose components, or recurring water and animal issues.' },
+      { q: "What's the difference between galvanized and stainless steel caps?", a: 'Stainless steel generally offers greater durability and resistance to corrosion.' },
+      { q: 'Will I receive photos of the issue?', a: 'Yes. We document any concerns and explain our recommendations clearly.' },
+      { q: 'How long does installation take?', a: 'Most cap and cover installations can be completed in a single visit.' },
+      { q: 'Are your technicians licensed and insured?', a: 'Yes.' },
+      { q: 'Why choose us instead of another chimney company?', a: 'Because we focus on helping homeowners protect their chimneys before small issues become expensive repairs. Every evaluation includes photos, honest recommendations, and clear next steps.' },
     ],
     finalCta: {
-      headline: 'Protect Your Chimney Year-Round',
-      subheadline: "A chimney cap is a small investment that prevents big problems — water damage, animal infestations, and debris blockages.",
-      callout: 'Book Your Cap Installation Today',
-      bullets: ['Same-Week Appointments', 'Same-Day Installation Available', 'Licensed & Insured Technicians'],
+      headline: 'Protect Your Chimney From Water, Animals & Future Damage',
+      subheadline: 'A properly installed chimney cap or cover can help prevent water intrusion, animal entry, and unnecessary damage to your chimney system.',
+      callout: 'Schedule Your Chimney Cap Evaluation Today',
+      bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Honest Recommendations'],
     },
     beforeAfter: {
       before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg',
@@ -386,49 +404,66 @@ const CONTENT: Record<string, ServiceContent> = {
 
   'chimney-liners': {
     hero: {
-      headline: 'A Safe, Code-Compliant Chimney Starts With the Right Liner',
-      offer: 'Stainless Steel Chimney Liner Installation — Gas, Oil & Wood Systems',
-      subheadline: 'A damaged or missing liner is a serious fire and carbon monoxide hazard. We install UL-listed liners that protect your home and bring your chimney up to code.',
-      trustBadges: ['UL-Listed Liner Systems', 'Gas, Oil & Wood Compatible', 'Code Compliant Installation', 'Lifetime Liner Warranty', 'Licensed & Insured'],
+      headline: 'Chimney Liner Installation For Safe, Efficient Venting',
+      offer: 'Chimney Liner Installation For Safe, Efficient Venting',
+      subheadline: 'A properly sized chimney liner helps improve drafting, protect your chimney structure, and safely vent smoke and gases from your home.',
+      trustBadges: ['Certified Chimney Pros', 'Book Same-Week', 'Lifetime Warranty Option', 'Licensed & Insured'],
     },
     needSection: {
-      title: 'You May Need a New Chimney Liner If:',
+      title: 'Your Chimney May Need A New Liner If:',
       items: [
-        'Your home was built before 1990',
-        'You\'ve switched from oil to gas heat',
-        'A camera inspection revealed liner cracks or damage',
-        'You\'ve experienced a chimney fire',
-        'Carbon monoxide has been detected in your home',
-        "Your clay tile liner is broken or deteriorating",
+        'Smoke enters your home',
+        'Your fireplace drafts poorly',
+        "You're converting fuel types",
+        'Your current liner is damaged',
+        'Your chimney failed inspection',
+        "You've recently installed a new appliance",
+        'Your chimney has never been relined',
       ],
       ctaLabel: 'Check My Liner',
     },
     whyUs: {
-      headline: 'Liner Installations That Meet Code & Last Decades',
-      body: 'We install UL-listed stainless steel liner systems sized precisely for your appliance — ensuring proper draft, safe venting, and long-term performance.',
-      bullets: ['UL-Listed Stainless Systems', 'Sized to Your Appliance', 'Gas, Oil & Wood Applications', 'Full HeatShield Restoration Available', 'Permits & Code Compliance', 'Lifetime Liner Warranty Available'],
+      headline: 'Local Chimney Experts You Can Count On',
+      body: "For years, we've helped homeowners improve fireplace safety and performance with professional chimney liner solutions.",
+      bullets: ['Family-Owned & Operated', 'Licensed & Insured', 'Thousands of Chimneys Serviced', 'Before & After Photos Included'],
     },
     included: {
-      headline: 'Our Liner Installation Includes',
-      items: ['Pre-installation flue measurement', 'Liner sizing to appliance output', 'UL-listed stainless liner', 'Top plate & termination cap', 'Smoke test & draft verification', 'Installation documentation'],
+      headline: 'Every Chimney Liner Evaluation Includes',
+      items: [
+        'Existing liner assessment',
+        'Draft and venting evaluation',
+        'Appliance compatibility review',
+        'Chimney inspection',
+        'Photo documentation',
+        'Written recommendations',
+      ],
     },
     offer: {
-      headline: 'Complete Chimney Relining Package',
-      items: ['UL-listed stainless steel liner', 'Properly sized for your system', 'Top plate & cap included', 'Smoke test & code compliance'],
+      headline: 'Get Answers From A Chimney Expert',
+      items: [
+        'Photo Documentation Included',
+        'Honest Recommendations',
+        'Venting Assessment',
+        'No High-Pressure Sales',
+      ],
     },
     faqs: [
-      { q: 'What is a chimney liner and why is it important?', a: "A chimney liner is the interior channel that guides combustion gases safely out of the home. It protects the surrounding structure from heat and corrosive gases. Without a sound liner, you're at risk for chimney fire, CO intrusion, and structural damage." },
-      { q: 'What type of liner do I need?', a: 'The right liner depends on your fuel type (wood, gas, or oil) and the appliance BTU output. We assess your system and recommend the correct liner size and material.' },
-      { q: 'What is the difference between a flexible liner and rigid liner?', a: 'Flexible stainless liner systems are installed in one continuous run and work well in chimneys with offsets. Rigid sections are used in straight flues. Most residential installations use flexible liner.' },
-      { q: 'How long does chimney liner installation take?', a: 'Most liner installations are completed in 2–4 hours depending on chimney height and configuration.' },
-      { q: 'Does a new liner come with a warranty?', a: "Yes. Our UL-listed liner systems come with manufacturer warranties ranging from lifetime to 20 years, depending on the system selected." },
-      { q: 'How much does chimney liner installation cost?', a: 'Stainless steel liner installation typically ranges from $1,500–$3,500 depending on flue height, diameter, and access. We provide detailed written quotes with no obligation.' },
+      { q: 'What does a chimney liner do?', a: 'A chimney liner helps safely vent smoke, heat, and combustion gases while protecting the chimney structure.' },
+      { q: 'How do I know if my liner is damaged?', a: 'Signs may include poor draft, smoke issues, failed inspections, visible deterioration, or appliance replacement requirements.' },
+      { q: 'Do all chimneys need liners?', a: 'Most modern codes require properly functioning liners, but the condition and type of liner vary from home to home.' },
+      { q: "What's the difference between clay and stainless steel liners?", a: 'Clay liners are common in older chimneys, while stainless steel liners offer improved durability and compatibility with many heating appliances.' },
+      { q: 'Can a damaged liner be dangerous?', a: 'Yes. A damaged liner can increase the risk of heat transfer, poor venting, and improper exhaust of combustion gases.' },
+      { q: 'Will I receive photos of the inspection?', a: 'Yes. We provide photos documenting any concerns and explaining our recommendations.' },
+      { q: 'How long does liner installation take?', a: 'Most installations can be completed within a day, depending on the chimney configuration.' },
+      { q: 'Are your technicians licensed and insured?', a: 'Yes.' },
+      { q: 'How much does a chimney liner cost?', a: 'Pricing depends on chimney size, appliance type, and liner requirements.' },
+      { q: 'Why choose us instead of another chimney company?', a: 'Because we focus on helping homeowners understand their options first. Every evaluation includes photos, honest recommendations, and clear explanations without pressure.' },
     ],
     finalCta: {
-      headline: 'A Sound Liner Means a Safe Home',
-      subheadline: "Don't delay a liner inspection or installation. It's one of the most critical safety components in your chimney system.",
-      callout: 'Book Your Liner Consultation Today',
-      bullets: ['Free Written Quote', 'UL-Listed Systems Only', 'Licensed & Code-Compliant Installation'],
+      headline: 'Improve Safety, Performance & Peace Of Mind',
+      subheadline: 'A properly functioning chimney liner helps protect your home, improve fireplace performance, and ensure safe venting for years to come.',
+      callout: 'Schedule Your Liner Evaluation Today',
+      bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Honest Recommendations'],
     },
     beforeAfter: {
       before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg',
@@ -440,49 +475,65 @@ const CONTENT: Record<string, ServiceContent> = {
 
   'gas-fireplace-log-sets': {
     hero: {
-      headline: 'Gas Fireplace & Log Set Service, Repair & Installation',
-      offer: 'Expert Gas Fireplace Service — Inspection, Cleaning & Log Set Solutions',
-      subheadline: 'Gas fireplaces require regular service to operate safely and efficiently. Whether you need an inspection, a repair, or a new log set installation — we handle it all.',
-      trustBadges: ['Gas Appliance Specialists', 'Log Set Installation', 'Safety Inspection Included', 'Same-Week Appointments', 'Licensed & Insured'],
+      headline: 'Gas Fireplace & Log Set Solutions For Comfort & Peace Of Mind',
+      offer: 'Gas Fireplace & Log Set Solutions For Comfort & Peace Of Mind',
+      subheadline: "Whether your gas fireplace isn't performing properly or you're considering new gas logs, we'll help you understand your options and find the right solution for your home.",
+      trustBadges: ['Convenient Scheduling', 'Honest Recommendations', 'Book Same-Week', 'Clear Next Steps'],
     },
     needSection: {
-      title: 'It May Be Time to Service Your Gas Fireplace If:',
+      title: 'It May Be Time For A Gas Fireplace Evaluation If:',
       items: [
-        "It hasn't been serviced in over a year",
-        'The pilot light keeps going out',
-        'You notice a gas smell near the fireplace',
-        'The flame is yellow or irregular instead of blue',
-        'The unit turns on but shuts off unexpectedly',
-        'You want to upgrade to a new log set',
+        'Your fireplace won\'t ignite',
+        "The pilot light won't stay lit",
+        'The flames appear weak or uneven',
+        'You notice unusual odors',
+        "Your fireplace isn't heating properly",
+        'Your gas logs are outdated or damaged',
+        "You're considering upgrading your fireplace",
       ],
-      ctaLabel: 'Schedule My Service',
+      ctaLabel: 'Schedule My Evaluation',
     },
     whyUs: {
-      headline: 'Gas Fireplace Experts You Can Trust',
-      body: 'Gas fireplaces have unique service requirements. Our technicians are trained specifically on gas appliances — not just chimney sweeps doing double duty.',
-      bullets: ['Trained Gas Appliance Technicians', 'Full Inspection & Cleaning', 'Thermocouple & Valve Service', 'Log Set Sales & Installation', 'Safety Verification Before We Leave', 'Licensed & Insured'],
+      headline: 'Helping Homeowners Find The Right Fireplace Solution',
+      body: "Whether you're dealing with a performance issue or considering an upgrade, we'll help you understand your options and determine the best next step for your home.",
+      bullets: ['Honest Recommendations', 'Clear Communication', 'Repair & Upgrade Options', 'Photo Documentation Included', 'No High-Pressure Sales', 'Family-Owned & Operated'],
     },
     included: {
-      headline: 'Our Gas Fireplace Service Includes',
-      items: ['Burner & pilot system inspection', 'Glass panel cleaning', 'Log set inspection or installation', 'Gas line connection check', 'Ventilation & flue inspection', 'Safety test before sign-off'],
+      headline: 'Every Gas Fireplace Evaluation Includes',
+      items: [
+        'Fireplace performance assessment',
+        'Gas log evaluation',
+        'Safety review',
+        'Photo documentation',
+        'Solution recommendations',
+        'Repair or upgrade options when appropriate',
+        'Clear next steps',
+      ],
     },
     offer: {
-      headline: 'Gas Fireplace Service & Safety Package',
-      items: ['Burner & pilot inspection', 'Glass & component cleaning', 'Log set inspection or swap', 'Full safety verification'],
+      headline: 'Get Answers From A Fireplace Expert',
+      items: [
+        'Expert Guidance',
+        'Honest Recommendations',
+        'Repair & Upgrade Options',
+        'Clear Next Steps',
+        'No High-Pressure Sales',
+      ],
     },
     faqs: [
-      { q: 'How often should a gas fireplace be serviced?', a: 'Gas fireplaces should be professionally inspected and serviced at least once a year, ideally before the heating season begins.' },
-      { q: 'Is a gas fireplace safe without a chimney?', a: 'Direct-vent gas fireplaces vent through an exterior wall and do not require a traditional chimney. However, they still require regular inspection to ensure the vent pipe and seals are intact.' },
-      { q: 'Can you install gas log sets?', a: 'Yes. We supply and install vented and vent-free gas log sets for existing fireplaces. We help you select the right BTU and style for your space.' },
-      { q: 'What causes a gas fireplace pilot to keep going out?', a: 'Common causes include a dirty or failing thermocouple, a clogged pilot orifice, or a faulty gas valve. Our technicians diagnose and service these components.' },
-      { q: 'Do gas fireplaces produce carbon monoxide?', a: 'When properly maintained and vented, gas fireplaces produce very low levels of CO. However, a blocked vent, cracked heat exchanger, or improper installation can increase CO levels — which is why annual service is critical.' },
-      { q: 'How much does gas fireplace service cost?', a: 'A standard gas fireplace inspection and cleaning starts around $99–$175. Log set installation and repair costs vary by scope. Contact us for availability and pricing.' },
+      { q: "Why isn't my gas fireplace working properly?", a: 'Gas fireplaces can experience a variety of performance issues. An evaluation helps determine the cause and identify the most appropriate solution.' },
+      { q: 'Can I replace my existing gas logs?', a: 'In many cases, yes. New gas log sets can improve both appearance and overall fireplace enjoyment.' },
+      { q: 'How do I know if my gas logs should be replaced?', a: 'Damaged, deteriorated, or outdated log sets may benefit from replacement.' },
+      { q: 'Can I upgrade the appearance of my fireplace?', a: 'Absolutely. Many homeowners choose to upgrade their gas logs or fireplace components for a more modern and attractive look.' },
+      { q: 'Will I receive recommendations?', a: "Yes. We'll explain our findings and discuss available options based on your goals and budget." },
+      { q: 'How much does a gas fireplace project cost?', a: 'Costs vary depending on the fireplace system, condition, and desired improvements.' },
+      { q: 'Why choose us instead of another company?', a: 'Because we focus on helping homeowners understand their options first. Our goal is to provide honest recommendations, clear guidance, and the right solution for your home.' },
     ],
     finalCta: {
-      headline: 'Keep Your Gas Fireplace Safe and Ready to Use',
-      subheadline: 'Regular service means reliable heat, safe operation, and a fireplace that looks and works the way it should.',
-      callout: 'Book Your Gas Fireplace Service Today',
-      bullets: ['Safety Inspection Included', 'Log Set Installation Available', 'Same-Week Appointments'],
+      headline: "Enjoy A Fireplace You'll Love Using Again",
+      subheadline: "Whether you're looking to improve performance, update your gas logs, or explore your options, we'll help you find the right solution for your home.",
+      callout: 'Schedule Your Gas Fireplace Evaluation Today',
+      bullets: ['Convenient Scheduling', 'Honest Recommendations', 'Clear Next Steps'],
     },
     beforeAfter: {
       before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/fireplace-install-before.jpg',
@@ -861,7 +912,7 @@ export const ServiceDetail: React.FC = () => {
                 <div className="flex items-start gap-2.5 bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-sm max-w-xl">
                   <Info className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
                   <p className="text-xs text-gray-300 leading-relaxed">
-                    <span className="font-bold text-white">Sub-contractor disclosure:</span> The gas plumbing portions of this service may be performed by qualified, licensed sub-contractors on our behalf.
+                    <span className="font-bold text-white">Note:</span> Plumbing side of gas fireplace services may be performed by qualified specialty sub-contractors.
                   </p>
                 </div>
               )}
@@ -1000,6 +1051,12 @@ export const ServiceDetail: React.FC = () => {
           <BeforeAfterTabSection defaultTab={1} />
         ) : slug === 'chimney-repair-masonry' ? (
           <BeforeAfterTabSection defaultTab={3} />
+        ) : slug === 'chimney-caps-covers' ? (
+          <BeforeAfterTabSection defaultTab={4} />
+        ) : slug === 'chimney-liners' ? (
+          <BeforeAfterTabSection defaultTab={5} />
+        ) : slug === 'gas-fireplace-log-sets' ? (
+          <BeforeAfterTabSection defaultTab={6} />
         ) : (
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1051,7 +1108,7 @@ export const ServiceDetail: React.FC = () => {
                     Serving {region.regionName}
                   </div>
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-                    {['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry'].includes(slug ?? '') ? 'Starting at $49' : 'Starting at $99'}
+                    {['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry', 'chimney-caps-covers', 'chimney-liners'].includes(slug ?? '') ? 'Starting at $49' : 'Starting at $99'}
                   </div>
                 </div>
 
@@ -1084,7 +1141,7 @@ export const ServiceDetail: React.FC = () => {
                   {/* Right: stat grid */}
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { stat: ['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry'].includes(slug ?? '') ? '$49' : '$99', label: 'Starting Price' },
+                      { stat: ['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry', 'chimney-caps-covers', 'chimney-liners'].includes(slug ?? '') ? '$49' : '$99', label: 'Starting Price' },
                       { stat: '15+',    label: 'Years Experience' },
                       { stat: '1,000+', label: 'Chimneys Served' },
                       { stat: '100%',   label: 'Satisfaction Guaranteed' },
@@ -1194,7 +1251,7 @@ export const ServiceDetail: React.FC = () => {
                   className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl"
                 >
                   <CalendarDays className="w-5 h-5" />
-                  {['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry'].includes(slug ?? '') ? 'Schedule My Inspection' : 'Get My Appointment'}
+                  {['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry', 'chimney-caps-covers', 'chimney-liners'].includes(slug ?? '') ? 'Schedule My Inspection' : 'Get My Appointment'}
                 </button>
                 <Link
                   to={`${statePrefix}/contact`}

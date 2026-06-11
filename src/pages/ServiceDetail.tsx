@@ -1195,10 +1195,10 @@ function WhyUsContent({ content, phone }: { content: ServiceContent['whyUs']; ph
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-3 flex-wrap">
+      <div className="grid grid-cols-2 gap-3">
         <a
           href={`tel:${phone.replace(/\D/g, '')}`}
-          className="inline-flex items-center gap-2 bg-primary hover:bg-red-700 text-white px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 shadow-md hover:scale-105 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-red-700 text-white px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 shadow-md hover:scale-105 active:scale-95"
         >
           <Phone className="w-4 h-4" />
           {phone}
@@ -1206,7 +1206,7 @@ function WhyUsContent({ content, phone }: { content: ServiceContent['whyUs']; ph
         <button
           type="button"
           onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
-          className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-900 border-2 border-gray-900 px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 hover:scale-105 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 border-2 border-gray-900 px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 hover:scale-105 active:scale-95"
         >
           <CalendarDays className="w-4 h-4" />
           Book Now

@@ -60,7 +60,7 @@ const CONTENT: Record<string, ServiceContent> = {
     hero: {
       headline: 'Protect Your Home From Chimney Fires',
       offer: 'Professional Chimney Sweeping & Safety Inspection Starting at $99',
-      subheadline: 'Remove dangerous creosote buildup, improve fireplace performance, and make sure your chimney is safe for the season.',
+      subheadline: 'Remove dangerous creosote, boost performance, and ensure seasonal safety.',
       trustBadges: ['Certified Technicians', 'Same-Week Booking', 'Mess-Free Service', 'Before/After Photos'],
     },
     needSection: {

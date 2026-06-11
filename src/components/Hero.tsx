@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Shield, Phone, Users, CalendarDays, Star, MapPin } from 'lucide-react';
+import { CheckCircle, Shield, Phone, Users, CalendarDays, MapPin } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 import { useRegion } from '../context/RegionContext';
 
@@ -157,14 +157,14 @@ export const Hero: React.FC<HeroProps> = ({
               <span className="hidden lg:inline">Whether you're dealing with a leak, damaged masonry, smoke issues, or simply want peace of mind — we'll help you understand the condition of your chimney and the best next steps for your home.</span>
             </p>
 
-            {/* Star social proof */}
-            <div className="flex items-center gap-2.5 animate-fadeInUp" style={{ animationDelay: '0.22s' }}>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-secondary text-secondary" />)}
+            {/* Social proof badge */}
+            <div className="animate-fadeInUp" style={{ animationDelay: '0.22s' }}>
+              <div className="inline-flex items-center gap-3 bg-gray-900/80 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 shadow-lg">
+                <Users className="w-5 h-5 text-secondary flex-shrink-0" />
+                <span className="text-white text-sm font-medium">
+                  <strong className="font-extrabold text-white">10,000+</strong> homeowners served in CT &amp; NJ
+                </span>
               </div>
-              <span className="text-white font-extrabold text-sm">5.0</span>
-              <span className="text-gray-400 text-sm">·</span>
-              <span className="text-gray-300 text-sm font-medium">10,000+ homeowners served</span>
             </div>
 
             {/* Trust chips */}

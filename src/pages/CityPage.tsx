@@ -35,6 +35,9 @@ export const CityPage: React.FC = () => {
 
   return (
     <div>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-primary focus:text-white focus:rounded-lg focus:font-bold">
+        Skip to main content
+      </a>
       <SEO
         title={seoTitle}
         description={seoDescription}
@@ -49,7 +52,7 @@ export const CityPage: React.FC = () => {
         animatedImage="/hero-fireplace.gif"
       />
 
-      <section className="py-16 bg-white">
+      <section id="main-content" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

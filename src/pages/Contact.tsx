@@ -50,7 +50,7 @@ export const Contact: React.FC = () => {
         service: 'not-sure',
         message: '',
       });
-      setTimeout(() => setSubmitted(false), 5000);
+      setTimeout(() => setSubmitted(false), 8000);
     } else {
       setError(result.error || 'Failed to submit form. Please try again.');
     }
@@ -189,9 +189,10 @@ export const Contact: React.FC = () => {
                       placeholder="John Smith"
                       required
                       autoComplete="name"
+                      disabled={isSubmitting}
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all min-h-[56px]"
+                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all min-h-[56px] disabled:opacity-60 disabled:cursor-not-allowed"
                     />
                   </div>
                   <div>
@@ -206,9 +207,10 @@ export const Contact: React.FC = () => {
                       required
                       inputMode="tel"
                       autoComplete="tel"
+                      disabled={isSubmitting}
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all min-h-[56px]"
+                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all min-h-[56px] disabled:opacity-60 disabled:cursor-not-allowed"
                     />
                   </div>
                   <div>
@@ -222,9 +224,10 @@ export const Contact: React.FC = () => {
                       placeholder="john@example.com"
                       inputMode="email"
                       autoComplete="email"
+                      disabled={isSubmitting}
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all min-h-[56px]"
+                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all min-h-[56px] disabled:opacity-60 disabled:cursor-not-allowed"
                     />
                   </div>
                   <div>
@@ -235,8 +238,9 @@ export const Contact: React.FC = () => {
                       id="contact-service"
                       name="service"
                       value={formData.service}
+                      disabled={isSubmitting}
                       onChange={handleChange}
-                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all appearance-none bg-white min-h-[56px]"
+                      className="w-full px-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all appearance-none bg-white min-h-[56px] disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       <option value="not-sure">Not sure yet - I need help deciding</option>
                       <option value="inspection">Chimney Inspection</option>
@@ -257,9 +261,10 @@ export const Contact: React.FC = () => {
                       name="message"
                       placeholder="Tell us about your chimney concerns..."
                       rows={4}
+                      disabled={isSubmitting}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all resize-none"
+                      className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all resize-none disabled:opacity-60 disabled:cursor-not-allowed"
                     />
                   </div>
                   <button

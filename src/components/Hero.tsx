@@ -175,8 +175,8 @@ export const Hero: React.FC<HeroProps> = ({
                   className="inline-flex items-center gap-1.5 bg-black/50 border border-white/15 rounded-lg px-2.5 py-1.5 animate-badgePop backdrop-blur-sm"
                   style={{ animationDelay: `${0.32 + i * 0.07}s` }}
                 >
-                  <div className="w-5 h-5 flex-shrink-0 bg-primary/20 border border-primary/30 rounded flex items-center justify-center">
-                    <Icon className="w-3 h-3 text-primary" />
+                  <div className="w-5 h-5 flex-shrink-0 bg-green-500/20 border border-green-500/30 rounded flex items-center justify-center">
+                    <Icon className="w-3 h-3 text-green-400" />
                   </div>
                   <span className="text-xs font-bold text-white leading-tight whitespace-nowrap">{label}</span>
                 </div>

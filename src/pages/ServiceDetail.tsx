@@ -258,49 +258,69 @@ const CONTENT: Record<string, ServiceContent> = {
 
   'chimney-repair-masonry': {
     hero: {
-      headline: 'Restore Your Chimney Before Small Cracks Become Big Problems',
-      offer: 'Expert Chimney Masonry Repair — Brick, Crown & Tuckpointing',
-      subheadline: 'Damaged mortar and crumbling brick don\'t just look bad — they let water in and compromise structural integrity. We restore chimneys to last.',
-      trustBadges: ['Expert Masonry Technicians', 'Matching Brick & Mortar', 'Crown Repair & Rebuild', 'Tuckpointing Specialists', 'Licensed & Insured'],
+      headline: 'Chimney Repair & Masonry Work Done Right For Long-Term Protection',
+      offer: 'Professional Chimney Repair & Masonry Restoration Solutions',
+      subheadline: "Cracked bricks, deteriorating mortar joints, leaning chimneys, or visible damage? Our experts can restore your chimney's safety, appearance, and structural integrity.",
+      trustBadges: ['Masonry Specialists', 'Book Same-Week', 'Photos Included', 'Licensed & Insured'],
     },
     needSection: {
-      title: 'Your Chimney May Need Masonry Repair If:',
+      title: 'Your Chimney May Need Repair If:',
       items: [
-        'Mortar joints are crumbling, cracked, or missing',
-        'Bricks are spalling, chipping, or falling out',
-        'The chimney crown is cracked or deteriorating',
-        'You see white staining (efflorescence) on the brick',
-        'Water is entering the firebox or attic',
-        "Your chimney looks visibly damaged or out of plumb",
+        'Bricks are cracked or falling apart',
+        'Mortar joints are deteriorating',
+        'The chimney appears to lean',
+        'Pieces of masonry are falling off',
+        'Water damage is visible',
+        'White staining appears on the exterior',
+        'The chimney crown is cracked',
+        'You notice loose or missing bricks',
       ],
-      ctaLabel: 'Get My Repair Quote',
+      ctaLabel: 'Schedule My Inspection',
     },
     whyUs: {
-      headline: 'Masonry Repairs Done to Last',
-      body: "We don't just patch surfaces — we identify root causes and repair them properly using matched materials built for the CT and NJ climate.",
-      bullets: ['Tuckpointing & Repointing', 'Brick Repair & Replacement', 'Crown Repair & Rebuild', 'Firebox Restoration', 'Matched Brick & Mortar Colors', 'Structural Repairs Guaranteed'],
+      headline: 'Local Chimney Repair Experts You Can Count On',
+      body: "For years, we've helped homeowners repair damaged chimneys, restore masonry, and prevent costly structural problems.",
+      bullets: ['Licensed & Insured', '1,000+ Chimneys Repaired', 'Skilled Masonry Specialists', 'Before & After Photos Included', 'Written Repair Recommendations', 'No High-Pressure Sales'],
     },
     included: {
-      headline: 'Our Masonry Repair Service Includes',
-      items: ['Visual assessment & documentation', 'Mortar joint repointing/tuckpointing', 'Brick repair or replacement', 'Crown repair or rebuild', 'Spall & crack sealing', 'Written scope of work'],
+      headline: 'Every Chimney Repair Evaluation Includes',
+      items: [
+        'Complete chimney inspection',
+        'Brick and mortar assessment',
+        'Crown inspection',
+        'Structural stability evaluation',
+        'Water damage assessment',
+        'Before & After Photos',
+        'Written repair recommendations',
+      ],
     },
     offer: {
-      headline: 'Professional Chimney Masonry Repair',
-      items: ['Complete masonry assessment', 'Tuckpointing & repointing', 'Crown repair or rebuild', 'Before & after photo documentation'],
+      headline: 'Complete Chimney Repair Evaluation Included',
+      items: [
+        'Structural Assessment',
+        'Masonry Condition Report',
+        'Photo Documentation',
+        'Written Repair Recommendations',
+        'Multiple Repair Options When Available',
+      ],
     },
     faqs: [
-      { q: 'What is tuckpointing?', a: 'Tuckpointing (also called repointing) is the process of removing deteriorated mortar from chimney joints and replacing it with fresh mortar. It restores the structural integrity and weather resistance of the chimney.' },
-      { q: 'How serious is spalling brick?', a: "Spalling brick means the surface is flaking or breaking apart, usually due to water damage. Left untreated, it accelerates and can eventually require full section rebuilds — so it's best caught early." },
-      { q: 'Can you match the existing brick and mortar color?', a: 'Yes. We take care to source brick and mix mortar that closely matches the color and texture of your existing chimney.' },
-      { q: 'What causes chimney crowns to crack?', a: 'Chimney crowns crack over time due to freeze-thaw cycles, settling, and natural weathering. A cracked crown allows water to enter the chimney and accelerates damage to the liner and masonry below.' },
-      { q: 'How long does masonry repair last?', a: 'With quality materials and proper workmanship, tuckpointing and masonry repairs typically last 20–30 years. We back all labor with our workmanship guarantee.' },
-      { q: 'How much does chimney masonry repair cost?', a: 'Tuckpointing and minor repairs start around $300–$600. Crown repair ranges from $200–$800. Full brick repair sections vary by scope. We provide itemized written quotes with no obligation.' },
+      { q: 'What causes chimney bricks and mortar to deteriorate?', a: 'Exposure to rain, snow, freezing temperatures, and age can cause masonry materials to break down over time.' },
+      { q: 'What is tuckpointing?', a: 'Tuckpointing involves removing damaged mortar and replacing it with new mortar to restore the strength and appearance of the chimney.' },
+      { q: 'Can damaged masonry lead to bigger problems?', a: 'Yes. Small masonry issues can eventually lead to water damage, structural instability, and more costly repairs.' },
+      { q: 'How do I know if my chimney needs repair or rebuilding?', a: 'Our inspection evaluates the overall condition of the chimney and helps determine the most cost-effective solution.' },
+      { q: 'Can loose bricks be repaired?', a: 'In many cases, yes. Individual bricks can often be replaced without rebuilding the entire chimney.' },
+      { q: 'Will I receive photos of the damage?', a: 'Yes. We provide photos documenting the condition of your chimney and any areas requiring attention.' },
+      { q: 'How long do chimney repairs typically take?', a: 'Repair timelines vary depending on the extent of the damage. Smaller repairs may take a day, while larger restoration projects may require additional time.' },
+      { q: 'Are your technicians licensed and insured?', a: 'Yes. Our team is fully insured and experienced in chimney repair and masonry restoration.' },
+      { q: 'How much does chimney repair cost?', a: 'Costs vary depending on the type and severity of the damage. We provide detailed recommendations and transparent pricing after the inspection.' },
+      { q: 'Why choose us instead of another chimney company?', a: "Because we focus on long-term solutions—not temporary fixes. Every evaluation includes photos, honest recommendations, and repair options designed to protect your home and your investment." },
     ],
     finalCta: {
-      headline: 'Protect Your Chimney — and Your Home',
-      subheadline: 'Every year you wait on masonry repair, water does more damage. Let us assess the situation and give you a clear, honest path forward.',
-      callout: 'Book Your Masonry Assessment Today',
-      bullets: ['Written Quote Included', 'Matched Brick & Mortar', 'Labor Guarantee on All Repairs'],
+      headline: 'Protect Your Home With Professional Chimney Repairs',
+      subheadline: 'Ignoring masonry damage can lead to water intrusion, structural problems, and significantly higher repair costs. Addressing issues early helps protect your chimney and your home.',
+      callout: 'Schedule Your Chimney Repair Inspection Today',
+      bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Written Condition Report'],
     },
     beforeAfter: {
       before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg',
@@ -978,6 +998,8 @@ export const ServiceDetail: React.FC = () => {
         {/* ── SECTION 5: Before & After ─────────────────────── */}
         {slug === 'chimney-inspections' ? (
           <BeforeAfterTabSection defaultTab={1} />
+        ) : slug === 'chimney-repair-masonry' ? (
+          <BeforeAfterTabSection defaultTab={3} />
         ) : (
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1029,7 +1051,7 @@ export const ServiceDetail: React.FC = () => {
                     Serving {region.regionName}
                   </div>
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-                    {slug === 'chimney-inspections' ? 'Starting at $49' : 'Starting at $99'}
+                    {['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry'].includes(slug ?? '') ? 'Starting at $49' : 'Starting at $99'}
                   </div>
                 </div>
 
@@ -1062,7 +1084,7 @@ export const ServiceDetail: React.FC = () => {
                   {/* Right: stat grid */}
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { stat: slug === 'chimney-inspections' ? '$49' : '$99', label: 'Starting Price' },
+                      { stat: ['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry'].includes(slug ?? '') ? '$49' : '$99', label: 'Starting Price' },
                       { stat: '15+',    label: 'Years Experience' },
                       { stat: '1,000+', label: 'Chimneys Served' },
                       { stat: '100%',   label: 'Satisfaction Guaranteed' },
@@ -1172,7 +1194,7 @@ export const ServiceDetail: React.FC = () => {
                   className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl"
                 >
                   <CalendarDays className="w-5 h-5" />
-                  {slug === 'chimney-inspections' ? 'Schedule My Inspection' : 'Get My Appointment'}
+                  {['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry'].includes(slug ?? '') ? 'Schedule My Inspection' : 'Get My Appointment'}
                 </button>
                 <Link
                   to={`${statePrefix}/contact`}

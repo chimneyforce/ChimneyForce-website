@@ -8,7 +8,7 @@ import { SEO, createServiceSchema, createBreadcrumbSchema } from '../components/
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { ReviewCarousel } from '../components/ReviewCarousel';
-import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
+import { BeforeAfterSlider, BeforeAfterGallery } from '../components/BeforeAfterSlider';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 
 /* ─────────────────────────────────────────────────────────── */
@@ -117,48 +117,59 @@ const CONTENT: Record<string, ServiceContent> = {
 
   'chimney-inspections': {
     hero: {
-      headline: 'Know Exactly What\'s Going On Inside Your Chimney',
-      offer: 'Certified Chimney Inspection — Level 1 & Level 2 Available',
-      subheadline: 'A thorough chimney inspection is the first step to a safe, efficient fireplace. We document everything with photos so you can see exactly what we see.',
-      trustBadges: ['Certified Inspectors', 'Photo Documentation Included', 'Level 1 & Level 2 Available', 'Written Condition Report', 'No Pressure Recommendations'],
+      headline: 'Chimney Inspections For Safety, Performance & Peace Of Mind',
+      offer: 'Get Clear Answers About The Condition Of Your Chimney',
+      subheadline: 'Overdue for an inspection? We\'ll make sure your fireplace is safe and ready for the season.',
+      trustBadges: ['Comprehensive Evaluations', 'Photos Included', 'Book Same-Week', 'Certified Inspectors'],
     },
     needSection: {
-      title: 'You Should Schedule an Inspection If:',
+      title: 'Is It Time For A Chimney Inspection?',
       items: [
         "It's been over a year since your last inspection",
-        "You're buying or selling a home",
-        "You've had a chimney fire or unusual odors",
-        'Smoke is backing up into your living space',
-        "You've noticed cracks or visible damage",
-        "Your fireplace hasn't been used in several years",
+        "You're planning to use your fireplace this season",
+        "You've noticed smoke or drafting issues",
+        'You recently experienced a chimney leak',
+        "Your fireplace isn't performing as expected",
+        'You want to identify problems before they become expensive repairs',
       ],
       ctaLabel: 'Schedule My Inspection',
     },
     whyUs: {
       headline: 'Inspections You Can Actually Trust',
-      body: 'Our certified inspectors follow NFPA 211 standards and provide clear, honest findings — never up-selling repairs you don\'t need.',
-      bullets: ['Certified to NFPA 211 Standards', 'Photo & Video Documentation', 'Written Condition Report Provided', 'Honest, No-Pressure Findings', 'Level 1 & Level 2 Inspections', 'Real Estate Inspections Available'],
+      body: 'Our certified inspectors provide clear, honest findings — never up-selling repairs you don\'t need.',
+      bullets: ['Licensed & Insured', 'Thousands of Chimneys Evaluated', 'Photos Included', 'Licensed & Insured', 'No High-Pressure Sales', 'Written Condition Report Provided'],
     },
     included: {
       headline: 'Every Inspection Includes',
-      items: ['Visual inspection of firebox & liner', 'Flue & damper evaluation', 'Crown & cap assessment', 'Draft & ventilation check', 'Photo documentation', 'Written findings report'],
+      items: [
+        'Comprehensive chimney evaluation',
+        'Fireplace system assessment',
+        'Visible masonry inspection',
+        'Chimney cap & crown inspection',
+        'Draft and airflow evaluation',
+        'Photo documentation',
+        'Written condition report',
+        'Recommendations when needed',
+      ],
     },
     offer: {
       headline: 'Comprehensive Chimney Safety Inspection',
-      items: ['Level 1 visual safety inspection', 'Firebox & liner condition report', 'Photo documentation provided', 'Honest recommendations — no pressure'],
+      items: ['Comprehensive chimney evaluation', 'Fireplace system assessment', 'Photo documentation provided', 'Honest recommendations — no pressure'],
     },
     faqs: [
-      { q: 'What is a Level 1 chimney inspection?', a: 'A Level 1 inspection is a visual examination of the accessible portions of your chimney. It covers the exterior, interior, and all accessible components of the chimney structure and flue.' },
-      { q: 'What is a Level 2 chimney inspection?', a: 'A Level 2 inspection includes everything in Level 1 plus a camera scan of the flue interior. It is recommended when buying or selling a home, after any chimney event, or when damage is suspected.' },
-      { q: 'How long does a chimney inspection take?', a: 'Most inspections take 45–60 minutes for Level 1 and 60–90 minutes for Level 2, depending on the size and condition of the chimney.' },
-      { q: 'Do you provide photos?', a: 'Yes. We document our findings with photos so you can see exactly what we see inside and outside the chimney.' },
-      { q: 'What if problems are found?', a: "We'll walk you through the findings clearly, show you photos, and explain your options. You are never obligated to book repairs on the spot." },
-      { q: 'How often should I get a chimney inspection?', a: 'The NFPA recommends a chimney inspection at least once a year, even if you do not use the fireplace regularly.' },
-      { q: 'Are you certified inspectors?', a: 'Yes. Our technicians are trained and certified to perform Level 1 and Level 2 chimney inspections following industry safety standards.' },
+      { q: 'How often should I have my chimney inspected?', a: 'Most homeowners should schedule a chimney inspection at least once per year, especially before fireplace season.' },
+      { q: 'What does a chimney inspection include?', a: 'Our inspections evaluate the visible condition, safety, and performance of your chimney and fireplace system while documenting any concerns we identify.' },
+      { q: 'Will I receive photos?', a: 'Yes. We provide photos of any notable findings and areas of concern.' },
+      { q: 'How long does an inspection take?', a: 'Most inspections take between 45 and 90 minutes depending on the chimney system and any concerns being evaluated.' },
+      { q: 'What if you find a problem?', a: "We'll explain what we found, answer your questions, and provide recommendations. There is never any obligation to move forward with repairs." },
+      { q: 'Do I need an inspection if my fireplace seems to be working fine?', a: 'Yes. Many chimney issues develop gradually and may not be obvious until significant damage has occurred.' },
+      { q: 'Are your technicians licensed and insured?', a: 'Yes. Our team is fully insured and experienced in chimney inspections and evaluations.' },
+      { q: 'How much does a chimney inspection cost?', a: 'Pricing varies depending on the type of chimney and the scope of the inspection. Contact us for current pricing and availability.' },
+      { q: 'Why choose us instead of another chimney company?', a: 'Because we focus on helping homeowners understand the condition of their chimney—not selling services they may not need. Every inspection includes photos, honest recommendations, and clear next steps.' },
     ],
     finalCta: {
-      headline: 'Get Peace of Mind Before Fireplace Season',
-      subheadline: "Don't wait until there's a problem. A certified inspection gives you a clear picture of your chimney's condition — and the confidence to use your fireplace safely.",
+      headline: "Know What's Going On Before Small Problems Become Major Repairs",
+      subheadline: 'Many chimney issues start small and go unnoticed until they become expensive to fix. A professional inspection can help identify concerns early and give you confidence in the safety and condition of your chimney.',
       callout: 'Schedule Your Chimney Inspection Today',
       bullets: ['Photo Documentation Included', 'Written Condition Report', 'Honest, No-Pressure Findings'],
     },
@@ -944,6 +955,9 @@ export const ServiceDetail: React.FC = () => {
         </section>
 
         {/* ── SECTION 5: Before & After ─────────────────────── */}
+        {slug === 'chimney-inspections' ? (
+          <BeforeAfterGallery />
+        ) : (
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
@@ -972,6 +986,7 @@ export const ServiceDetail: React.FC = () => {
             </div>
           </div>
         </section>
+        )}
 
         {/* ── SECTION 6: Reviews ────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white">
@@ -992,7 +1007,9 @@ export const ServiceDetail: React.FC = () => {
                     <MapPin className="w-3 h-3 flex-shrink-0" />
                     Serving {region.regionName}
                   </div>
-                  <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Starting at $99</div>
+                  <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    {slug === 'chimney-inspections' ? 'Starting at $49' : 'Starting at $99'}
+                  </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -1024,7 +1041,7 @@ export const ServiceDetail: React.FC = () => {
                   {/* Right: stat grid */}
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { stat: '$99',     label: 'Starting Price' },
+                      { stat: slug === 'chimney-inspections' ? '$49' : '$99', label: 'Starting Price' },
                       { stat: '15+',    label: 'Years Experience' },
                       { stat: '1,000+', label: 'Chimneys Served' },
                       { stat: '100%',   label: 'Satisfaction Guaranteed' },
@@ -1134,7 +1151,7 @@ export const ServiceDetail: React.FC = () => {
                   className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl"
                 >
                   <CalendarDays className="w-5 h-5" />
-                  Get My Appointment
+                  {slug === 'chimney-inspections' ? 'Schedule My Inspection' : 'Get My Appointment'}
                 </button>
                 <Link
                   to={`${statePrefix}/contact`}

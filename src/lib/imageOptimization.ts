@@ -27,7 +27,7 @@ export function isPlaceholderImage(url: string): boolean {
   return url.startsWith('/') && !url.includes('supabase');
 }
 
-export function compressImageClient(file: File, maxSizeMB: number = 1): Promise<File> {
+export function compressImageClient(file: File, _maxSizeMB: number = 1): Promise<File> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);

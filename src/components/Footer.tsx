@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, MapPin, Clock, Flame } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 import { useRegion } from '../context/RegionContext';
 import { CT_CITIES, NJ_CITIES } from '../data/cityData';
 

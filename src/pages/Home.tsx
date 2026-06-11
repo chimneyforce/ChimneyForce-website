@@ -10,7 +10,7 @@ import {
   Shield, Clock, Phone, CheckCircle, Search, Sparkles,
   Wrench, Droplets, Layers, Flame, ArrowRight, Star,
   CalendarDays, Users, Award,
-  MapPin, FileText,
+  FileText,
 } from 'lucide-react';
 
 /* ── Count-up hook ────────────────────────────────────────── */

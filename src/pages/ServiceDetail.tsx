@@ -8,7 +8,7 @@ import { SEO, createServiceSchema, createBreadcrumbSchema } from '../components/
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { ReviewCarousel } from '../components/ReviewCarousel';
-import { BeforeAfterSlider, BeforeAfterGallery } from '../components/BeforeAfterSlider';
+import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
 import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 
@@ -607,7 +607,7 @@ const SERVICE_OPTIONS = [
   { value: 'other',         label: 'Other' },
 ];
 
-function HeroForm({ region }: { region: { phoneNumbers: string[] } }) {
+function HeroForm(_: { region: { phoneNumbers: string[] } }) {
   const [form, setForm] = useState({ name: '', phone: '', service: 'not-sure' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -980,7 +980,7 @@ export const ServiceDetail: React.FC = () => {
 
             {/* Signs grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 max-w-2xl mx-auto">
-              {content.needSection.items.map((item, idx) => (
+              {content.needSection.items.map((item) => (
                 <div
                   key={item}
                   className="flex items-start gap-4 bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-200 group"

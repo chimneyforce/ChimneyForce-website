@@ -929,7 +929,7 @@ export const ServiceDetail: React.FC = () => {
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
+              <div className="inline-flex items-center gap-2 bg-success/10 text-success px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
                 <Sparkles className="w-3.5 h-3.5" />
                 What's Included
               </div>
@@ -939,9 +939,9 @@ export const ServiceDetail: React.FC = () => {
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {content.included.items.map((item) => (
-                <div key={item} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-4 group hover:border-primary/20 hover:bg-primary/5 transition-all duration-200">
-                  <div className="w-8 h-8 flex-shrink-0 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <CheckCircle className="w-4 h-4 text-primary" />
+                <div key={item} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-4 group hover:border-success/20 hover:bg-success/5 transition-all duration-200">
+                  <div className="w-8 h-8 flex-shrink-0 bg-success/10 rounded-lg flex items-center justify-center group-hover:bg-success/20 transition-colors">
+                    <CheckCircle className="w-4 h-4 text-success" />
                   </div>
                   <span className="text-sm font-semibold text-gray-800">{item}</span>
                 </div>

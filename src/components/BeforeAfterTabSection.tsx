@@ -53,7 +53,7 @@ export const BeforeAfterTabSection: React.FC<BeforeAfterTabSectionProps> = ({ de
     <section className="py-16 md:py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center mb-10 reveal">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-secondary/15 text-secondary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4 border border-secondary/20">
             <Sparkles className="w-3.5 h-3.5" />
             Real Results

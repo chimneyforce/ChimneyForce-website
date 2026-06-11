@@ -157,19 +157,38 @@ export const createServiceSchema = (serviceName: string, description: string, re
     '@type': 'Service',
     name: serviceName,
     description: description,
+    url: `https://chimneyforce.com/services/${serviceName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+    priceRange: '$$',
     provider: {
       '@type': 'LocalBusiness',
       name: 'Chimney Force',
       image: 'https://chimneyforce.com/chimney_force_fin-01.png',
       telephone: phoneNumber,
-      areaServed: {
-        '@type': 'State',
-        name: region,
-      },
+      url: 'https://chimneyforce.com',
+      areaServed: [
+        { '@type': 'State', name: 'Connecticut' },
+        { '@type': 'State', name: 'New Jersey' },
+      ],
     },
     serviceType: 'Chimney Services',
     category: 'Home Services',
     areaServed: region,
+  };
+};
+
+// Helper function to create FAQPage schema
+export const createFAQSchema = (faqs: Array<{ q: string; a: string }>) => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: a,
+      },
+    })),
   };
 };
 
@@ -217,6 +236,13 @@ export const createOrganizationSchema = () => {
       'https://www.instagram.com/chimneyforce',
       'https://www.linkedin.com/company/chimneyforce',
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '98',
+      bestRating: '5',
+      worstRating: '1',
+    },
   };
 };
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { ReviewCarousel } from '../components/ReviewCarousel';
 import { QuoteForm } from '../components/QuoteForm';
-import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../components/SEO';
+import { SEO, createOrganizationSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
 import { SERVICES } from '../data/servicesData';
@@ -188,6 +188,7 @@ export const Home: React.FC = () => {
 
   const organizationSchema = createOrganizationSchema();
   const breadcrumbs = createBreadcrumbSchema([{ name: 'Home', url: statePrefix || '/' }]);
+  const faqSchema = createFAQSchema(FAQ_ITEMS);
 
   const SERVICES_LOCAL = SERVICES;
 
@@ -198,7 +199,7 @@ export const Home: React.FC = () => {
         description={getSEODescription()}
         keywords={getKeywords()}
         canonical={statePrefix || '/'}
-        structuredData={[organizationSchema, breadcrumbs]}
+        structuredData={[organizationSchema, breadcrumbs, faqSchema]}
       />
 
       {/* ── Hero ─────────────────────────────────────────── */}

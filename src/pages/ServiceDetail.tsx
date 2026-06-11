@@ -4,7 +4,7 @@ import {
   CheckCircle, Phone, Shield, Award, Star,
   ArrowRight, Users, Sparkles, MapPin, CalendarDays, Info,
 } from 'lucide-react';
-import { SEO, createServiceSchema, createBreadcrumbSchema } from '../components/SEO';
+import { SEO, createServiceSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { ReviewCarousel } from '../components/ReviewCarousel';
@@ -820,11 +820,13 @@ export const ServiceDetail: React.FC = () => {
   const content = CONTENT[service.slug] ?? fallbackContent(service.name);
   const Icon = service.icon;
 
-  const seoTitle = `${service.name} in ${getRegionText()} | Chimney Force`;
+  const regionShort = isCT ? 'CT' : isNJ ? 'NJ' : 'CT & NJ';
+  const seoTitle = `${service.name} | ${regionShort} | Chimney Force`;
   const seoDescription = `Expert ${service.name.toLowerCase()} services in ${getRegionText()}. Licensed & insured. Same-day service available. Call now!`;
   const keywords = `${service.name.toLowerCase()}, chimney services, chimney force, ${isCT ? 'ct' : isNJ ? 'nj' : 'ct nj'}`;
 
   const serviceSchema = createServiceSchema(service.name, seoDescription, getRegionText(), region.phoneNumbers[0]);
+  const faqSchema = createFAQSchema(content.faqs);
   const breadcrumbs = createBreadcrumbSchema([
     { name: 'Home', url: statePrefix || '/' },
     { name: 'Services', url: statePrefix || '/' },
@@ -842,7 +844,7 @@ export const ServiceDetail: React.FC = () => {
         description={seoDescription}
         keywords={keywords}
         canonical={`${statePrefix}/services/${service.slug}`}
-        structuredData={[serviceSchema, breadcrumbs]}
+        structuredData={[serviceSchema, breadcrumbs, faqSchema]}
       />
 
       {/* ── SECTION 1: Hero ─────────────────────────────────── */}

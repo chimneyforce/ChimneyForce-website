@@ -1031,7 +1031,7 @@ export const ServiceDetail: React.FC = () => {
         </section>
 
         {/* ── SECTION 4: What's Included ────────────────────── */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 bg-success/10 text-success px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
@@ -1042,7 +1042,7 @@ export const ServiceDetail: React.FC = () => {
                 {content.included.headline}
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {content.included.items.map((item) => (
                 <div key={item} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-4 group hover:border-success/20 hover:bg-success/5 transition-all duration-200">
                   <div className="w-8 h-8 flex-shrink-0 bg-success/10 rounded-lg flex items-center justify-center group-hover:bg-success/20 transition-colors">
@@ -1069,7 +1069,7 @@ export const ServiceDetail: React.FC = () => {
         ) : slug === 'chimney-leaks-water-damage' ? (
           <BeforeAfterTabSection defaultTab={2} singleTab />
         ) : (
-        <section className="py-16 md:py-20 bg-gray-50">
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 bg-secondary/15 text-secondary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4 border border-secondary/20">
@@ -1184,7 +1184,7 @@ export const ServiceDetail: React.FC = () => {
         </section>
 
         {/* ── SECTION 8: FAQ ────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">

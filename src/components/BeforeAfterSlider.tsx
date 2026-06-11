@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { ArrowLeftRight } from 'lucide-react';
-import { useRegion } from '../context/RegionContext';
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -108,13 +107,13 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         </div>
 
         <div
-          className="absolute top-3 left-3 md:top-4 md:left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-br-lg uppercase min-h-[32px] flex items-center select-none"
+          className="absolute top-3 left-3 md:top-4 md:left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-tr-lg rounded-br-lg uppercase min-h-[32px] flex items-center select-none"
         >
           Before
         </div>
 
         <div
-          className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-bl-lg uppercase min-h-[32px] flex items-center select-none"
+          className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-tl-lg rounded-bl-lg uppercase min-h-[32px] flex items-center select-none"
         >
           After
         </div>
@@ -139,64 +138,5 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         </div>
       )}
     </div>
-  );
-};
-
-export const BeforeAfterGallery: React.FC = () => {
-  const { region } = useRegion();
-  const projects = [
-    {
-      beforeImage: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg',
-      afterImage: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg',
-      beforeAlt: 'Broken and damaged chimney before professional repair in Greenwich, CT',
-      afterAlt: 'Restored chimney after professional masonry repair and restoration in Greenwich, CT',
-      service: 'Broken Chimney Repair & Restoration',
-      location: 'Greenwich, CT',
-    },
-    {
-      beforeImage: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/fireplace-install-before.jpg',
-      afterImage: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/fireplace-install-after.jpg',
-      beforeAlt: 'Dirty chimney with creosote buildup before professional cleaning in West Hartford, CT',
-      afterAlt: 'Clean chimney interior after professional deep cleaning service in West Hartford, CT',
-      service: 'Dirty Chimney Deep Cleaning',
-      location: 'West Hartford, CT',
-    },
-  ];
-
-  return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mb-4 md:mb-6 leading-tight px-4">
-            See the Difference Quality Makes
-          </h2>
-        </div>
-
-        <div className="space-y-12 md:space-y-16">
-          {projects.map((project, index) => (
-            <BeforeAfterSlider
-              key={index}
-              beforeImage={project.beforeImage}
-              afterImage={project.afterImage}
-              beforeAlt={project.beforeAlt}
-              afterAlt={project.afterAlt}
-              caption={{
-                service: project.service,
-                location: project.location,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="text-center mt-12 md:mt-16 px-4">
-          <a
-            href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
-            className="inline-block bg-gradient-to-r from-primary to-red-700 text-white px-8 md:px-10 rounded-xl font-extrabold text-base md:text-lg hover:from-red-700 hover:to-primary hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl hover:shadow-3xl min-h-[56px] flex items-center justify-center"
-          >
-            Get Similar Results for Your Home
-          </a>
-        </div>
-      </div>
-    </section>
   );
 };

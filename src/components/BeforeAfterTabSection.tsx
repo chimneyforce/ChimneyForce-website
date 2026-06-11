@@ -9,23 +9,23 @@ const BA_CATEGORIES = [
   },
   {
     label: 'Inspections', icon: Search,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', caption: 'Level II Chimney Inspection', location: 'Darien, CT' }],
+    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Level II Chimney Inspection', location: 'Darien, CT' }],
   },
   {
     label: 'Leaks & Water', icon: Droplets,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', caption: 'Waterproofing & Leak Repair', location: 'Darien, CT' }],
+    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Waterproofing & Leak Repair', location: 'Darien, CT' }],
   },
   {
     label: 'Repair & Masonry', icon: Wrench,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', caption: 'Chimney Repair & Restoration', location: 'Greenwich, CT' }],
+    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Chimney Repair & Restoration', location: 'Greenwich, CT' }],
   },
   {
     label: 'Caps & Covers', icon: Shield,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', caption: 'Custom Cap Installation', location: 'Westport, CT' }],
+    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Custom Cap Installation', location: 'Westport, CT' }],
   },
   {
     label: 'Liners', icon: Layers,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', caption: 'Stainless Steel Liner Install', location: 'Fairfield, CT' }],
+    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Stainless Steel Liner Install', location: 'Fairfield, CT' }],
   },
   {
     label: 'Gas & Log Sets', icon: Flame,

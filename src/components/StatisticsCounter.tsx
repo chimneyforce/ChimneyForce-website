@@ -69,6 +69,7 @@ export const StatisticsCounter: React.FC = () => {
     const duration = 2000;
     const steps = 60;
     const stepDuration = duration / steps;
+    const timers: ReturnType<typeof setInterval>[] = [];
 
     stats.forEach((stat, index) => {
       let currentStep = 0;
@@ -89,7 +90,13 @@ export const StatisticsCounter: React.FC = () => {
           clearInterval(timer);
         }
       }, stepDuration);
+
+      timers.push(timer);
     });
+
+    return () => {
+      timers.forEach(clearInterval);
+    };
   }, [isVisible]);
 
   const formatNumber = (num: number): string => {

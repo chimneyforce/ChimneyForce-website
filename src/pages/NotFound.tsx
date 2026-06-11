@@ -69,16 +69,16 @@ export const NotFound: React.FC = () => {
                 → Contact
               </Link>
               <Link
-                to={`${statePrefix}/services/chimney-sweep`}
+                to={`${statePrefix}/services/chimney-sweep-cleaning`}
                 className="text-primary hover:text-red-700 font-bold hover:underline"
               >
                 → Chimney Sweep
               </Link>
               <Link
-                to={`${statePrefix}/services/brick-repair`}
+                to={`${statePrefix}/services/chimney-repair-masonry`}
                 className="text-primary hover:text-red-700 font-bold hover:underline"
               >
-                → Brick Repair
+                → Chimney Repair
               </Link>
               <Link
                 to="/sitemap"

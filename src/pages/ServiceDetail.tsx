@@ -61,7 +61,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Protect Your Home From Chimney Fires',
       offer: 'Professional Chimney Sweeping & Safety Inspection Starting at $99',
       subheadline: 'Remove dangerous creosote buildup, improve fireplace performance, and make sure your chimney is safe for the season.',
-      trustBadges: ['Certified Chimney Technicians', 'Same-Week Appointments', 'Clean, Mess-Free Service', 'Before & After Photos Provided', 'Family-Owned & Insured'],
+      trustBadges: ['Certified Technicians', 'Same-Week Booking', 'Mess-Free Service', 'Before/After Photos', 'Family-Owned & Insured'],
     },
     needSection: {
       title: 'It May Be Time For A Chimney Sweep If:',

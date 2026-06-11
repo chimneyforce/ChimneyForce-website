@@ -988,8 +988,10 @@ export const ServiceDetail: React.FC = () => {
 
                 {/* Top row */}
                 <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
-                  <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
-                    <MapPin className="w-3 h-3 flex-shrink-0" />
+                  <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-secondary to-amber-400 text-gray-900 pl-3 pr-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-[0_4px_20px_rgba(234,179,8,0.45)] border border-yellow-300/40">
+                    <span className="flex items-center justify-center w-5 h-5 bg-gray-900/15 rounded-full flex-shrink-0">
+                      <MapPin className="w-3 h-3" />
+                    </span>
                     Serving {region.regionName}
                   </div>
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Starting at $99</div>

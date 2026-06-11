@@ -6,9 +6,10 @@ import { QuoteForm } from '../components/QuoteForm';
 import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
+import { SERVICES } from '../data/servicesData';
 import {
   Shield, Clock, Phone, CheckCircle, Search, Sparkles,
-  Wrench, Droplets, Layers, Flame, ArrowRight, Star,
+  Wrench, ArrowRight, Star,
   CalendarDays, Users, Award,
   FileText,
 } from 'lucide-react';
@@ -189,15 +190,7 @@ export const Home: React.FC = () => {
   const organizationSchema = createOrganizationSchema();
   const breadcrumbs = createBreadcrumbSchema([{ name: 'Home', url: statePrefix || '/' }]);
 
-  const SERVICES = [
-    { icon: Sparkles, label: 'Chimney Sweep & Cleaning',     slug: 'chimney-sweep' },
-    { icon: Search,   label: 'Chimney Inspections',          slug: 'chimney-inspection-level-1-safety' },
-    { icon: Droplets, label: 'Chimney Leaks & Water Damage', slug: 'leak-diagnostic' },
-    { icon: Wrench,   label: 'Chimney Repair & Masonry',     slug: 'brick-repair' },
-    { icon: Shield,   label: 'Chimney Caps & Covers',        slug: 'chimney-cap-installation' },
-    { icon: Layers,   label: 'Chimney Liners',               slug: 'stainless-steel-liner' },
-    { icon: Flame,    label: 'Gas Fireplace & Log Sets',     slug: 'gas-log-installation' },
-  ];
+  const SERVICES_LOCAL = SERVICES;
 
   return (
     <div>
@@ -259,16 +252,16 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
-            {SERVICES.map(({ icon: Icon, label, slug }, i) => (
+            {SERVICES_LOCAL.map(({ icon: Icon, name, slug }, i) => (
               <Link
-                key={label}
+                key={slug}
                 to={`${statePrefix}/services/${slug}`}
                 className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-4 bg-gradient-to-br from-white to-gray-50 border-2 border-gray-100 hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
               >
                 <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300 flex-shrink-0">
                   <Icon className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
-                <span className="text-sm font-extrabold text-gray-900 group-hover:text-primary transition-colors duration-200 leading-snug flex-1">{label}</span>
+                <span className="text-sm font-extrabold text-gray-900 group-hover:text-primary transition-colors duration-200 leading-snug flex-1">{name}</span>
                 <span className="inline-flex items-center gap-1 text-primary font-extrabold text-xs group-hover:gap-2 transition-all duration-200">
                   Learn More <ArrowRight className="w-3 h-3" />
                 </span>

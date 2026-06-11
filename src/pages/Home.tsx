@@ -92,11 +92,10 @@ function TeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
     <div className="rounded-2xl px-6 py-7 shadow-2xl border border-white/10" style={{ backgroundColor: 'rgba(10,10,10,0.92)' }}>
       <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5">
         <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-        The Chimney Force Team
+        Why Homeowners Choose Us
       </div>
-      <h2 className="text-2xl md:text-3xl font-black leading-tight mb-3">
-        <span className="block text-white">Helping Property Owners</span>
-        <span className="block text-primary">Protect What Matters Most.</span>
+      <h2 className="text-2xl md:text-3xl font-black leading-tight text-white mb-3">
+        Helping Property Owners Protect What Matters Most.
       </h2>
       <p className="text-sm leading-relaxed text-gray-300 mb-6">
         Whether you need a simple repair or a more comprehensive solution, we'll help you understand your options and move forward with confidence.
@@ -114,10 +113,10 @@ function TeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-3 flex-wrap">
+      <div className="grid grid-cols-2 gap-3">
         <a
           href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
-          className="inline-flex items-center gap-2 bg-primary hover:bg-red-700 text-white px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 shadow-md hover:scale-105 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-red-700 text-white px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 shadow-md hover:scale-105 active:scale-95"
         >
           <Phone className="w-4 h-4" />
           {region.phoneNumbers[0]}
@@ -125,7 +124,7 @@ function TeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
         <button
           type="button"
           onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
-          className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-900 border-2 border-gray-900 px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 hover:scale-105 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 border-2 border-gray-900 px-5 py-3 rounded-xl font-extrabold text-sm transition-all duration-200 hover:scale-105 active:scale-95"
         >
           <CalendarDays className="w-4 h-4" />
           Book Now
@@ -281,10 +280,8 @@ export const Home: React.FC = () => {
             loading="lazy"
             decoding="async"
           />
-          <div className="hidden lg:flex absolute inset-0 items-center justify-end pr-10 xl:pr-16">
-            <div className="w-[400px] xl:w-[440px]">
-              <TeamCopy region={region} />
-            </div>
+          <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-8 xl:right-14 w-[38%]">
+            <TeamCopy region={region} />
           </div>
         </div>
         <div className="lg:hidden px-5 py-10">

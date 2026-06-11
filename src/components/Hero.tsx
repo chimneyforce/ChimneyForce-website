@@ -130,7 +130,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
                 <svg className="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#e40000"/>
-                  <circle cx="12" cy="9" r="2.5" fill="#e89f00"/>
+                  <circle cx="12" cy="9" r="2.5" fill="white"/>
                 </svg>
                 Serving {region.regionName}
               </div>

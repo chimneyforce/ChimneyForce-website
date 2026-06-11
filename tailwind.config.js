@@ -6,7 +6,15 @@ export default {
       colors: {
         primary: '#e40000',
         secondary: '#e89f00',
-        success: '#16a34a',
+        success: {
+          DEFAULT: '#16a34a',
+          50:  '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+        },
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

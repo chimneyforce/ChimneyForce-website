@@ -128,7 +128,10 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Urgency pill + location pill */}
             <div className="flex flex-wrap items-center gap-2 animate-fadeInDown">
               <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
-                <MapPin className="w-3 h-3 flex-shrink-0 text-red-600 fill-red-600" />
+                <svg className="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" fill="#e40000" stroke="none"/>
+                  <circle cx="12" cy="10" r="3" fill="#e89f00" stroke="none"/>
+                </svg>
                 Serving {region.regionName}
               </div>
             </div>

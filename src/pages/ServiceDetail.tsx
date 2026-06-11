@@ -858,40 +858,49 @@ export const ServiceDetail: React.FC = () => {
       <main id="main-content">
 
         {/* ── SECTION 2: Do I Need A Chimney Sweep? ─────────── */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-secondary/15 text-secondary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4 border border-secondary/20">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Header */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5 border border-amber-200">
                 <Icon className="w-3.5 h-3.5" />
                 Is It Time?
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
                 {content.needSection.title}
               </h2>
+              <p className="mt-3 text-gray-500 text-base max-w-xl mx-auto">If any of these sound familiar, it's worth getting a professional look.</p>
             </div>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-10">
-              <div className="flex flex-col gap-4 mb-8">
-                {content.needSection.items.map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                    </div>
-                    <span className="text-gray-900 font-bold leading-snug">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="text-center">
-                <button
-                  type="button"
-                  onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
-                  className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-extrabold text-base hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
+            {/* Signs grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {content.needSection.items.map((item, idx) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-4 bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-200 group"
                 >
-                  <CalendarDays className="w-5 h-5" />
-                  {content.needSection.ctaLabel}
-                </button>
-              </div>
+                  <div className="w-8 h-8 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/15 transition-colors">
+                    <CheckCircle className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-gray-800 font-semibold text-sm leading-snug pt-1">{item}</span>
+                </div>
+              ))}
             </div>
+
+            {/* CTA */}
+            <div className="flex flex-col items-center gap-3">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
+                className="inline-flex items-center gap-2.5 bg-primary text-white px-9 py-4 rounded-xl font-extrabold text-base hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/25"
+              >
+                <CalendarDays className="w-5 h-5" />
+                {content.needSection.ctaLabel}
+              </button>
+              <p className="text-xs text-gray-400 font-medium">Same-week appointments available</p>
+            </div>
+
           </div>
         </section>
 

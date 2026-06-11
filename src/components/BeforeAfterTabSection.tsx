@@ -35,9 +35,10 @@ const BA_CATEGORIES = [
 
 interface BeforeAfterTabSectionProps {
   defaultTab?: number;
+  singleTab?: boolean;
 }
 
-export const BeforeAfterTabSection: React.FC<BeforeAfterTabSectionProps> = ({ defaultTab = 0 }) => {
+export const BeforeAfterTabSection: React.FC<BeforeAfterTabSectionProps> = ({ defaultTab = 0, singleTab = false }) => {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [slideIndex, setSlideIndex] = useState(0);
 
@@ -65,28 +66,30 @@ export const BeforeAfterTabSection: React.FC<BeforeAfterTabSectionProps> = ({ de
           </p>
         </div>
 
-        <div className="mb-8 -mx-4 sm:-mx-6 lg:-mx-8">
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide px-4 sm:px-6 lg:px-8">
-            {BA_CATEGORIES.map((cat, i) => {
-              const Icon = cat.icon;
-              return (
-                <button
-                  key={cat.label}
-                  onClick={() => handleTabChange(i)}
-                  className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-extrabold transition-all duration-200 border ${
-                    activeTab === i
-                      ? 'bg-primary text-white border-primary shadow-md'
-                      : 'bg-white text-gray-600 border-gray-200 hover:border-primary/40 hover:text-primary'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5 flex-shrink-0" />
-                  {cat.label}
-                </button>
-              );
-            })}
-            <span className="flex-shrink-0 w-1" aria-hidden="true" />
+        {!singleTab && (
+          <div className="mb-8 -mx-4 sm:-mx-6 lg:-mx-8">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide px-4 sm:px-6 lg:px-8">
+              {BA_CATEGORIES.map((cat, i) => {
+                const Icon = cat.icon;
+                return (
+                  <button
+                    key={cat.label}
+                    onClick={() => handleTabChange(i)}
+                    className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-extrabold transition-all duration-200 border ${
+                      activeTab === i
+                        ? 'bg-primary text-white border-primary shadow-md'
+                        : 'bg-white text-gray-600 border-gray-200 hover:border-primary/40 hover:text-primary'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5 flex-shrink-0" />
+                    {cat.label}
+                  </button>
+                );
+              })}
+              <span className="flex-shrink-0 w-1" aria-hidden="true" />
+            </div>
           </div>
-        </div>
+        )}
 
         <div>
           <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200">

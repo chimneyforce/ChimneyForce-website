@@ -334,7 +334,7 @@ const CONTENT: Record<string, ServiceContent> = {
     hero: {
       headline: 'Chimney Caps & Covers Installed To Keep Water & Animals Out',
       offer: 'Chimney Caps & Covers Installed To Keep Water & Animals Out',
-      subheadline: 'A properly installed chimney cap or cover helps keep water, animals, debris, and costly damage out of your chimney system.',
+      subheadline: 'Protect your chimney from water, animals, and debris with a properly installed cap.',
       trustBadges: ['Chimney Cap Pros', 'Book Same-Week', 'Premium Material', 'Licensed & Insured'],
     },
     needSection: {
@@ -478,7 +478,7 @@ const CONTENT: Record<string, ServiceContent> = {
       headline: 'Gas Fireplace & Log Set Solutions For Comfort & Peace Of Mind',
       offer: 'Gas Fireplace & Log Set Solutions For Comfort & Peace Of Mind',
       subheadline: "Whether your gas fireplace isn't performing properly or you're considering new gas logs, we'll help you understand your options and find the right solution for your home.",
-      trustBadges: ['Easy Scheduling', 'Honest Recommendations', 'Book Same-Week', 'Clear Next Steps'],
+      trustBadges: ['Easy Scheduling', 'Labor Guarantee', 'Book Same-Week', 'Clear Next Steps'],
     },
     needSection: {
       title: 'It May Be Time For A Gas Fireplace Evaluation If:',
@@ -1059,15 +1059,15 @@ export const ServiceDetail: React.FC = () => {
         {slug === 'chimney-inspections' ? (
           <BeforeAfterTabSection defaultTab={1} />
         ) : slug === 'chimney-repair-masonry' ? (
-          <BeforeAfterTabSection defaultTab={3} />
+          <BeforeAfterTabSection defaultTab={3} singleTab />
         ) : slug === 'chimney-caps-covers' ? (
-          <BeforeAfterTabSection defaultTab={4} />
+          <BeforeAfterTabSection defaultTab={4} singleTab />
         ) : slug === 'chimney-liners' ? (
-          <BeforeAfterTabSection defaultTab={5} />
+          <BeforeAfterTabSection defaultTab={5} singleTab />
         ) : slug === 'gas-fireplace-log-sets' ? (
-          <BeforeAfterTabSection defaultTab={6} />
+          <BeforeAfterTabSection defaultTab={6} singleTab />
         ) : slug === 'chimney-leaks-water-damage' ? (
-          <BeforeAfterTabSection defaultTab={2} />
+          <BeforeAfterTabSection defaultTab={2} singleTab />
         ) : (
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

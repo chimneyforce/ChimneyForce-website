@@ -989,11 +989,8 @@ export const ServiceDetail: React.FC = () => {
                 {/* Top row */}
                 <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
                   <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
-                    <span className="relative flex h-2 w-2 flex-shrink-0">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-70" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-red-700" />
-                    </span>
-                    Limited Availability This Week
+                    <MapPin className="w-3 h-3 flex-shrink-0" />
+                    Serving {region.regionName}
                   </div>
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Starting at $99</div>
                 </div>

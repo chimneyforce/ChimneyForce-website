@@ -323,8 +323,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Written Condition Report'],
     },
     beforeAfter: {
-      before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg',
-      after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg',
+      before: '/Repair-before.jpg',
+      after: '/Repair-after.jpeg',
       caption: 'Chimney Masonry Repair & Restoration',
       location: 'Greenwich, CT',
     },

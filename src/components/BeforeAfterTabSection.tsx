@@ -17,7 +17,7 @@ const BA_CATEGORIES = [
   },
   {
     label: 'Repair & Masonry', icon: Wrench,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Chimney Repair & Restoration', location: 'Greenwich, CT' }],
+    slides: [{ before: '/Repair-before.jpg', after: '/Repair-after.jpeg', caption: 'Chimney Repair & Tuckpointing', location: 'Greenwich, CT' }],
   },
   {
     label: 'Caps & Covers', icon: Shield,

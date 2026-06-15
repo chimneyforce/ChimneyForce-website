@@ -5,15 +5,15 @@ import { BeforeAfterSlider } from './BeforeAfterSlider';
 const BA_CATEGORIES = [
   {
     label: 'Sweep & Cleaning', icon: Sparkles,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/fireplace-install-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/fireplace-install-after.jpg', caption: 'Deep Cleaning & Creosote Removal', location: 'West Hartford, CT' }],
+    slides: [{ before: '/Sweep-before.jpeg', after: '/Sweep-after.jpeg', caption: 'Deep Cleaning & Creosote Removal', location: 'West Hartford, CT' }],
   },
   {
     label: 'Inspections', icon: Search,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Level II Chimney Inspection', location: 'Darien, CT' }],
+    slides: [{ before: '/Inspection_Before.jpeg', after: '/inspection-after.jpeg', caption: 'Level II Chimney Inspection', location: 'Darien, CT' }],
   },
   {
     label: 'Leaks & Water', icon: Droplets,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Waterproofing & Leak Repair', location: 'Darien, CT' }],
+    slides: [{ before: '/Chimney_Leak_Before.jpeg', after: '/Chimney_Leak_After.jpeg', caption: 'Waterproofing & Leak Repair', location: 'Darien, CT' }],
   },
   {
     label: 'Repair & Masonry', icon: Wrench,
@@ -21,15 +21,15 @@ const BA_CATEGORIES = [
   },
   {
     label: 'Caps & Covers', icon: Shield,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Custom Cap Installation', location: 'Westport, CT' }],
+    slides: [{ before: '/Caps_before.jpeg', after: '/Caps_after.jpeg', caption: 'Custom Cap Installation', location: 'Westport, CT' }],
   },
   {
     label: 'Liners', icon: Layers,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-after.jpg', caption: 'Stainless Steel Liner Install', location: 'Fairfield, CT' }],
+    slides: [{ before: '/Before_Chimney_Liners.jpeg', after: '/After_Chimney_Liners.jpeg', caption: 'Stainless Steel Liner Install', location: 'Fairfield, CT' }],
   },
   {
     label: 'Gas & Log Sets', icon: Flame,
-    slides: [{ before: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/fireplace-install-before.jpg', after: 'https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/fireplace-install-after.jpg', caption: 'Gas Fireplace & Log Set Install', location: 'Stamford, CT' }],
+    slides: [{ before: '/Gas-before.jpeg', after: '/Gas-after.jpeg', caption: 'Gas Fireplace & Log Set Install', location: 'Stamford, CT' }],
   },
 ];
 

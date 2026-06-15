@@ -708,7 +708,7 @@ function HeroForm(_: { region: { phoneNumbers: string[] } }) {
               <label htmlFor="sd-phone" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">Best Phone Number *</label>
               <div className="relative">
                 <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300 pointer-events-none" />
-                <input id="sd-phone" type="tel" name="phone" placeholder="(555) 123-4567" required inputMode="tel" autoComplete="tel"
+                <input id="sd-phone" type="tel" name="phone" placeholder="555-123-4567" required inputMode="tel" autoComplete="tel"
                   value={form.phone} onChange={handleChange}
                   className="w-full pl-10 pr-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all min-h-[52px] hover:border-gray-300 placeholder:text-gray-400 bg-gray-50 focus:bg-white" />
               </div>

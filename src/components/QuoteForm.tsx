@@ -169,7 +169,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
-                placeholder="(555) 123-4567"
+                placeholder="555-123-4567"
                 required
                 value={phone}
                 onChange={e => setPhone(formatPhone(e.target.value))}

@@ -151,7 +151,7 @@ export const createLocalBusinessSchema = (
 };
 
 // Helper function to create Service schema
-export const createServiceSchema = (serviceName: string, description: string, region: string, phoneNumber: string = '(888) 398-7707') => {
+export const createServiceSchema = (serviceName: string, description: string, region: string, phoneNumber: string = '888-398-7707') => {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -205,7 +205,7 @@ export const createOrganizationSchema = () => {
     image: 'https://chimneyforce.com/chimney_force_fin-01.png',
     description: 'Professional chimney and fireplace services across Connecticut and New Jersey. Licensed, insured, and certified chimney experts providing inspection, cleaning, repair, and installation services.',
     foundingDate: '2010',
-    telephone: '(888) 398-7707',
+    telephone: '888-398-7707',
     email: 'Chimneyforceinc@gmail.com',
     address: [
       {

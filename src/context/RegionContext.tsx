@@ -20,7 +20,7 @@ interface RegionContextType {
 
 const HQ_DATA: RegionData = {
   regionName: 'CT & NJ',
-  phoneNumbers: ['(888) 398-7707'],
+  phoneNumbers: ['888-398-7707'],
   address: '750 MAIN STREET, SUITE 100',
   city: 'HARTFORD',
   state: 'CONNECTICUT',
@@ -29,7 +29,7 @@ const HQ_DATA: RegionData = {
 
 const CT_DATA: RegionData = {
   regionName: 'CT',
-  phoneNumbers: ['(203) 350-0898'],
+  phoneNumbers: ['203-350-0898'],
   address: '750 MAIN STREET, SUITE 100',
   city: 'HARTFORD',
   state: 'CONNECTICUT',
@@ -38,7 +38,7 @@ const CT_DATA: RegionData = {
 
 const NJ_DATA: RegionData = {
   regionName: 'NJ',
-  phoneNumbers: ['(201) 308-1211'],
+  phoneNumbers: ['201-308-1211'],
   address: '122 N Troy Ave',
   city: 'Ventnor City',
   state: 'NJ',

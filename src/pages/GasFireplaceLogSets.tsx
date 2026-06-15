@@ -255,7 +255,7 @@ export const GasFireplaceLogSets: React.FC = () => {
                             id="gf-phone"
                             type="tel"
                             name="phone"
-                            placeholder="(555) 123-4567"
+                            placeholder="555-123-4567"
                             required
                             inputMode="tel"
                             autoComplete="tel"

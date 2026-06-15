@@ -90,7 +90,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
 
         <div
           className="absolute inset-0 w-full h-full overflow-hidden"
-          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+          style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
         >
           <img
             src={afterImage}

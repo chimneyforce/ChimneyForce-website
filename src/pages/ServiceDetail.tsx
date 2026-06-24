@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   CheckCircle, Phone, Shield, Award, Star,
@@ -11,6 +11,7 @@ import { ReviewCarousel } from '../components/ReviewCarousel';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
 import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
 import { submitQuoteRequest } from '../lib/contactSubmission';
+import { getWeeklyQuoteCount } from '../lib/weeklyQuoteCount';
 
 /* ─────────────────────────────────────────────────────────── */
 /*  Per-service content                                        */
@@ -655,7 +656,7 @@ function HeroForm(_: { region: { phoneNumbers: string[] } }) {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-70" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
         </span>
-        <span className="text-green-800 text-xs font-semibold"><strong>47 homeowners</strong> requested a quote this week</span>
+        <span className="text-green-800 text-xs font-semibold"><strong>{quoteCount} homeowners</strong> requested a quote this week</span>
       </div>
       <div className="p-5 sm:p-6">
         {submitted ? (
@@ -767,6 +768,7 @@ function useCountUp(target: number, duration = 1800, started = false) {
 export const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { region, statePrefix, isCT, isNJ } = useRegion();
+  const quoteCount = getWeeklyQuoteCount();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   // Stats bar count-up

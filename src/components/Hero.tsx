@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CheckCircle, Shield, Phone, Users, CalendarDays, MapPin } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 import { useRegion } from '../context/RegionContext';
+import { getWeeklyQuoteCount } from '../lib/weeklyQuoteCount';
 
 interface HeroProps {
   title: React.ReactNode;
@@ -34,6 +35,7 @@ export const Hero: React.FC<HeroProps> = ({
   animatedImage   = '/hero-fireplace.gif',
 }) => {
   const { region } = useRegion();
+  const quoteCount = getWeeklyQuoteCount();
 
   const [formData, setFormData] = useState({ name: '', phone: '', service: 'not-sure' });
   const [submitted, setSubmitted] = useState(false);
@@ -193,7 +195,7 @@ export const Hero: React.FC<HeroProps> = ({
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
                 </span>
                 <span className="text-green-800 text-xs font-semibold">
-                  <strong>47 homeowners</strong> requested a quote this week
+                  <strong>{quoteCount} homeowners</strong> requested a quote this week
                 </span>
               </div>
 

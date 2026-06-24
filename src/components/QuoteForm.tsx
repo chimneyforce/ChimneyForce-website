@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Star, Users, Phone, CheckCircle, CalendarDays } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/contactSubmission';
+import { getWeeklyQuoteCount } from '../lib/weeklyQuoteCount';
 
 const generateConfirmationNumber = () => `#CF${Math.floor(100000 + Math.random() * 900000)}`;
 
@@ -20,6 +21,7 @@ interface QuoteFormProps {
 }
 
 export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure' }) => {
+  const quoteCount = getWeeklyQuoteCount();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [service, setService] = useState(defaultService);
@@ -130,7 +132,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
         </span>
         <Users className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
         <span className="text-green-800 text-xs font-semibold">
-          <strong>47 homeowners</strong> requested a quote this week
+          <strong>{quoteCount} homeowners</strong> requested a quote this week
         </span>
       </div>
 

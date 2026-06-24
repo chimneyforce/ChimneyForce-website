@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle, Clock, Shield, Package, Phone, Users, Flame } from 'lucide-react';
+import { getWeeklyQuoteCount } from '../lib/weeklyQuoteCount';
 import { SEO, createServiceSchema, createBreadcrumbSchema } from '../components/SEO';
 import { TrustBadgeBar } from '../components/TrustBadgeBar';
 import { useRegion } from '../context/RegionContext';
@@ -16,6 +17,7 @@ const SERVICE_OPTIONS = [
 
 export const GasFireplaceLogSets: React.FC = () => {
   const { statePrefix } = useRegion();
+  const quoteCount = getWeeklyQuoteCount();
 
   const [formData, setFormData] = useState({ name: '', phone: '', service: 'gas-fireplace' });
   const [submitted, setSubmitted] = useState(false);
@@ -190,7 +192,7 @@ export const GasFireplaceLogSets: React.FC = () => {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
                   </span>
                   <span className="text-green-800 text-xs font-semibold">
-                    <strong>47 homeowners</strong> requested a quote this week
+                    <strong>{quoteCount} homeowners</strong> requested a quote this week
                   </span>
                 </div>
 

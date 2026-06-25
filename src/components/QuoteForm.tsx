@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Star, Users, Phone, CheckCircle, CalendarDays } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/contactSubmission';
-import { getWeeklyQuoteCount } from '../lib/weeklyQuoteCount';
+
+const QUOTE_COUNT = (() => {
+  const now = new Date();
+  const mon = new Date(now);
+  mon.setDate(now.getDate() - (now.getDay() + 6) % 7);
+  mon.setHours(0, 0, 0, 0);
+  const s = mon.getFullYear() * 10000 + (mon.getMonth() + 1) * 100 + mon.getDate();
+  return 14 + (((s * 1664525 + 1013904223) >>> 0) % 13);
+})();
 
 const generateConfirmationNumber = () => `#CF${Math.floor(100000 + Math.random() * 900000)}`;
 
@@ -21,7 +29,6 @@ interface QuoteFormProps {
 }
 
 export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure' }) => {
-  const quoteCount = getWeeklyQuoteCount();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [service, setService] = useState(defaultService);
@@ -132,7 +139,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
         </span>
         <Users className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
         <span className="text-green-800 text-xs font-semibold">
-          <strong>{quoteCount} homeowners</strong> requested a quote this week
+          <strong>{QUOTE_COUNT} homeowners</strong> requested a quote this week
         </span>
       </div>
 

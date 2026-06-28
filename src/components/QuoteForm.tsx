@@ -51,10 +51,12 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
     const result = await submitQuoteRequest({ phone, service, name });
     setIsSubmitting(false);
     if (result.success) {
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
           event_category: 'quote_form',
-          event_label: service,
+          event_label: service || 'not-specified',
           form_name: 'get_free_consultation',
           value: 1,
           currency: 'USD',

@@ -42,10 +42,12 @@ export const Contact: React.FC = () => {
     setIsSubmitting(false);
 
     if (result.success) {
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
           event_category: 'contact_form',
-          event_label: formData.service,
+          event_label: formData.service || 'not-specified',
           form_name: 'contact_page',
           value: 1,
           currency: 'USD',

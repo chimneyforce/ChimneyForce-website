@@ -66,10 +66,12 @@ export const Hero: React.FC<HeroProps> = ({
     const result = await submitQuoteRequest(formData);
     setIsSubmitting(false);
     if (result.success) {
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
           event_category: 'quote_form',
-          event_label: formData.service,
+          event_label: formData.service || 'not-specified',
           form_name: 'get_free_consultation',
           value: 1,
           currency: 'USD',

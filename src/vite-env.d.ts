@@ -1,3 +1,5 @@
 /// <reference types="vite/client" />
 
-declare function gtag(...args: unknown[]): void;
+interface Window {
+  dataLayer: Record<string, unknown>[];
+}

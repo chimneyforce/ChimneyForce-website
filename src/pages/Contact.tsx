@@ -42,6 +42,15 @@ export const Contact: React.FC = () => {
     setIsSubmitting(false);
 
     if (result.success) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: 'contact_form',
+          event_label: formData.service,
+          form_name: 'contact_page',
+          value: 1,
+          currency: 'USD',
+        });
+      }
       setSubmitted(true);
       setFormData({
         name: '',

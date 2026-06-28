@@ -76,19 +76,6 @@ export async function submitQuoteRequest(
 
     logger.log('Quote request saved successfully');
 
-    // Fire GA4 generate_lead event — Enhanced Measurement misses AJAX forms
-    try {
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
-          event_category: 'quote_form',
-          event_label: formData.service,
-          form_name: 'get_free_consultation',
-          value: 1,
-          currency: 'USD',
-        });
-      }
-    } catch (_) { /* gtag not available */ }
-
     // Send email notification (non-blocking)
     try {
       if (EMAILJS_SERVICE_ID && EMAILJS_BUSINESS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
@@ -162,19 +149,6 @@ export async function submitContactForm(
     }
 
     logger.log('Contact form saved successfully');
-
-    // Fire GA4 generate_lead event — Enhanced Measurement misses AJAX forms
-    try {
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
-          event_category: 'contact_form',
-          event_label: formData.service,
-          form_name: 'contact_page',
-          value: 1,
-          currency: 'USD',
-        });
-      }
-    } catch (_) { /* gtag not available */ }
 
     // Send email notifications (non-blocking)
     try {

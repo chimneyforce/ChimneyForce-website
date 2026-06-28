@@ -49,6 +49,15 @@ export const GasFireplaceLogSets: React.FC = () => {
     const result = await submitQuoteRequest(formData);
     setIsSubmitting(false);
     if (result.success) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: 'quote_form',
+          event_label: formData.service,
+          form_name: 'get_free_consultation',
+          value: 1,
+          currency: 'USD',
+        });
+      }
       setConfirmationNumber('CF' + Date.now().toString().slice(-6));
       setSubmitted(true);
       setTimeout(() => {

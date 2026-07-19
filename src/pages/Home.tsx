@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { ReviewCarousel } from '../components/ReviewCarousel';
 import { QuoteForm } from '../components/QuoteForm';
@@ -7,6 +7,7 @@ import { SEO, createOrganizationSchema, createBreadcrumbSchema, createFAQSchema 
 import { useRegion } from '../context/RegionContext';
 import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
 import { SERVICES } from '../data/servicesData';
+import { parseTitleOverride } from '../lib/titleOverride';
 import {
   Shield, Clock, Phone, CheckCircle, Search, Sparkles,
   Wrench, ArrowRight, Star,
@@ -137,6 +138,8 @@ function TeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
 /* ── Main export ──────────────────────────────────────────── */
 export const Home: React.FC = () => {
   const { region, isCT, isNJ, statePrefix } = useRegion();
+  const [searchParams] = useSearchParams();
+  const titleOverride = parseTitleOverride(searchParams.get('title'));
   const [statsStarted, setStatsStarted] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -204,7 +207,7 @@ export const Home: React.FC = () => {
 
       {/* ── Hero ─────────────────────────────────────────── */}
       <Hero
-        title={getTitle()}
+        title={titleOverride ?? getTitle()}
         backgroundImage="/hero-fireplace.jpg"
         animatedImage="/hero-fireplace.gif"
       />

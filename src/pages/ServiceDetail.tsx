@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useSearchParams } from 'react-router-dom';
 import {
   CheckCircle, Phone, Shield, Award, Star,
   ArrowRight, Users, Sparkles, MapPin, CalendarDays, Info,
@@ -11,6 +11,8 @@ import { ReviewCarousel } from '../components/ReviewCarousel';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
 import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
 import { submitQuoteRequest } from '../lib/contactSubmission';
+import { parseTitleOverride } from '../lib/titleOverride';
+import { resolveCtLocation } from '../lib/ctLocation';
 
 const QUOTE_COUNT = (() => {
   const now = new Date();
@@ -787,6 +789,13 @@ function useCountUp(target: number, duration = 1800, started = false) {
 export const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { region, statePrefix, isCT, isNJ } = useRegion();
+  const [searchParams] = useSearchParams();
+  const titleOverride = parseTitleOverride(searchParams.get('title'));
+  const ctLocation = resolveCtLocation(
+    searchParams.get('loc_interest_ms'),
+    searchParams.get('loc_physical_ms')
+  );
+  const servingLocation = isCT && ctLocation ? `${ctLocation}, CT` : region.regionName;
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   // Stats bar count-up
@@ -898,12 +907,12 @@ export const ServiceDetail: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2 animate-fadeInDown">
                 <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
                   <MapPin className="w-3 h-3 flex-shrink-0" />
-                  Serving {region.regionName}
+                  Serving {servingLocation}
                 </div>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.08] tracking-tight">
-                {content.hero.headline}
+                {titleOverride ?? content.hero.headline}
               </h1>
 
               <p className="text-base md:text-lg font-semibold text-secondary leading-tight">
@@ -1138,7 +1147,7 @@ export const ServiceDetail: React.FC = () => {
                 <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
                   <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
                     <MapPin className="w-3 h-3 flex-shrink-0" />
-                    Serving {region.regionName}
+                    Serving {servingLocation}
                   </div>
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                     {['chimney-inspections', 'chimney-leaks-water-damage', 'chimney-repair-masonry', 'chimney-caps-covers', 'chimney-liners'].includes(slug ?? '') ? 'Starting at $49' : 'Starting at $99'}

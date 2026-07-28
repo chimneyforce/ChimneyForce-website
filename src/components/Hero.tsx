@@ -15,8 +15,6 @@ const QUOTE_COUNT = (() => {
 interface HeroProps {
   title: React.ReactNode;
   subtitle?: string;
-  backgroundImage?: string;
-  animatedImage?: string;
 }
 
 const SERVICE_OPTIONS = [
@@ -39,8 +37,6 @@ const TRUST_CHIPS = [
 
 export const Hero: React.FC<HeroProps> = ({
   title,
-  backgroundImage = '/hero-fireplace.jpg',
-  animatedImage   = '/hero-fireplace.gif',
 }) => {
   const { region } = useRegion();
 
@@ -53,11 +49,11 @@ export const Hero: React.FC<HeroProps> = ({
   const [showAnimated, setShowAnimated] = useState(false);
 
   useEffect(() => {
-    if (staticLoaded && animatedImage) {
+    if (staticLoaded) {
       const t = setTimeout(() => setShowAnimated(true), 120);
       return () => clearTimeout(t);
     }
-  }, [staticLoaded, animatedImage]);
+  }, [staticLoaded]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,30 +105,57 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Background */}
       <div className="absolute inset-0">
         {!staticLoaded && <div className="absolute inset-0 bg-gray-950" />}
-        <img
-          src={backgroundImage}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover"
-          width="1920" height="900"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          onLoad={() => setStaticLoaded(true)}
-          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }}
-        />
-        {animatedImage && (
+        {/* Static fallback poster: responsive WebP via <picture> + srcset */}
+        <picture>
+          <source
+            media="(max-width: 480px)"
+            srcSet="/hero-fireplace-480.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 768px)"
+            srcSet="/hero-fireplace-768.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1280px)"
+            srcSet="/hero-fireplace-1280.webp"
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 1281px)"
+            srcSet="/hero-fireplace-1920.webp"
+            type="image/webp"
+          />
           <img
-            src={animatedImage}
+            src="/hero-fireplace.jpg"
             alt=""
             aria-hidden="true"
-            className="w-full h-full object-cover absolute inset-0 transition-opacity duration-700"
-            style={{ opacity: showAnimated ? 1 : 0 }}
-            loading="lazy"
+            className="w-full h-full object-cover"
+            width="1920" height="900"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
-            onError={(e) => { (e.target as HTMLImageElement).style.opacity = '0'; }}
+            onLoad={() => setStaticLoaded(true)}
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }}
           />
-        )}
+        </picture>
+        {/* Animated fireplace: HTML5 <video> replaces heavy GIF */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover absolute inset-0 transition-opacity duration-700"
+          style={{ opacity: showAnimated ? 1 : 0 }}
+          onCanPlay={() => setShowAnimated(true)}
+          onError={() => { /* video failed — keep static poster visible */ }}
+          aria-hidden="true"
+        >
+          <source src="/hero-fireplace.webm" type="video/webm" />
+          <source src="/hero-fireplace.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

@@ -120,8 +120,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Convenient Scheduling', 'Safety Inspection Included', 'Before & After Photos'],
     },
     beforeAfter: {
-      before: '/Sweep-before.jpeg',
-      after: '/Sweep-after.jpeg',
+      before: '/sweep-before.webp',
+      after: '/sweep-after.webp',
       caption: 'Deep Cleaning & Creosote Removal',
       location: 'West Hartford, CT',
     },
@@ -186,8 +186,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Photo Documentation Included', 'Written Condition Report', 'Honest, No-Pressure Findings'],
     },
     beforeAfter: {
-      before: '/Inspection_Before.jpeg',
-      after: '/inspection-after.jpeg',
+      before: '/inspection-before.webp',
+      after: '/inspection-after.webp',
       caption: 'Level II Camera Inspection',
       location: 'Darien, CT',
     },
@@ -260,8 +260,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Written Condition Report'],
     },
     beforeAfter: {
-      before: '/Chimney_Leak_Before.jpeg',
-      after: '/Chimney_Leak_After.jpeg',
+      before: '/leak-before.webp',
+      after: '/leak-after.webp',
       caption: 'Waterproofing & Leak Repair',
       location: 'Darien, CT',
     },
@@ -334,8 +334,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Written Condition Report'],
     },
     beforeAfter: {
-      before: '/Repair-before.jpg',
-      after: '/Repair-after.jpeg',
+      before: '/repair-before.webp',
+      after: '/repair-after.webp',
       caption: 'Chimney Masonry Repair & Restoration',
       location: 'Greenwich, CT',
     },
@@ -406,8 +406,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Honest Recommendations'],
     },
     beforeAfter: {
-      before: '/Caps_before.jpeg',
-      after: '/Caps_after.jpeg',
+      before: '/caps-before.webp',
+      after: '/caps-after.webp',
       caption: 'Custom Stainless Steel Cap Installation',
       location: 'Westport, CT',
     },
@@ -477,8 +477,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Convenient Scheduling', 'Photo Inspection Included', 'Honest Recommendations'],
     },
     beforeAfter: {
-      before: '/Before_Chimney_Liners.jpeg',
-      after: '/After_Chimney_Liners.jpeg',
+      before: '/liners-before.webp',
+      after: '/liners-after.webp',
       caption: 'Stainless Steel Liner Installation',
       location: 'Fairfield, CT',
     },
@@ -547,8 +547,8 @@ const CONTENT: Record<string, ServiceContent> = {
       bullets: ['Convenient Scheduling', 'Honest Recommendations', 'Clear Next Steps'],
     },
     beforeAfter: {
-      before: '/Gas-before.jpeg',
-      after: '/Gas-after.jpeg',
+      before: '/gas-before.webp',
+      after: '/gas-after.webp',
       caption: 'Gas Fireplace & Log Set Installation',
       location: 'Stamford, CT',
     },
@@ -595,8 +595,8 @@ function fallbackContent(serviceName: string): ServiceContent {
       bullets: ['Convenient Scheduling', 'Photo Documentation Included', 'Labor Guarantee'],
     },
     beforeAfter: {
-      before: '/Sweep-before.jpeg',
-      after: '/Sweep-after.jpeg',
+      before: '/sweep-before.webp',
+      after: '/sweep-after.webp',
       caption: serviceName,
       location: 'CT & NJ',
     },
@@ -880,17 +880,24 @@ export const ServiceDetail: React.FC = () => {
       <div className="relative min-h-[600px] md:min-h-[660px] lg:h-[720px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           {!staticLoaded && <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-700" />}
-          <img src="/hero-fireplace.jpg" alt="" aria-hidden="true"
-            className="w-full h-full object-cover" width="1920" height="720"
-            loading="eager" fetchPriority="high" decoding="async"
-            onLoad={() => setStaticLoaded(true)}
-            style={{ display: showAnimated ? 'none' : 'block' }}
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }} />
+          <picture>
+            <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />
+            <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
+            <source media="(max-width: 1280px)" srcSet="/hero-fireplace-1280.webp" type="image/webp" />
+            <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
+            <img src="/hero-fireplace.jpg" alt="" aria-hidden="true"
+              className="w-full h-full object-cover" width="1920" height="720"
+              loading="eager" fetchPriority="high" decoding="async"
+              onLoad={() => setStaticLoaded(true)}
+              style={{ display: showAnimated ? 'none' : 'block' }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }} />
+          </picture>
           {showAnimated && (
-            <img src="/hero-fireplace.gif" alt="" aria-hidden="true"
-              className="w-full h-full object-cover absolute inset-0"
-              loading="lazy" decoding="async"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <video autoPlay loop muted playsInline preload="auto"
+              className="w-full h-full object-cover absolute inset-0" aria-hidden="true">
+              <source src="/hero-fireplace.webm" type="video/webm" />
+              <source src="/hero-fireplace.mp4" type="video/mp4" />
+            </video>
           )}
           <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
@@ -1044,7 +1051,7 @@ export const ServiceDetail: React.FC = () => {
         <section className="bg-gray-950">
           <div className="relative w-full overflow-hidden">
             <img
-              src="/Add_a_heading_(29).jpg"
+              src="/team-crew.webp"
               alt="Chimney Force crew standing in front of service van"
               className="w-full h-auto block"
               loading="lazy"
@@ -1251,8 +1258,17 @@ export const ServiceDetail: React.FC = () => {
         {/* ── SECTION 9: Final CTA ──────────────────────────── */}
         <section className="py-20 md:py-28 relative overflow-hidden">
           <div className="absolute inset-0">
-            <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
-            <img src="/hero-fireplace.gif" alt="" aria-hidden="true" className="w-full h-full object-cover absolute inset-0" loading="lazy" decoding="async" />
+            <picture>
+              <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />
+              <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
+              <source media="(max-width: 1280px)" srcSet="/hero-fireplace-1280.webp" type="image/webp" />
+              <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
+              <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </picture>
+            <video autoPlay loop muted playsInline preload="auto" className="w-full h-full object-cover absolute inset-0" aria-hidden="true">
+              <source src="/hero-fireplace.webm" type="video/webm" />
+              <source src="/hero-fireplace.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 bg-black/60" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

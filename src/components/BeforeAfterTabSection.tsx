@@ -5,31 +5,31 @@ import { BeforeAfterSlider } from './BeforeAfterSlider';
 const BA_CATEGORIES = [
   {
     label: 'Sweep & Cleaning', icon: Sparkles,
-    slides: [{ before: '/Sweep-before.jpeg', after: '/Sweep-after.jpeg', caption: 'Deep Cleaning & Creosote Removal', location: 'West Hartford, CT' }],
+    slides: [{ before: '/sweep-before.webp', after: '/sweep-after.webp', caption: 'Deep Cleaning & Creosote Removal', location: 'West Hartford, CT' }],
   },
   {
     label: 'Inspections', icon: Search,
-    slides: [{ before: '/Inspection_Before.jpeg', after: '/inspection-after.jpeg', caption: 'Level II Chimney Inspection', location: 'Darien, CT' }],
+    slides: [{ before: '/inspection-before.webp', after: '/inspection-after.webp', caption: 'Level II Chimney Inspection', location: 'Darien, CT' }],
   },
   {
     label: 'Leaks & Water', icon: Droplets,
-    slides: [{ before: '/Chimney_Leak_Before.jpeg', after: '/Chimney_Leak_After.jpeg', caption: 'Waterproofing & Leak Repair', location: 'Darien, CT' }],
+    slides: [{ before: '/leak-before.webp', after: '/leak-after.webp', caption: 'Waterproofing & Leak Repair', location: 'Darien, CT' }],
   },
   {
     label: 'Repair & Masonry', icon: Wrench,
-    slides: [{ before: '/Repair-before.jpg', after: '/Repair-after.jpeg', caption: 'Chimney Repair & Tuckpointing', location: 'Greenwich, CT' }],
+    slides: [{ before: '/repair-before.webp', after: '/repair-after.webp', caption: 'Chimney Repair & Tuckpointing', location: 'Greenwich, CT' }],
   },
   {
     label: 'Caps & Covers', icon: Shield,
-    slides: [{ before: '/Caps_before.jpeg', after: '/Caps_after.jpeg', caption: 'Custom Cap Installation', location: 'Westport, CT' }],
+    slides: [{ before: '/caps-before.webp', after: '/caps-after.webp', caption: 'Custom Cap Installation', location: 'Westport, CT' }],
   },
   {
     label: 'Liners', icon: Layers,
-    slides: [{ before: '/Before_Chimney_Liners.jpeg', after: '/After_Chimney_Liners.jpeg', caption: 'Stainless Steel Liner Install', location: 'Fairfield, CT' }],
+    slides: [{ before: '/liners-before.webp', after: '/liners-after.webp', caption: 'Stainless Steel Liner Install', location: 'Fairfield, CT' }],
   },
   {
     label: 'Gas & Log Sets', icon: Flame,
-    slides: [{ before: '/Gas-before.jpeg', after: '/Gas-after.jpeg', caption: 'Gas Fireplace & Log Set Install', location: 'Stamford, CT' }],
+    slides: [{ before: '/gas-before.webp', after: '/gas-after.webp', caption: 'Gas Fireplace & Log Set Install', location: 'Stamford, CT' }],
   },
 ];
 

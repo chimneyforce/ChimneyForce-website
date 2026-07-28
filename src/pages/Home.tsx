@@ -208,8 +208,6 @@ export const Home: React.FC = () => {
       {/* ── Hero ─────────────────────────────────────────── */}
       <Hero
         title={titleOverride ?? getTitle()}
-        backgroundImage="/hero-fireplace.jpg"
-        animatedImage="/hero-fireplace.gif"
       />
 
       {/* ── Stats bar ────────────────────────────────────── */}
@@ -278,7 +276,7 @@ export const Home: React.FC = () => {
       <section className="bg-gray-950 overflow-hidden">
         <div className="relative">
           <img
-            src="/Add_a_heading_(29).jpg"
+            src="/team-crew.webp"
             alt="Chimney Force crew standing in front of service van"
             className="w-full h-auto block"
             loading="lazy"
@@ -340,8 +338,25 @@ export const Home: React.FC = () => {
       {/* ── Final CTA ────────────────────────────────────── */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
-          <img src="/hero-fireplace.gif" alt="" aria-hidden="true" className="w-full h-full object-cover absolute inset-0" loading="lazy" decoding="async" />
+          <picture>
+            <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />
+            <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
+            <source media="(max-width: 1280px)" srcSet="/hero-fireplace-1280.webp" type="image/webp" />
+            <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
+            <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+          </picture>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover absolute inset-0"
+            aria-hidden="true"
+          >
+            <source src="/hero-fireplace.webm" type="video/webm" />
+            <source src="/hero-fireplace.mp4" type="video/mp4" />
+          </video>
           {/* Base dark veil */}
           <div className="absolute inset-0 bg-black/60" />
           {/* Left-anchored brand gradient so text column stays readable */}

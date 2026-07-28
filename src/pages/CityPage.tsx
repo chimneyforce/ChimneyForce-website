@@ -48,8 +48,6 @@ export const CityPage: React.FC = () => {
       <Hero
         title={cityData.serviceFocus.heroTitle}
         subtitle={`Serving ${cityData.name}, ${cityData.state} with Expert Chimney Solutions`}
-        backgroundImage="/hero-fireplace.jpg"
-        animatedImage="/hero-fireplace.gif"
       />
 
       <section id="main-content" className="py-16 bg-white">

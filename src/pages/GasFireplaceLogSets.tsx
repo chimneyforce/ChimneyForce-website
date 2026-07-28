@@ -118,30 +118,39 @@ export const GasFireplaceLogSets: React.FC = () => {
           {!staticLoaded && (
             <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-700" />
           )}
-          <img
-            src="/hero-fireplace.jpg"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover"
-            width="1920"
-            height="700"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            onLoad={() => setStaticLoaded(true)}
-            style={{ display: showAnimated ? 'none' : 'block' }}
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }}
-          />
-          {showAnimated && (
+          <picture>
+            <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />
+            <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
+            <source media="(max-width: 1280px)" srcSet="/hero-fireplace-1280.webp" type="image/webp" />
+            <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
             <img
-              src="/hero-fireplace.gif"
+              src="/hero-fireplace.jpg"
               alt=""
               aria-hidden="true"
               className="w-full h-full object-cover"
-              loading="lazy"
+              width="1920"
+              height="700"
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              onLoad={() => setStaticLoaded(true)}
+              style={{ display: showAnimated ? 'none' : 'block' }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }}
             />
+          </picture>
+          {showAnimated && (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover absolute inset-0"
+              aria-hidden="true"
+            >
+              <source src="/hero-fireplace.webm" type="video/webm" />
+              <source src="/hero-fireplace.mp4" type="video/mp4" />
+            </video>
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />

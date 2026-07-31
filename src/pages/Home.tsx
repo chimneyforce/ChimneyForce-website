@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Hero } from '../components/Hero';
-import { ReviewCarousel } from '../components/ReviewCarousel';
-import { QuoteForm } from '../components/QuoteForm';
+const ReviewCarousel = lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
+const QuoteForm = lazy(() => import('../components/QuoteForm').then(m => ({ default: m.QuoteForm })));
 import { SEO, createOrganizationSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
-import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
+const BeforeAfterTabSection = lazy(() => import('../components/BeforeAfterTabSection').then(m => ({ default: m.BeforeAfterTabSection })));
 import { SERVICES } from '../data/servicesData';
 import { parseTitleOverride } from '../lib/titleOverride';
 import {
@@ -142,6 +142,8 @@ export const Home: React.FC = () => {
   const titleOverride = parseTitleOverride(searchParams.get('title'));
   const [statsStarted, setStatsStarted] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
+  const ctaSectionRef = useRef<HTMLElement>(null);
+  const [ctaVideoVisible, setCtaVideoVisible] = useState(false);
 
   const yearsCount        = useCountUp(15,    1400, statsStarted);
   const jobsCount         = useCountUp(10000, 2000, statsStarted);
@@ -162,7 +164,12 @@ export const Home: React.FC = () => {
       { threshold: 0.25 }
     );
     if (statsRef.current) statsObserver.observe(statsRef.current);
-    return () => { revealObserver.disconnect(); statsObserver.disconnect(); };
+    const ctaObserver = new IntersectionObserver(
+      (entries) => { if (entries[0].isIntersecting) { setCtaVideoVisible(true); ctaObserver.disconnect(); } },
+      { threshold: 0.1, rootMargin: '200px' }
+    );
+    if (ctaSectionRef.current) ctaObserver.observe(ctaSectionRef.current);
+    return () => { revealObserver.disconnect(); statsObserver.disconnect(); ctaObserver.disconnect(); };
   }, []);
 
   const getTitle = () => (
@@ -292,7 +299,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ── Before / After ───────────────────────────────── */}
-      <BeforeAfterTabSection />
+      <Suspense fallback={null}><BeforeAfterTabSection /></Suspense>
 
       {/* ── Process timeline ─────────────────────────────── */}
       <section className="py-16 md:py-24 bg-white">
@@ -330,13 +337,13 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ── Reviews ──────────────────────────────────────── */}
-      <ReviewCarousel />
+      <Suspense fallback={null}><ReviewCarousel /></Suspense>
 
       {/* ── FAQ ──────────────────────────────────────────── */}
       <FaqSection />
 
       {/* ── Final CTA ────────────────────────────────────── */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
+      <section ref={ctaSectionRef} className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0">
           <picture>
             <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />
@@ -345,18 +352,20 @@ export const Home: React.FC = () => {
             <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
             <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           </picture>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover absolute inset-0"
-            aria-hidden="true"
-          >
-            <source src="/hero-fireplace.webm" type="video/webm" />
-            <source src="/hero-fireplace.mp4" type="video/mp4" />
-          </video>
+          {ctaVideoVisible && (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover absolute inset-0"
+              aria-hidden="true"
+            >
+              <source src="/hero-fireplace.webm" type="video/webm" />
+              <source src="/hero-fireplace.mp4" type="video/mp4" />
+            </video>
+          )}
           {/* Base dark veil */}
           <div className="absolute inset-0 bg-black/60" />
           {/* Left-anchored brand gradient so text column stays readable */}
@@ -422,7 +431,7 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="w-full max-w-lg mx-auto lg:mx-0 reveal reveal-delay-2">
-              <QuoteForm />
+              <Suspense fallback={null}><QuoteForm /></Suspense>
             </div>
           </div>
         </div>

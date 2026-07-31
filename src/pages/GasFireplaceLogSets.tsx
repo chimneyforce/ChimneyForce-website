@@ -144,7 +144,7 @@ export const GasFireplaceLogSets: React.FC = () => {
               loop
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               className="w-full h-full object-cover absolute inset-0"
               aria-hidden="true"
             >

@@ -1,6 +1,3 @@
-import { supabase } from './supabase';
-import emailjs from '@emailjs/browser';
-
 // Development-only logging
 const isDev = import.meta.env.DEV;
 const logger = {
@@ -13,10 +10,6 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_CUSTOMER_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CUSTOMER_TEMPLATE_ID;
 const EMAILJS_BUSINESS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_BUSINESS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-if (EMAILJS_PUBLIC_KEY) {
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-}
 
 export interface QuoteFormData {
   phone: string;
@@ -41,6 +34,8 @@ export async function submitQuoteRequest(
   formData: QuoteFormData
 ): Promise<SubmissionResult> {
   try {
+    const { getSupabase } = await import('./supabase');
+    const supabase = getSupabase();
     if (!supabase) {
       logger.error('Supabase client not initialized');
       return { success: false, error: 'Database connection not available. Please try again later.' };
@@ -76,9 +71,10 @@ export async function submitQuoteRequest(
 
     logger.log('Quote request saved successfully');
 
-    // Send email notification (non-blocking)
     try {
       if (EMAILJS_SERVICE_ID && EMAILJS_BUSINESS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
+        const emailjs = (await import('@emailjs/browser')).default;
+        emailjs.init(EMAILJS_PUBLIC_KEY);
         await emailjs.send(
           EMAILJS_SERVICE_ID,
           EMAILJS_BUSINESS_TEMPLATE_ID,
@@ -96,7 +92,6 @@ export async function submitQuoteRequest(
       }
     } catch (emailError) {
       logger.error('Error sending email notification:', emailError instanceof Error ? emailError.message : String(emailError));
-      // Don't fail the submission if email fails
     }
 
     return { success: true };
@@ -110,6 +105,8 @@ export async function submitContactForm(
   formData: ContactFormData
 ): Promise<SubmissionResult> {
   try {
+    const { getSupabase } = await import('./supabase');
+    const supabase = getSupabase();
     if (!supabase) {
       logger.error('Supabase client not initialized');
       return { success: false, error: 'Database connection not available. Please try again later.' };
@@ -150,10 +147,10 @@ export async function submitContactForm(
 
     logger.log('Contact form saved successfully');
 
-    // Send email notifications (non-blocking)
     try {
       if (EMAILJS_SERVICE_ID && EMAILJS_CUSTOMER_TEMPLATE_ID && EMAILJS_BUSINESS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
-        // Send business notification first
+        const emailjs = (await import('@emailjs/browser')).default;
+        emailjs.init(EMAILJS_PUBLIC_KEY);
         await emailjs.send(
           EMAILJS_SERVICE_ID,
           EMAILJS_BUSINESS_TEMPLATE_ID,
@@ -168,7 +165,6 @@ export async function submitContactForm(
         );
         logger.log('Business notification email sent successfully');
 
-        // Send customer auto-reply
         await emailjs.send(
           EMAILJS_SERVICE_ID,
           EMAILJS_CUSTOMER_TEMPLATE_ID,
@@ -185,7 +181,6 @@ export async function submitContactForm(
       }
     } catch (emailError) {
       logger.error('Error sending email notification:', emailError instanceof Error ? emailError.message : String(emailError));
-      // Don't fail the submission if email fails
     }
 
     return { success: true };

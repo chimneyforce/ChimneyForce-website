@@ -146,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           className="w-full h-full object-cover absolute inset-0 transition-opacity duration-700"
           style={{ opacity: showAnimated ? 1 : 0 }}
           onCanPlay={() => setShowAnimated(true)}

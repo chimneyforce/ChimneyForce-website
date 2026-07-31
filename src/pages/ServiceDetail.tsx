@@ -893,7 +893,7 @@ export const ServiceDetail: React.FC = () => {
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; setStaticLoaded(true); }} />
           </picture>
           {showAnimated && (
-            <video autoPlay loop muted playsInline preload="auto"
+            <video autoPlay loop muted playsInline preload="metadata"
               className="w-full h-full object-cover absolute inset-0" aria-hidden="true">
               <source src="/hero-fireplace.webm" type="video/webm" />
               <source src="/hero-fireplace.mp4" type="video/mp4" />
@@ -1265,7 +1265,7 @@ export const ServiceDetail: React.FC = () => {
               <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
               <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </picture>
-            <video autoPlay loop muted playsInline preload="auto" className="w-full h-full object-cover absolute inset-0" aria-hidden="true">
+            <video autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-cover absolute inset-0" aria-hidden="true">
               <source src="/hero-fireplace.webm" type="video/webm" />
               <source src="/hero-fireplace.mp4" type="video/mp4" />
             </video>

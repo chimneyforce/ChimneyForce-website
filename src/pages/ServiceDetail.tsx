@@ -618,7 +618,7 @@ const SERVICE_OPTIONS = [
   { value: 'other',         label: 'Other' },
 ];
 
-function HeroForm(_: { region: { phoneNumbers: string[] } }) {
+function HeroForm() {
   const [form, setForm] = useState({ name: '', phone: '', service: 'not-sure' });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -967,7 +967,7 @@ export const ServiceDetail: React.FC = () => {
 
             {/* Right: form */}
             <div className="animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-              <HeroForm region={region} />
+              <HeroForm />
             </div>
           </div>
         </div>

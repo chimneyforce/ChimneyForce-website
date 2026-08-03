@@ -283,7 +283,7 @@ export const Home: React.FC = () => {
       <section className="bg-gray-950 overflow-hidden">
         <div className="relative">
           <img
-            src="/team-crew.webp"
+            src="/Chimney-Force-Team-Image.webp"
             alt="Chimney Force crew standing in front of service van"
             className="w-full h-auto block"
             loading="lazy"

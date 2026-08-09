@@ -1,10 +1,11 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { RegionProvider } from './context/RegionContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
+import { loadElfsightPlatform } from './lib/elfsight';
 
 const CityPage = lazy(() => import('./pages/CityPage').then(module => ({ default: module.CityPage })));
 const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })));
@@ -24,6 +25,16 @@ const LoadingFallback = () => (
 );
 
 function App() {
+  useEffect(() => {
+    const idleLoad = () => loadElfsightPlatform().catch(() => {});
+    if ('requestIdleCallback' in window) {
+      const handle = (window as any).requestIdleCallback(idleLoad, { timeout: 4000 });
+      return () => (window as any).cancelIdleCallback(handle);
+    }
+    const timer = setTimeout(idleLoad, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Router>
       <RegionProvider>
@@ -54,7 +65,7 @@ function App() {
                 </Routes>
               </Suspense>
             </main>
-            <div className="elfsight-app-2d926996-85d2-46e4-a94b-2e8f8bffdc68" data-elfsight-app-lazy></div>
+            <div className="elfsight-app-2d926996-85d2-46e4-a94b-2e8f8bffdc68"></div>
             <Footer />
           </div>
         </div>

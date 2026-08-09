@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { Star } from 'lucide-react';
+import { loadElfsightPlatform } from '../lib/elfsight';
 
 export const ReviewCarousel: React.FC = () => {
   useEffect(() => {
-    if (document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) return;
-    const script = document.createElement('script');
-    script.src = 'https://elfsightcdn.com/platform.js';
-    script.async = true;
-    document.body.appendChild(script);
+    loadElfsightPlatform().catch(() => {});
   }, []);
 
   return (

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Menu, X, CalendarDays } from 'lucide-react';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
+import { loadElfsightPlatform } from '../lib/elfsight';
 
 export const Header: React.FC = () => {
   const { region, statePrefix } = useRegion();
@@ -21,7 +22,8 @@ export const Header: React.FC = () => {
   useEffect(() => {
     if (!isBookingOpen) { setWidgetLoaded(false); return; }
 
-    const markLoaded = () => setWidgetLoaded(true);
+    let cancelled = false;
+    const markLoaded = () => { if (!cancelled) setWidgetLoaded(true); };
     window.addEventListener('eapps-widget-rendered', markLoaded);
 
     const poll = setInterval(() => {
@@ -29,12 +31,18 @@ export const Header: React.FC = () => {
       if (el && el.children.length > 0) markLoaded();
     }, 400);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const w = window as any;
-    if (w.eapps?.AppsManager?.reinit) w.eapps.AppsManager.reinit();
+    loadElfsightPlatform()
+      .then(() => {
+        if (cancelled) return;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const w = window as any;
+        if (w.eapps?.AppsManager?.reinit) w.eapps.AppsManager.reinit();
+      })
+      .catch(() => markLoaded());
 
     const fallback = setTimeout(markLoaded, 7000);
     return () => {
+      cancelled = true;
       window.removeEventListener('eapps-widget-rendered', markLoaded);
       clearInterval(poll);
       clearTimeout(fallback);

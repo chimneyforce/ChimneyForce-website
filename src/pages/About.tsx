@@ -46,8 +46,8 @@ export const About: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center mb-16 md:mb-20">
             <div>
               <img
-                src="https://cgpoxvmlrecntospmmss.supabase.co/storage/v1/object/public/website-images/chimney-sweep-professional.jpg"
-                alt="Professional chimney technician with cleaning tools"
+                src="/CF-team.webp"
+                alt="Chimney Force team of certified technicians"
                 className="rounded-2xl shadow-2xl"
               />
             </div>

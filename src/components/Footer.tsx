@@ -18,6 +18,10 @@ export const Footer: React.FC = () => {
                 src="/chimney_force_fin-01.png"
                 alt="Chimney Force - Professional Chimney Services CT & NJ"
                 className="h-16 w-auto group-hover:scale-105 transition-transform duration-300 brightness-0 invert"
+                width="400"
+                height="223"
+                loading="lazy"
+                decoding="async"
               />
             </Link>
             <p className="font-medium text-gray-400 mb-6 leading-relaxed text-base">

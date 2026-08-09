@@ -1054,6 +1054,8 @@ export const ServiceDetail: React.FC = () => {
               src="/CF-team.webp"
               alt="Chimney Force crew standing in front of service van"
               className="w-full h-auto block"
+              width="1400"
+              height="1050"
               loading="lazy"
               decoding="async"
             />

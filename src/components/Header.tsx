@@ -59,6 +59,8 @@ export const Header: React.FC = () => {
                 src="/chimney_force_fin-01.png"
                 alt="Chimney Force - Professional Chimney & Fireplace Services"
                 className="h-16 lg:h-24 w-auto group-hover:scale-105 transition-transform duration-300"
+                width="400"
+                height="223"
               />
             </Link>
 
@@ -281,7 +283,7 @@ export const Header: React.FC = () => {
                 className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-white z-10 px-8 transition-opacity duration-500 pointer-events-none"
                 style={{ opacity: widgetLoaded ? 0 : 1 }}
               >
-                <img src="/chimney_force_fin-01.png" alt="Chimney Force" className="h-16 w-auto opacity-90" />
+                <img src="/chimney_force_fin-01.png" alt="Chimney Force" className="h-16 w-auto opacity-90" width="400" height="223" loading="lazy" decoding="async" />
                 <p className="text-sm font-bold text-gray-500 tracking-wide">Loading booking calendar…</p>
                 <div className="w-full max-w-xs h-1.5 bg-gray-100 rounded-full overflow-hidden">
                   <div className="h-full w-1/4 bg-primary rounded-full animate-loading-bar" />

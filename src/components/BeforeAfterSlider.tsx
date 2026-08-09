@@ -80,6 +80,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
           alt={beforeAlt}
           loading="lazy"
           decoding="async"
+          width="700"
+          height="523"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
@@ -97,6 +99,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
             alt={afterAlt}
             loading="lazy"
             decoding="async"
+            width="700"
+            height="523"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
             onError={(e) => {
               const target = e.target as HTMLImageElement;

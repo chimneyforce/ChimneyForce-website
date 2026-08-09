@@ -49,6 +49,10 @@ export const About: React.FC = () => {
                 src="/CF-team.webp"
                 alt="Chimney Force team of certified technicians"
                 className="rounded-2xl shadow-2xl"
+                width="1400"
+                height="1050"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div>

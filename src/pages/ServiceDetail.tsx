@@ -1051,7 +1051,7 @@ export const ServiceDetail: React.FC = () => {
         <section className="bg-gray-950">
           <div className="relative w-full overflow-hidden">
             <img
-              src="/Chimney-Force-Team-Image.webp"
+              src="/CF-team.webp"
               alt="Chimney Force crew standing in front of service van"
               className="w-full h-auto block"
               loading="lazy"

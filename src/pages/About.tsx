@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
-import { Shield, Package, Users, Clock } from 'lucide-react';
+import { Shield, Package, Users, Clock, CalendarDays, CheckCircle, Star, Phone } from 'lucide-react';
 const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
+const QuoteForm = lazy(() => import('../components/QuoteForm').then(m => ({ default: m.QuoteForm })));
 import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 
@@ -100,6 +101,91 @@ export const About: React.FC = () => {
       </section>
 
       <Suspense fallback={null}><WorkShowcase /></Suspense>
+
+      {/* ── Final CTA ────────────────────────────────────── */}
+      <section className="py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <picture>
+            <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />
+            <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
+            <source media="(max-width: 1280px)" srcSet="/hero-fireplace-1280.webp" type="image/webp" />
+            <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
+            <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" width="1920" height="1080" />
+          </picture>
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-8">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-60" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                </span>
+                <Clock className="w-3.5 h-3.5" />
+                Limited Slots This Week
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-[1.1] mb-5">
+                Ready to Work With a Team{' '}
+                <span className="font-black">You Can Trust?</span>
+              </h2>
+
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8 max-w-lg font-medium">
+                Now that you know who we are, let us show you the difference. Schedule your free inspection and see why over 10,000 homeowners choose Chimney Force.
+              </p>
+
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="fill-secondary text-secondary w-5 h-5" />)}
+                </div>
+                <span className="text-white font-extrabold text-sm">5.0</span>
+                <span className="text-gray-400 text-sm">· 100+ homeowners trust us</span>
+              </div>
+
+              <ul className="space-y-3 mb-10">
+                {[
+                  { icon: <CheckCircle className="w-4 h-4" />, text: 'Licensed, insured & certified technicians' },
+                  { icon: <CheckCircle className="w-4 h-4" />, text: '100% satisfaction guarantee on every job' },
+                  { icon: <CheckCircle className="w-4 h-4" />, text: 'Same-day emergency service available' },
+                  { icon: <CheckCircle className="w-4 h-4" />, text: 'Free consultation — no obligation' },
+                ].map(({ icon, text }) => (
+                  <li key={text} className="flex items-center gap-3 text-gray-300 text-sm font-medium">
+                    <span className="text-secondary flex-shrink-0">{icon}</span>
+                    {text}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
+                  className="inline-flex items-center justify-center gap-3 bg-primary hover:bg-red-700 text-white px-7 py-4 rounded-xl font-extrabold text-sm transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg"
+                >
+                  <CalendarDays className="w-4 h-4" />
+                  Book Now
+                </button>
+                <a
+                  href="tel:+18604796036"
+                  className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-7 py-4 rounded-xl font-extrabold text-sm transition-all duration-200 backdrop-blur-sm border border-white/20"
+                >
+                  <Phone className="w-4 h-4" />
+                  (860) 479-6036
+                </a>
+              </div>
+            </div>
+
+            <div className="w-full max-w-lg mx-auto lg:mx-0">
+              <Suspense fallback={null}><QuoteForm /></Suspense>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

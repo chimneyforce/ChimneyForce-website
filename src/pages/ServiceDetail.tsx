@@ -1058,7 +1058,7 @@ export const ServiceDetail: React.FC = () => {
               loading="lazy"
               decoding="async"
             />
-            <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-8 xl:right-14 w-[38%]">
+            <div className="hidden lg:block absolute bottom-8 xl:bottom-14 left-1/2 -translate-x-1/2 w-[55%] max-w-2xl">
               <div className="rounded-2xl px-6 py-7 shadow-2xl border border-white/10" style={{ backgroundColor: 'rgba(10,10,10,0.92)' }}>
                 <WhyUsContent content={content.whyUs} phone={region.phoneNumbers[0]} />
               </div>

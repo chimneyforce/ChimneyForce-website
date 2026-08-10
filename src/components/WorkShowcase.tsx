@@ -19,7 +19,7 @@ const IMAGES = [
 export function WorkShowcase() {
   return (
     <section className="py-16 md:py-24 bg-gray-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 reveal">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
             <Camera className="w-3.5 h-3.5" />

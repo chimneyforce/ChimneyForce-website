@@ -94,6 +94,8 @@ function MobileCarousel() {
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
+                width="400"
+                height="500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -212,6 +214,8 @@ function DesktopMarquee() {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
                 decoding="async"
+                width="360"
+                height="450"
               />
               {/* Overlay that intensifies on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent transition-opacity duration-300 group-hover:from-black/80" />

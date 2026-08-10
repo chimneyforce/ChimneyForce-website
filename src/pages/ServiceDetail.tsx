@@ -7,8 +7,8 @@ import {
 import { SEO, createServiceSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
-import { ReviewCarousel } from '../components/ReviewCarousel';
-import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
+const ReviewCarousel = React.lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
+const BeforeAfterSlider = React.lazy(() => import('../components/BeforeAfterSlider').then(m => ({ default: m.BeforeAfterSlider })));
 import { submitQuoteRequest } from '../lib/contactSubmission';
 import { parseTitleOverride } from '../lib/titleOverride';
 import { resolveCtLocation } from '../lib/ctLocation';
@@ -1053,8 +1053,8 @@ export const ServiceDetail: React.FC = () => {
               src="/CF-team.webp"
               alt="Chimney Force crew standing in front of service van"
               className="w-full h-auto block"
-              width="1400"
-              height="1050"
+              width="800"
+              height="599"
               loading="lazy"
               decoding="async"
             />
@@ -1110,12 +1110,14 @@ export const ServiceDetail: React.FC = () => {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <BeforeAfterSlider
-                beforeImage={content.beforeAfter.before}
-                afterImage={content.beforeAfter.after}
-                beforeAlt={`Before — ${content.beforeAfter.caption}`}
-                afterAlt={`After — ${content.beforeAfter.caption}`}
-              />
+              <React.Suspense fallback={null}>
+                <BeforeAfterSlider
+                  beforeImage={content.beforeAfter.before}
+                  afterImage={content.beforeAfter.after}
+                  beforeAlt={`Before — ${content.beforeAfter.caption}`}
+                  afterAlt={`After — ${content.beforeAfter.caption}`}
+                />
+              </React.Suspense>
             </div>
             <div className="mt-5 flex items-center gap-2 text-gray-600 text-sm font-medium">
               <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
@@ -1127,7 +1129,9 @@ export const ServiceDetail: React.FC = () => {
         {/* ── SECTION 6: Reviews ────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ReviewCarousel />
+            <React.Suspense fallback={null}>
+              <ReviewCarousel />
+            </React.Suspense>
           </div>
         </section>
 
@@ -1228,7 +1232,7 @@ export const ServiceDetail: React.FC = () => {
                   >
                     <span className="text-sm md:text-base font-bold text-gray-900 leading-snug">{faq.q}</span>
                     <span className={`flex-shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${openFAQ === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'}`}>
-                      <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${openFAQ === i ? 'text-primary -rotate-45' : 'text-gray-400 rotate-45'}`} />
+                      <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${openFAQ === i ? 'text-primary -rotate-45' : 'text-gray-500 rotate-45'}`} />
                     </span>
                   </button>
                   {openFAQ === i && (
@@ -1250,7 +1254,7 @@ export const ServiceDetail: React.FC = () => {
               <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
               <source media="(max-width: 1280px)" srcSet="/hero-fireplace-1280.webp" type="image/webp" />
               <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
-              <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+              <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" width="1920" height="1080" />
             </picture>
             <video autoPlay loop muted playsInline preload="metadata" className="w-full h-full object-cover absolute inset-0" aria-hidden="true">
               <source src="/hero-fireplace.webm" type="video/webm" />

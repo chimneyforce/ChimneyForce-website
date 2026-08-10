@@ -71,7 +71,7 @@ function FaqSection() {
                 <span className={`flex-shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
                   open === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'
                 }`}>
-                  <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${open === i ? 'text-primary -rotate-45' : 'text-gray-400 rotate-45'}`} />
+                  <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${open === i ? 'text-primary -rotate-45' : 'text-gray-500 rotate-45'}`} />
                 </span>
               </button>
               {open === i && (
@@ -286,8 +286,8 @@ export const Home: React.FC = () => {
             src="/CF-team.webp"
             alt="Chimney Force crew standing in front of service van"
             className="w-full h-auto block"
-            width="1400"
-            height="1050"
+            width="800"
+            height="599"
             loading="lazy"
             decoding="async"
           />
@@ -352,7 +352,7 @@ export const Home: React.FC = () => {
             <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
             <source media="(max-width: 1280px)" srcSet="/hero-fireplace-1280.webp" type="image/webp" />
             <source media="(min-width: 1281px)" srcSet="/hero-fireplace-1920.webp" type="image/webp" />
-            <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" width="1920" height="1080" />
           </picture>
           {ctaVideoVisible && (
             <video

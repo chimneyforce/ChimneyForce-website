@@ -269,11 +269,11 @@ export default function AdminReviews() {
           </h2>
 
           {loading ? (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-gray-600">
               Loading reviews...
             </div>
           ) : reviews.length === 0 ? (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-gray-600">
               No reviews yet. Add your first review above!
             </div>
           ) : (
@@ -332,7 +332,7 @@ export default function AdminReviews() {
                   <p className="text-gray-700 text-base leading-relaxed">
                     {review.review_text}
                   </p>
-                  <p className="text-sm text-gray-500 mt-3">
+                  <p className="text-sm text-gray-600 mt-3">
                     Added {new Date(review.created_at).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',

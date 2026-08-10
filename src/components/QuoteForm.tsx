@@ -88,7 +88,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
 
         <div className="p-6 space-y-4">
           <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
-            <p className="text-xs font-extrabold text-gray-400 uppercase tracking-widest mb-1">Confirmation Number</p>
+            <p className="text-xs font-extrabold text-gray-600 uppercase tracking-widest mb-1">Confirmation Number</p>
             <p className="text-2xl font-black text-gray-900">{confirmationNumber}</p>
           </div>
 
@@ -246,7 +246,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
 
         <div className="mt-4 flex items-center justify-center gap-2 bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5">
           <ShieldCheck className="w-4 h-4 text-green-600 flex-shrink-0" />
-          <span className="text-xs font-semibold text-gray-400">No obligation · No spam · 100% private</span>
+          <span className="text-xs font-semibold text-gray-600">No obligation · No spam · 100% private</span>
         </div>
       </div>
     </div>

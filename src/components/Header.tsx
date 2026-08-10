@@ -59,8 +59,8 @@ export const Header: React.FC = () => {
                 src="/chimney_force_fin-01.webp"
                 alt="Chimney Force - Professional Chimney & Fireplace Services"
                 className="h-16 lg:h-24 w-auto group-hover:scale-105 transition-transform duration-300"
-                width="400"
-                height="223"
+                width="220"
+                height="123"
               />
             </Link>
 
@@ -105,7 +105,7 @@ export const Header: React.FC = () => {
                             </div>
                             <div>
                               <div className="text-sm font-bold text-gray-900 leading-tight group-hover/item:text-primary transition-colors">{svc.name}</div>
-                              <div className="text-xs text-gray-400 leading-tight mt-0.5">{svc.tagline}</div>
+                              <div className="text-xs text-gray-500 leading-tight mt-0.5">{svc.tagline}</div>
                             </div>
                           </Link>
                         );
@@ -203,7 +203,7 @@ export const Header: React.FC = () => {
               </Link>
 
               <div className="pt-2 pb-1">
-                <div className="text-xs font-extrabold text-gray-400 uppercase tracking-widest px-3 mb-2">Services</div>
+                <div className="text-xs font-extrabold text-gray-500 uppercase tracking-widest px-3 mb-2">Services</div>
                 {SERVICES.map((svc) => {
                   const Icon = svc.icon;
                   return (
@@ -250,7 +250,7 @@ export const Header: React.FC = () => {
                   <Phone className="w-5 h-5" />
                   <span className="font-extrabold">{region.phoneNumbers[0]}</span>
                 </a>
-                <p className="text-center text-xs text-gray-400 font-medium mt-2">Sun–Thu 8am–8pm · Fri 8am–4:30pm · Emergency 24/7</p>
+                <p className="text-center text-xs text-gray-500 font-medium mt-2">Sun–Thu 8am–8pm · Fri 8am–4:30pm · Emergency 24/7</p>
               </div>
             </nav>
           </div>
@@ -271,7 +271,7 @@ export const Header: React.FC = () => {
               </div>
               <button
                 onClick={() => setIsBookingOpen(false)}
-                className="p-2 rounded-xl hover:bg-gray-100 transition-colors text-gray-500"
+                className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-gray-100 transition-colors text-gray-500"
                 aria-label="Close booking"
               >
                 <X className="w-5 h-5" />
@@ -283,8 +283,8 @@ export const Header: React.FC = () => {
                 className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-white z-10 px-8 transition-opacity duration-500 pointer-events-none"
                 style={{ opacity: widgetLoaded ? 0 : 1 }}
               >
-                <img src="/chimney_force_fin-01.png" alt="Chimney Force" className="h-16 w-auto opacity-90" width="400" height="223" loading="lazy" decoding="async" />
-                <p className="text-sm font-bold text-gray-500 tracking-wide">Loading booking calendar…</p>
+                <img src="/chimney_force_fin-01.webp" alt="Chimney Force" className="h-16 w-auto opacity-90" width="220" height="123" loading="lazy" decoding="async" />
+                <p className="text-sm font-bold text-gray-600 tracking-wide">Loading booking calendar…</p>
                 <div className="w-full max-w-xs h-1.5 bg-gray-100 rounded-full overflow-hidden">
                   <div className="h-full w-1/4 bg-primary rounded-full animate-loading-bar" />
                 </div>

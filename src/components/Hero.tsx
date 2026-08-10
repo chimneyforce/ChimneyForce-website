@@ -251,7 +251,7 @@ export const Hero: React.FC<HeroProps> = ({
                       {formData.name ? `Got it, ${formData.name.split(' ')[0]}!` : 'Request Confirmed!'}
                     </p>
                     <div className="inline-block bg-white border-2 border-green-200 rounded-lg px-4 py-2 my-3">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Confirmation</p>
+                      <p className="text-xs font-bold text-gray-600 uppercase tracking-widest">Confirmation</p>
                       <p className="text-lg font-extrabold text-gray-900">#{confirmationNumber}</p>
                     </div>
                     <p className="text-sm text-gray-600 mb-1">We'll call <strong>{formData.phone}</strong> within 2 hours</p>
@@ -289,7 +289,7 @@ export const Hero: React.FC<HeroProps> = ({
                     )}
 
                     <div>
-                      <label htmlFor="hero-name" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">
+                      <label htmlFor="hero-name" className="block text-xs font-extrabold text-gray-600 uppercase tracking-widest mb-1.5">
                         Your Name *
                       </label>
                       <input
@@ -306,7 +306,7 @@ export const Hero: React.FC<HeroProps> = ({
                     </div>
 
                     <div>
-                      <label htmlFor="hero-phone" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">
+                      <label htmlFor="hero-phone" className="block text-xs font-extrabold text-gray-600 uppercase tracking-widest mb-1.5">
                         Best Phone Number *
                       </label>
                       <div className="relative">
@@ -327,7 +327,7 @@ export const Hero: React.FC<HeroProps> = ({
                     </div>
 
                     <div>
-                      <label htmlFor="hero-service" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">
+                      <label htmlFor="hero-service" className="block text-xs font-extrabold text-gray-600 uppercase tracking-widest mb-1.5">
                         Service Needed
                       </label>
                       <div className="relative">
@@ -371,7 +371,7 @@ export const Hero: React.FC<HeroProps> = ({
 
                     <div className="flex items-center justify-center gap-2 bg-gray-100 rounded-full px-4 py-2">
                       <Shield className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
-                      <span className="text-xs font-semibold text-gray-500">No obligation &nbsp;·&nbsp; No spam &nbsp;·&nbsp; 100% private</span>
+                      <span className="text-xs font-semibold text-gray-600">No obligation &nbsp;·&nbsp; No spam &nbsp;·&nbsp; 100% private</span>
                     </div>
                   </form>
                 )}

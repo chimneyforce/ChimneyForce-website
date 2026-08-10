@@ -19,6 +19,14 @@
     <!-- Preconnect for Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preconnect for third-party tracking -->
+    <link rel="preconnect" href="https://ob.buzzfufighter.com" crossorigin>
+
+    <!-- Preload LCP hero image (mobile) -->
+    <link rel="preload" as="image" type="image/webp" href="/hero-fireplace-480.webp" media="(max-width: 480px)" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" href="/hero-fireplace-768.webp" media="(min-width: 481px) and (max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" href="/hero-fireplace-1280.webp" media="(min-width: 769px) and (max-width: 1280px)" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" href="/hero-fireplace-1920.webp" media="(min-width: 1281px)" fetchpriority="high">
 
     <!-- Async Font Loading - Non-blocking -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -26,12 +34,20 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     </noscript>
 
-    <!-- Preload Critical Assets (logo only — hero image uses responsive WebP via <picture>) -->
-    <link rel="preload" as="image" href="/chimney_force_fin-01.png" fetchpriority="high">
-
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Inline critical above-the-fold styles -->
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth}
+      body{font-family:Montserrat,ui-sans-serif,system-ui,sans-serif;color:#000;background:#fff;overflow-x:clip;-webkit-font-smoothing:antialiased}
+      h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
+      #root{min-height:100svh}
+      .bg-primary{background-color:#e40000}
+      .text-primary{color:#e40000}
+    </style>
   </head>
   <body>
     <noscript><iframe src="https://ob.buzzfufighter.com/ns/7f8b2b3a04dadd1afb951971ee2d9ecf.html?ch=" width="0" height="0" style="display:none"></iframe></noscript>

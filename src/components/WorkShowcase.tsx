@@ -147,7 +147,7 @@ function MobileCarousel() {
 
       {/* Counter */}
       <div className="text-center mt-3">
-        <span className="text-xs font-bold text-gray-400 tabular-nums">
+        <span className="text-xs font-bold text-gray-600 tabular-nums">
           {active + 1} / {IMAGES.length}
         </span>
       </div>

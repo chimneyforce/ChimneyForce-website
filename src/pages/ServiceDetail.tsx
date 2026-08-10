@@ -688,7 +688,7 @@ function HeroForm() {
               {form.name ? `Got it, ${form.name.split(' ')[0]}!` : 'Request Confirmed!'}
             </p>
             <div className="inline-block bg-white border-2 border-green-200 rounded-lg px-4 py-2 my-3">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Confirmation</p>
+              <p className="text-xs font-bold text-gray-600 uppercase tracking-widest">Confirmation</p>
               <p className="text-lg font-extrabold text-gray-900">#{confirmation}</p>
             </div>
             <p className="text-sm text-gray-600 mb-1">We'll call <strong>{form.phone}</strong> within 2 hours</p>
@@ -720,13 +720,13 @@ function HeroForm() {
               </div>
             )}
             <div>
-              <label htmlFor="sd-name" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">Your Name *</label>
+              <label htmlFor="sd-name" className="block text-xs font-extrabold text-gray-600 uppercase tracking-widest mb-1.5">Your Name *</label>
               <input id="sd-name" type="text" name="name" placeholder="John Smith" required autoComplete="given-name"
                 value={form.name} onChange={handleChange}
                 className="w-full px-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all min-h-[52px] hover:border-gray-300 placeholder:text-gray-400 bg-gray-50 focus:bg-white" />
             </div>
             <div>
-              <label htmlFor="sd-phone" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">Best Phone Number *</label>
+              <label htmlFor="sd-phone" className="block text-xs font-extrabold text-gray-600 uppercase tracking-widest mb-1.5">Best Phone Number *</label>
               <div className="relative">
                 <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300 pointer-events-none" />
                 <input id="sd-phone" type="tel" name="phone" placeholder="555-123-4567" required inputMode="tel" autoComplete="tel"
@@ -735,7 +735,7 @@ function HeroForm() {
               </div>
             </div>
             <div>
-              <label htmlFor="sd-service" className="block text-xs font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">Service Needed</label>
+              <label htmlFor="sd-service" className="block text-xs font-extrabold text-gray-600 uppercase tracking-widest mb-1.5">Service Needed</label>
               <div className="relative">
                 <select id="sd-service" name="service" value={form.service} onChange={handleChange}
                   className="w-full px-4 text-sm border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary/15 focus:border-primary font-medium transition-all appearance-none bg-gray-50 focus:bg-white min-h-[52px] hover:border-gray-300 cursor-pointer">

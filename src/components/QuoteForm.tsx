@@ -109,7 +109,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
           </div>
 
           <div className="space-y-2">
-            <p className="text-xs font-extrabold text-gray-500 uppercase tracking-widest text-center">Want to fast-track your request?</p>
+            <p className="text-xs font-extrabold text-gray-600 uppercase tracking-widest text-center">Want to fast-track your request?</p>
             <button
               type="button"
               onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}

@@ -58,7 +58,7 @@ function FaqSection() {
             FAQ
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Common Questions</h2>
-          <p className="mt-3 text-gray-500 font-medium">Everything you need to know before booking.</p>
+          <p className="mt-3 text-gray-600 font-medium">Everything you need to know before booking.</p>
         </div>
         <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
           {FAQ_ITEMS.map((item, i) => (
@@ -75,7 +75,7 @@ function FaqSection() {
                 </span>
               </button>
               {open === i && (
-                <div className="px-5 pb-5 text-sm text-gray-500 leading-relaxed font-medium border-t border-gray-50 bg-gray-50/50 animate-fadeInDown">
+                <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed font-medium border-t border-gray-50 bg-gray-50/50 animate-fadeInDown">
                   <p className="pt-4">{item.a}</p>
                 </div>
               )}
@@ -254,7 +254,7 @@ export const Home: React.FC = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
               How Can We Help?
             </h2>
-            <p className="mt-4 text-gray-500 text-lg font-medium max-w-2xl mx-auto">
+            <p className="mt-4 text-gray-600 text-lg font-medium max-w-2xl mx-auto">
               Select a service to learn more about what we do and how we can help protect your home.
             </p>
           </div>
@@ -312,7 +312,7 @@ export const Home: React.FC = () => {
               Our Process
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">What To Expect</h2>
-            <p className="mt-3 text-gray-500 font-medium">Five easy steps from call to completed job.</p>
+            <p className="mt-3 text-gray-600 font-medium">Five easy steps from call to completed job.</p>
           </div>
 
           <ol className="relative border-l-2 border-gray-100 ml-5 space-y-0">
@@ -331,7 +331,7 @@ export const Home: React.FC = () => {
                   <Icon className="w-4 h-4 text-primary flex-shrink-0" />
                   <h3 className="text-base font-extrabold text-gray-900 leading-tight">{title}</h3>
                 </div>
-                <p className="text-sm text-gray-500 font-medium leading-relaxed">{desc}</p>
+                <p className="text-sm text-gray-600 font-medium leading-relaxed">{desc}</p>
               </li>
             ))}
           </ol>
@@ -405,7 +405,7 @@ export const Home: React.FC = () => {
                   {[...Array(5)].map((_, i) => <Star key={i} className="fill-secondary text-secondary w-5 h-5" />)}
                 </div>
                 <span className="text-white font-extrabold text-sm">5.0</span>
-                <span className="text-gray-500 text-sm">· 100+ homeowners trust us</span>
+                <span className="text-gray-400 text-sm">· 100+ homeowners trust us</span>
               </div>
 
               <ul className="space-y-3 mb-10">

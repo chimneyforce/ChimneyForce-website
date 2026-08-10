@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
           <div>
             <Link to={statePrefix || '/'} className="flex items-center mb-6 group" aria-label="Chimney Force Home">
               <img
-                src="/chimney_force_fin-01.png"
+                src="/chimney_force_fin-01.webp"
                 alt="Chimney Force - Professional Chimney Services CT & NJ"
                 className="h-16 w-auto group-hover:scale-105 transition-transform duration-300 brightness-0 invert"
                 width="400"

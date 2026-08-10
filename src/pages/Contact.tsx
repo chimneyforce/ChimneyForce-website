@@ -226,7 +226,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <label htmlFor="contact-email" className="block text-sm font-bold text-gray-700 mb-2">
-                      Email <span className="text-gray-500 font-normal">(optional)</span>
+                      Email <span className="text-gray-600 font-normal">(optional)</span>
                     </label>
                     <input
                       id="contact-email"
@@ -265,7 +265,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <label htmlFor="contact-message" className="block text-sm font-bold text-gray-700 mb-2">
-                      Anything else we should know? <span className="text-gray-500 font-normal">(optional)</span>
+                      Anything else we should know? <span className="text-gray-600 font-normal">(optional)</span>
                     </label>
                     <textarea
                       id="contact-message"

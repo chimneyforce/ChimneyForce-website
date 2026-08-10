@@ -756,7 +756,7 @@ function HeroForm() {
             </button>
             <div className="flex items-center justify-center gap-2 bg-gray-100 rounded-full px-4 py-2">
               <Shield className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
-              <span className="text-xs font-semibold text-gray-500">No obligation &nbsp;·&nbsp; No spam &nbsp;·&nbsp; 100% private</span>
+              <span className="text-xs font-semibold text-gray-600">No obligation &nbsp;·&nbsp; No spam &nbsp;·&nbsp; 100% private</span>
             </div>
           </form>
         )}
@@ -1012,7 +1012,7 @@ export const ServiceDetail: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
                 {content.needSection.title}
               </h2>
-              <p className="mt-3 text-gray-500 text-base max-w-xl mx-auto">If any of these sound familiar, it's worth getting a professional look.</p>
+              <p className="mt-3 text-gray-600 text-base max-w-xl mx-auto">If any of these sound familiar, it's worth getting a professional look.</p>
             </div>
 
             {/* Signs grid */}
@@ -1040,7 +1040,7 @@ export const ServiceDetail: React.FC = () => {
                 <CalendarDays className="w-5 h-5" />
                 {content.needSection.ctaLabel}
               </button>
-              <p className="text-xs text-gray-400 font-medium">Same-week appointments available</p>
+              <p className="text-xs text-gray-600 font-medium">Same-week appointments available</p>
             </div>
 
           </div>
@@ -1105,7 +1105,7 @@ export const ServiceDetail: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
                 Before &amp; After
               </h2>
-              <p className="mt-3 text-gray-500 font-medium max-w-xl mx-auto">
+              <p className="mt-3 text-gray-600 font-medium max-w-xl mx-auto">
                 Drag the slider to reveal the transformation — real jobs, real results.
               </p>
             </div>
@@ -1117,7 +1117,7 @@ export const ServiceDetail: React.FC = () => {
                 afterAlt={`After — ${content.beforeAfter.caption}`}
               />
             </div>
-            <div className="mt-5 flex items-center gap-2 text-gray-500 text-sm font-medium">
+            <div className="mt-5 flex items-center gap-2 text-gray-600 text-sm font-medium">
               <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
               <span>{content.beforeAfter.caption} · {content.beforeAfter.location}</span>
             </div>
@@ -1216,7 +1216,7 @@ export const ServiceDetail: React.FC = () => {
                 FAQ
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Common Questions</h2>
-              <p className="mt-3 text-gray-500 font-medium">Everything you need to know before booking.</p>
+              <p className="mt-3 text-gray-600 font-medium">Everything you need to know before booking.</p>
             </div>
             <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
               {content.faqs.map((faq, i) => (
@@ -1232,7 +1232,7 @@ export const ServiceDetail: React.FC = () => {
                     </span>
                   </button>
                   {openFAQ === i && (
-                    <div className="px-5 pb-5 text-sm text-gray-500 leading-relaxed font-medium border-t border-gray-50 bg-gray-50/50 animate-fadeInDown">
+                    <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed font-medium border-t border-gray-50 bg-gray-50/50 animate-fadeInDown">
                       <p className="pt-4">{faq.a}</p>
                     </div>
                   )}

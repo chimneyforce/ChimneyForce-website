@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Shield, Package, Users, Clock } from 'lucide-react';
-import { WorkShowcase } from '../components/WorkShowcase';
+const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 
@@ -98,7 +98,7 @@ export const About: React.FC = () => {
         </div>
       </section>
 
-      <WorkShowcase />
+      <Suspense fallback={null}><WorkShowcase /></Suspense>
     </div>
   );
 };

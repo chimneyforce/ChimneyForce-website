@@ -31,7 +31,7 @@ export function WorkShowcase() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
             Quality You Can <span className="text-primary">See</span>
           </h2>
-          <p className="mt-4 text-gray-500 text-lg font-medium max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-600 text-lg font-medium max-w-2xl mx-auto">
             Real projects completed by our team — from chimney repairs to full fireplace installations.
           </p>
         </div>
@@ -113,9 +113,9 @@ function MobileCarousel() {
           onClick={goPrev}
           disabled={active === 0}
           aria-label="Previous image"
-          className="w-9 h-9 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 disabled:opacity-30 transition-all hover:bg-gray-200 active:scale-95"
+          className="w-11 h-11 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 disabled:opacity-30 transition-all hover:bg-gray-200 active:scale-95"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-5 h-5" />
         </button>
 
         <div className="flex items-center gap-1.5">
@@ -124,12 +124,14 @@ function MobileCarousel() {
               key={i}
               aria-label={`Go to image ${i + 1}`}
               onClick={() => scrollTo(i)}
-              className={`rounded-full transition-all duration-300 ${
+              className="relative min-w-[44px] min-h-[44px] flex items-center justify-center"
+            >
+              <span className={`block rounded-full transition-all duration-300 ${
                 i === active
                   ? 'w-7 h-2 bg-primary'
                   : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
-              }`}
-            />
+              }`} />
+            </button>
           ))}
         </div>
 
@@ -137,9 +139,9 @@ function MobileCarousel() {
           onClick={goNext}
           disabled={active === IMAGES.length - 1}
           aria-label="Next image"
-          className="w-9 h-9 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 disabled:opacity-30 transition-all hover:bg-gray-200 active:scale-95"
+          className="w-11 h-11 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 disabled:opacity-30 transition-all hover:bg-gray-200 active:scale-95"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-5 h-5" />
         </button>
       </div>
 

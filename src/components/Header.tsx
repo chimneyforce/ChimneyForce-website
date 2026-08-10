@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center justify-between h-20 lg:h-28">
             <Link to={statePrefix || '/'} className="flex items-center group" aria-label="Chimney Force Home">
               <img
-                src="/chimney_force_fin-01.png"
+                src="/chimney_force_fin-01.webp"
                 alt="Chimney Force - Professional Chimney & Fireplace Services"
                 className="h-16 lg:h-24 w-auto group-hover:scale-105 transition-transform duration-300"
                 width="400"

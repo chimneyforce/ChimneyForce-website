@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { RegionProvider } from './context/RegionContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { FloatingReviewBadge } from './components/FloatingReviewBadge';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 
@@ -55,7 +54,7 @@ function App() {
                 </Routes>
               </Suspense>
             </main>
-            <FloatingReviewBadge />
+            <div className="elfsight-app-2d926996-85d2-46e4-a94b-2e8f8bffdc68"></div>
             <Footer />
           </div>
         </div>

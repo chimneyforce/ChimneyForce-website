@@ -18,20 +18,20 @@ const IMAGES = [
 
 export function WorkShowcase() {
   return (
-    <section className="py-16 md:py-24 bg-gray-950 overflow-hidden relative">
+    <section className="py-16 md:py-24 bg-white overflow-hidden relative">
       {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-14 relative z-10">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 text-white px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5 border border-white/10">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5">
             <Camera className="w-3.5 h-3.5" />
             Our Work
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
             Quality You Can <span className="text-primary">See</span>
           </h2>
-          <p className="mt-4 text-gray-400 text-lg font-medium max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-500 text-lg font-medium max-w-2xl mx-auto">
             Real projects completed by our team — from chimney repairs to full fireplace installations.
           </p>
         </div>
@@ -85,7 +85,7 @@ function MobileCarousel() {
           <div
             key={i}
             className="snap-center flex-shrink-0 w-[78vw] sm:w-[55vw] relative rounded-2xl overflow-hidden"
-            style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}
+            style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.12)' }}
           >
             <div className="relative aspect-[4/3]">
               <img
@@ -113,7 +113,7 @@ function MobileCarousel() {
           onClick={goPrev}
           disabled={active === 0}
           aria-label="Previous image"
-          className="w-9 h-9 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 transition-all hover:bg-white/20 active:scale-95"
+          className="w-9 h-9 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 disabled:opacity-30 transition-all hover:bg-gray-200 active:scale-95"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
@@ -127,7 +127,7 @@ function MobileCarousel() {
               className={`rounded-full transition-all duration-300 ${
                 i === active
                   ? 'w-7 h-2 bg-primary'
-                  : 'w-2 h-2 bg-white/25 hover:bg-white/40'
+                  : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
               }`}
             />
           ))}
@@ -137,7 +137,7 @@ function MobileCarousel() {
           onClick={goNext}
           disabled={active === IMAGES.length - 1}
           aria-label="Next image"
-          className="w-9 h-9 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 transition-all hover:bg-white/20 active:scale-95"
+          className="w-9 h-9 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-700 disabled:opacity-30 transition-all hover:bg-gray-200 active:scale-95"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
@@ -145,7 +145,7 @@ function MobileCarousel() {
 
       {/* Counter */}
       <div className="text-center mt-3">
-        <span className="text-xs font-bold text-white/40 tabular-nums">
+        <span className="text-xs font-bold text-gray-400 tabular-nums">
           {active + 1} / {IMAGES.length}
         </span>
       </div>
@@ -189,8 +189,8 @@ function DesktopMarquee() {
       onMouseLeave={() => { pausedRef.current = false; }}
     >
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-950 to-transparent z-20 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-950 to-transparent z-20 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
 
       <div
         ref={trackRef}
@@ -201,7 +201,7 @@ function DesktopMarquee() {
           <div
             key={i}
             className="relative flex-shrink-0 w-[360px] rounded-2xl overflow-hidden group cursor-pointer"
-            style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}
+            style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.12)' }}
           >
             <div className="relative aspect-[3/2]">
               <img

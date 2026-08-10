@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, Package, Users, Clock } from 'lucide-react';
+import { WorkShowcase } from '../components/WorkShowcase';
 import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 
@@ -96,6 +97,8 @@ export const About: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <WorkShowcase />
     </div>
   );
 };

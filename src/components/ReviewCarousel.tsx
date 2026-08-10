@@ -1,30 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Star } from 'lucide-react';
-import { loadElfsightPlatform } from '../lib/elfsight';
 
 export const ReviewCarousel: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          loadElfsightPlatform().catch(() => {});
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="py-14 md:py-20 bg-gradient-to-br from-red-50 via-white to-rose-50 relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-gradient-to-br from-red-50 via-white to-rose-50 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(circle, #fee2e2 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
       <div className="absolute top-0 right-0 w-96 h-96 bg-red-100/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-100/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />

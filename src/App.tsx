@@ -1,10 +1,11 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { RegionProvider } from './context/RegionContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
+import { loadElfsightPlatform } from './lib/elfsight';
 
 const CityPage = lazy(() => import('./pages/CityPage').then(module => ({ default: module.CityPage })));
 const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })));
@@ -24,6 +25,15 @@ const LoadingFallback = () => (
 );
 
 function App() {
+  useEffect(() => {
+    if (typeof requestIdleCallback === 'function') {
+      const handle = requestIdleCallback(() => loadElfsightPlatform().catch(() => {}), { timeout: 2000 });
+      return () => cancelIdleCallback(handle);
+    }
+    const handle = setTimeout(() => loadElfsightPlatform().catch(() => {}), 1500);
+    return () => clearTimeout(handle);
+  }, []);
+
   return (
     <Router>
       <RegionProvider>

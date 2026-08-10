@@ -61,6 +61,8 @@ export const Header: React.FC = () => {
                 className="h-16 lg:h-24 w-auto group-hover:scale-105 transition-transform duration-300"
                 width="220"
                 height="123"
+                loading="eager"
+                fetchPriority="high"
               />
             </Link>
 
@@ -105,7 +107,7 @@ export const Header: React.FC = () => {
                             </div>
                             <div>
                               <div className="text-sm font-bold text-gray-900 leading-tight group-hover/item:text-primary transition-colors">{svc.name}</div>
-                              <div className="text-xs text-gray-500 leading-tight mt-0.5">{svc.tagline}</div>
+                              <div className="text-xs text-gray-600 leading-tight mt-0.5">{svc.tagline}</div>
                             </div>
                           </Link>
                         );
@@ -250,7 +252,7 @@ export const Header: React.FC = () => {
                   <Phone className="w-5 h-5" />
                   <span className="font-extrabold">{region.phoneNumbers[0]}</span>
                 </a>
-                <p className="text-center text-xs text-gray-500 font-medium mt-2">Sun–Thu 8am–8pm · Fri 8am–4:30pm · Emergency 24/7</p>
+                <p className="text-center text-xs text-gray-600 font-medium mt-2">Sun–Thu 8am–8pm · Fri 8am–4:30pm · Emergency 24/7</p>
               </div>
             </nav>
           </div>

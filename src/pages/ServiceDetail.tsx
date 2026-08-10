@@ -1232,7 +1232,7 @@ export const ServiceDetail: React.FC = () => {
                   >
                     <span className="text-sm md:text-base font-bold text-gray-900 leading-snug">{faq.q}</span>
                     <span className={`flex-shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${openFAQ === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'}`}>
-                      <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${openFAQ === i ? 'text-primary -rotate-45' : 'text-gray-500 rotate-45'}`} />
+                      <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${openFAQ === i ? 'text-primary -rotate-45' : 'text-gray-600 rotate-45'}`} />
                     </span>
                   </button>
                   {openFAQ === i && (

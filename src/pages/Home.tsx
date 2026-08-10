@@ -71,7 +71,7 @@ function FaqSection() {
                 <span className={`flex-shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
                   open === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'
                 }`}>
-                  <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${open === i ? 'text-primary -rotate-45' : 'text-gray-500 rotate-45'}`} />
+                  <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${open === i ? 'text-primary -rotate-45' : 'text-gray-600 rotate-45'}`} />
                 </span>
               </button>
               {open === i && (

@@ -5,7 +5,7 @@ const ReviewCarousel = lazy(() => import('../components/ReviewCarousel').then(m 
 const QuoteForm = lazy(() => import('../components/QuoteForm').then(m => ({ default: m.QuoteForm })));
 import { SEO, createOrganizationSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
-const BeforeAfterTabSection = lazy(() => import('../components/BeforeAfterTabSection').then(m => ({ default: m.BeforeAfterTabSection })));
+const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 import { SERVICES } from '../data/servicesData';
 import { parseTitleOverride } from '../lib/titleOverride';
 import {
@@ -300,8 +300,8 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* ── Before / After ───────────────────────────────── */}
-      <Suspense fallback={null}><BeforeAfterTabSection /></Suspense>
+      {/* ── Work showcase ───────────────────────────────── */}
+      <Suspense fallback={null}><WorkShowcase /></Suspense>
 
       {/* ── Process timeline ─────────────────────────────── */}
       <section className="py-16 md:py-24 bg-white">

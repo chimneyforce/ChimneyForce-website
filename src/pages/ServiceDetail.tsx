@@ -9,7 +9,6 @@ import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { ReviewCarousel } from '../components/ReviewCarousel';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
-import { BeforeAfterTabSection } from '../components/BeforeAfterTabSection';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 import { parseTitleOverride } from '../lib/titleOverride';
 import { resolveCtLocation } from '../lib/ctLocation';
@@ -1096,19 +1095,6 @@ export const ServiceDetail: React.FC = () => {
         </section>
 
         {/* ── SECTION 5: Before & After ─────────────────────── */}
-        {slug === 'chimney-inspections' ? (
-          <BeforeAfterTabSection defaultTab={1} />
-        ) : slug === 'chimney-repair-masonry' ? (
-          <BeforeAfterTabSection defaultTab={3} singleTab />
-        ) : slug === 'chimney-caps-covers' ? (
-          <BeforeAfterTabSection defaultTab={4} singleTab />
-        ) : slug === 'chimney-liners' ? (
-          <BeforeAfterTabSection defaultTab={5} singleTab />
-        ) : slug === 'gas-fireplace-log-sets' ? (
-          <BeforeAfterTabSection defaultTab={6} singleTab />
-        ) : slug === 'chimney-leaks-water-damage' ? (
-          <BeforeAfterTabSection defaultTab={2} singleTab />
-        ) : (
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
@@ -1137,7 +1123,6 @@ export const ServiceDetail: React.FC = () => {
             </div>
           </div>
         </section>
-        )}
 
         {/* ── SECTION 6: Reviews ────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white">

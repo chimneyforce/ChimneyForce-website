@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Camera } from 'lucide-react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { Camera, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const IMAGES = [
   { src: '/chimney-crown-rebuild.webp', label: 'Chimney Crown Rebuild' },
@@ -18,29 +18,32 @@ const IMAGES = [
 
 export function WorkShowcase() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+    <section className="py-16 md:py-24 bg-gray-950 overflow-hidden relative">
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-14 relative z-10">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 text-white px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5 border border-white/10">
             <Camera className="w-3.5 h-3.5" />
             Our Work
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Quality You Can See
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+            Quality You Can <span className="text-primary">See</span>
           </h2>
-          <p className="mt-4 text-gray-500 text-lg font-medium max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-400 text-lg font-medium max-w-2xl mx-auto">
             Real projects completed by our team — from chimney repairs to full fireplace installations.
           </p>
         </div>
       </div>
 
-      {/* Mobile: snap-scroll strip */}
       <MobileCarousel />
-      {/* Desktop: infinite auto-scroll */}
       <DesktopMarquee />
     </section>
   );
 }
+
+/* ─── Mobile: full-bleed snap carousel with arrows ─── */
 
 function MobileCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -50,111 +53,178 @@ function MobileCarousel() {
     const el = scrollRef.current;
     if (!el) return;
     const onScroll = () => {
-      const idx = Math.round(el.scrollLeft / (el.scrollWidth / IMAGES.length));
-      setActive(Math.min(idx, IMAGES.length - 1));
+      const gap = 16;
+      const cardW = el.firstElementChild
+        ? (el.firstElementChild as HTMLElement).offsetWidth + gap
+        : 1;
+      const idx = Math.round(el.scrollLeft / cardW);
+      setActive(Math.min(Math.max(idx, 0), IMAGES.length - 1));
     };
     el.addEventListener('scroll', onScroll, { passive: true });
     return () => el.removeEventListener('scroll', onScroll);
   }, []);
 
+  const scrollTo = useCallback((idx: number) => {
+    const el = scrollRef.current;
+    if (!el || !el.firstElementChild) return;
+    const gap = 16;
+    const cardW = (el.firstElementChild as HTMLElement).offsetWidth + gap;
+    el.scrollTo({ left: cardW * idx, behavior: 'smooth' });
+  }, []);
+
+  const goPrev = () => scrollTo(Math.max(0, active - 1));
+  const goNext = () => scrollTo(Math.min(IMAGES.length - 1, active + 1));
+
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden relative z-10">
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4"
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-5 pb-2"
       >
         {IMAGES.map((img, i) => (
           <div
             key={i}
-            className="snap-center flex-shrink-0 w-[80vw] sm:w-[60vw] relative group rounded-2xl overflow-hidden shadow-lg"
+            className="snap-center flex-shrink-0 w-[78vw] sm:w-[55vw] relative rounded-2xl overflow-hidden"
+            style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}
           >
-            <img
-              src={img.src}
-              alt={img.label}
-              className="w-full h-64 sm:h-72 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <span className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
-              {img.label}
-            </span>
+            <div className="relative aspect-[4/3]">
+              <img
+                src={img.src}
+                alt={img.label}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span className="inline-flex items-center gap-1.5 bg-white text-gray-900 text-[11px] font-extrabold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wide">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  {img.label}
+                </span>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-1.5 mt-4">
-        {IMAGES.map((_, i) => (
-          <button
-            key={i}
-            aria-label={`Go to image ${i + 1}`}
-            onClick={() => {
-              const el = scrollRef.current;
-              if (!el) return;
-              const cardWidth = el.scrollWidth / IMAGES.length;
-              el.scrollTo({ left: cardWidth * i, behavior: 'smooth' });
-            }}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === active ? 'w-6 bg-primary' : 'w-1.5 bg-gray-300'
-            }`}
-          />
-        ))}
+
+      {/* Navigation row: arrows + dots */}
+      <div className="flex items-center justify-center gap-4 mt-5 px-5">
+        <button
+          onClick={goPrev}
+          disabled={active === 0}
+          aria-label="Previous image"
+          className="w-9 h-9 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 transition-all hover:bg-white/20 active:scale-95"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        <div className="flex items-center gap-1.5">
+          {IMAGES.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to image ${i + 1}`}
+              onClick={() => scrollTo(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === active
+                  ? 'w-7 h-2 bg-primary'
+                  : 'w-2 h-2 bg-white/25 hover:bg-white/40'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={goNext}
+          disabled={active === IMAGES.length - 1}
+          aria-label="Next image"
+          className="w-9 h-9 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 transition-all hover:bg-white/20 active:scale-95"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Counter */}
+      <div className="text-center mt-3">
+        <span className="text-xs font-bold text-white/40 tabular-nums">
+          {active + 1} / {IMAGES.length}
+        </span>
       </div>
     </div>
   );
 }
 
+/* ─── Desktop: infinite marquee with hover pause + image lightbox ─── */
+
 function DesktopMarquee() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(false);
+  const posRef = useRef(0);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
     let raf: number;
-    let pos = 0;
-    const speed = 0.5; // px per frame
-
+    const speed = 0.6;
     const singleSetWidth = track.scrollWidth / 2;
 
     const step = () => {
-      if (!paused) {
-        pos += speed;
-        if (pos >= singleSetWidth) pos = 0;
-        track.style.transform = `translateX(-${pos}px)`;
+      if (!pausedRef.current) {
+        posRef.current += speed;
+        if (posRef.current >= singleSetWidth) posRef.current = 0;
+        track.style.transform = `translate3d(-${posRef.current}px, 0, 0)`;
       }
       raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [paused]);
+  }, []);
 
   const doubled = [...IMAGES, ...IMAGES];
 
   return (
     <div
-      className="hidden lg:block overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      className="hidden lg:block overflow-hidden relative z-10"
+      onMouseEnter={() => { pausedRef.current = true; }}
+      onMouseLeave={() => { pausedRef.current = false; }}
     >
-      <div ref={trackRef} className="flex gap-5 will-change-transform" style={{ width: 'max-content' }}>
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-950 to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-950 to-transparent z-20 pointer-events-none" />
+
+      <div
+        ref={trackRef}
+        className="flex gap-5 will-change-transform"
+        style={{ width: 'max-content' }}
+      >
         {doubled.map((img, i) => (
           <div
             key={i}
-            className="relative flex-shrink-0 w-[340px] h-[240px] rounded-2xl overflow-hidden group cursor-pointer shadow-lg"
+            className="relative flex-shrink-0 w-[360px] rounded-2xl overflow-hidden group cursor-pointer"
+            style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}
           >
-            <img
-              src={img.src}
-              alt={img.label}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow-sm transition-transform duration-300 group-hover:translate-y-0 translate-y-0">
-              {img.label}
-            </span>
+            <div className="relative aspect-[3/2]">
+              <img
+                src={img.src}
+                alt={img.label}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+              {/* Overlay that intensifies on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent transition-opacity duration-300 group-hover:from-black/80" />
+
+              {/* Pill label */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+                <span className="inline-flex items-center gap-1.5 bg-white text-gray-900 text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-lg uppercase tracking-wide transition-transform duration-300 group-hover:-translate-y-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  {img.label}
+                </span>
+              </div>
+
+              {/* Subtle top-right shine on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-bl from-white/5 via-transparent to-transparent" />
+            </div>
           </div>
         ))}
       </div>

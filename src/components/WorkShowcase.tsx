@@ -87,7 +87,7 @@ function MobileCarousel() {
             className="snap-center flex-shrink-0 w-[78vw] sm:w-[55vw] relative rounded-2xl overflow-hidden"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.12)' }}
           >
-            <div className="relative aspect-[4/3]">
+            <div className="relative aspect-[4/5]">
               <img
                 src={img.src}
                 alt={img.label}
@@ -203,7 +203,7 @@ function DesktopMarquee() {
             className="relative flex-shrink-0 w-[360px] rounded-2xl overflow-hidden group cursor-pointer"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.12)' }}
           >
-            <div className="relative aspect-[3/2]">
+            <div className="relative aspect-[4/5]">
               <img
                 src={img.src}
                 alt={img.label}

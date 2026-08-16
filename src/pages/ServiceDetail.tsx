@@ -8,7 +8,7 @@ import { SEO, createServiceSchema, createBreadcrumbSchema, createFAQSchema } fro
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 const ReviewCarousel = React.lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
-const BeforeAfterSlider = React.lazy(() => import('../components/BeforeAfterSlider').then(m => ({ default: m.BeforeAfterSlider })));
+const WorkShowcase = React.lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 import { submitQuoteRequest } from '../lib/contactSubmission';
 import { parseTitleOverride } from '../lib/titleOverride';
 import { resolveCtLocation } from '../lib/ctLocation';
@@ -1094,37 +1094,10 @@ export const ServiceDetail: React.FC = () => {
           </div>
         </section>
 
-        {/* ── SECTION 5: Before & After ─────────────────────── */}
-        <section className="py-16 md:py-24 bg-gray-50">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-secondary/15 text-secondary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4 border border-secondary/20">
-                <Sparkles className="w-3.5 h-3.5" />
-                Real Results
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-                Before &amp; After
-              </h2>
-              <p className="mt-3 text-gray-600 font-medium max-w-xl mx-auto">
-                Drag the slider to reveal the transformation — real jobs, real results.
-              </p>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <React.Suspense fallback={null}>
-                <BeforeAfterSlider
-                  beforeImage={content.beforeAfter.before}
-                  afterImage={content.beforeAfter.after}
-                  beforeAlt={`Before — ${content.beforeAfter.caption}`}
-                  afterAlt={`After — ${content.beforeAfter.caption}`}
-                />
-              </React.Suspense>
-            </div>
-            <div className="mt-5 flex items-center gap-2 text-gray-600 text-sm font-medium">
-              <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>{content.beforeAfter.caption} · {content.beforeAfter.location}</span>
-            </div>
-          </div>
-        </section>
+        {/* ── SECTION 5: Our Work Gallery ─────────────────────── */}
+        <React.Suspense fallback={null}>
+          <WorkShowcase />
+        </React.Suspense>
 
         {/* ── SECTION 6: Reviews ────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white">

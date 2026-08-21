@@ -65,19 +65,89 @@ export const Sitemap: React.FC = () => {
               </ul>
             </div>
 
-            {/* Services */}
+            {/* Connecticut Services */}
             <div className="bg-white p-6 rounded-2xl shadow-lg">
               <div className="flex items-center mb-4">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
                   <Wrench className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-xl font-extrabold text-black">Services</h2>
+                <h2 className="text-xl font-extrabold text-black">Connecticut Services</h2>
               </div>
               <ul className="space-y-2">
+                <li>
+                  <Link
+                    to="/ct"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    CT Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ct/about"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    CT About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ct/contact"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    CT Contact
+                  </Link>
+                </li>
                 {SERVICES.map((service) => (
                   <li key={service.slug}>
                     <Link
-                      to={`${statePrefix}/services/${service.slug}`}
+                      to={`/ct/services/${service.slug}`}
+                      className="text-primary hover:text-red-700 font-bold hover:underline"
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* New Jersey Services */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                  <Wrench className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-xl font-extrabold text-black">New Jersey Services</h2>
+              </div>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    to="/nj"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    NJ Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/nj/about"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    NJ About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/nj/contact"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    NJ Contact
+                  </Link>
+                </li>
+                {SERVICES.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      to={`/nj/services/${service.slug}`}
                       className="text-primary hover:text-red-700 font-bold hover:underline"
                     >
                       {service.name}
@@ -93,9 +163,9 @@ export const Sitemap: React.FC = () => {
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-xl font-extrabold text-black">Connecticut</h2>
+                <h2 className="text-xl font-extrabold text-black">Connecticut Cities</h2>
               </div>
-              <ul className="space-y-2 max-h-64 overflow-y-auto">
+              <ul className="space-y-2">
                 {CT_CITIES.map((city) => (
                   <li key={city.slug}>
                     <Link
@@ -115,9 +185,9 @@ export const Sitemap: React.FC = () => {
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-xl font-extrabold text-black">New Jersey</h2>
+                <h2 className="text-xl font-extrabold text-black">New Jersey Cities</h2>
               </div>
-              <ul className="space-y-2 max-h-64 overflow-y-auto">
+              <ul className="space-y-2">
                 {NJ_CITIES.map((city) => (
                   <li key={city.slug}>
                     <Link

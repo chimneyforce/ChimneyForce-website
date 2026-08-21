@@ -1000,6 +1000,23 @@ export const ServiceDetail: React.FC = () => {
 
       <main id="main-content">
 
+        {/* ── Community discount bar ─────────────────────────── */}
+        <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 border-y border-emerald-700/40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-3.5">
+            <div className="flex items-center justify-center gap-3 sm:gap-5">
+              <USAFlag className="w-7 h-5 flex-shrink-0" />
+              <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
+                <span className="text-white font-extrabold text-sm md:text-base tracking-tight">6% Discount</span>
+                <span className="hidden sm:inline text-emerald-500">|</span>
+                <span className="text-emerald-200/90 text-xs md:text-sm font-medium">
+                  Veterans, Active Duty Military & Teachers
+                </span>
+              </div>
+              <USAFlag className="w-7 h-5 flex-shrink-0 hidden sm:block" />
+            </div>
+          </div>
+        </div>
+
         {/* ── SECTION 2: Do I Need A Chimney Sweep? ─────────── */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

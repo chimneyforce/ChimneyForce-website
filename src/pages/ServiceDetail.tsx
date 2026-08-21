@@ -1191,7 +1191,39 @@ export const ServiceDetail: React.FC = () => {
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 to-emerald-800 p-8 md:p-10 border border-emerald-700/40">
               <div className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10">
                 <div className="flex-shrink-0 w-16 h-16 bg-emerald-700/50 border border-emerald-500/30 rounded-2xl flex items-center justify-center">
-                  <Shield className="w-8 h-8 text-emerald-300" />
+                  <svg className="w-9 h-6 opacity-80" viewBox="0 0 60 40" fill="none" stroke="white" strokeWidth="1.5">
+                    <rect x="0.75" y="0.75" width="58.5" height="38.5" rx="2" />
+                    <line x1="0" y1="6" x2="60" y2="6" />
+                    <line x1="0" y1="12" x2="60" y2="12" />
+                    <line x1="0" y1="18" x2="60" y2="18" />
+                    <line x1="0" y1="24" x2="60" y2="24" />
+                    <line x1="0" y1="30" x2="60" y2="30" />
+                    <line x1="0" y1="36" x2="60" y2="36" />
+                    <rect x="0.75" y="0.75" width="24" height="20" rx="1" />
+                    <circle cx="5" cy="4" r="0.7" fill="white" stroke="none" />
+                    <circle cx="9" cy="4" r="0.7" fill="white" stroke="none" />
+                    <circle cx="13" cy="4" r="0.7" fill="white" stroke="none" />
+                    <circle cx="17" cy="4" r="0.7" fill="white" stroke="none" />
+                    <circle cx="21" cy="4" r="0.7" fill="white" stroke="none" />
+                    <circle cx="7" cy="7" r="0.7" fill="white" stroke="none" />
+                    <circle cx="11" cy="7" r="0.7" fill="white" stroke="none" />
+                    <circle cx="15" cy="7" r="0.7" fill="white" stroke="none" />
+                    <circle cx="19" cy="7" r="0.7" fill="white" stroke="none" />
+                    <circle cx="5" cy="10" r="0.7" fill="white" stroke="none" />
+                    <circle cx="9" cy="10" r="0.7" fill="white" stroke="none" />
+                    <circle cx="13" cy="10" r="0.7" fill="white" stroke="none" />
+                    <circle cx="17" cy="10" r="0.7" fill="white" stroke="none" />
+                    <circle cx="21" cy="10" r="0.7" fill="white" stroke="none" />
+                    <circle cx="7" cy="13" r="0.7" fill="white" stroke="none" />
+                    <circle cx="11" cy="13" r="0.7" fill="white" stroke="none" />
+                    <circle cx="15" cy="13" r="0.7" fill="white" stroke="none" />
+                    <circle cx="19" cy="13" r="0.7" fill="white" stroke="none" />
+                    <circle cx="5" cy="16" r="0.7" fill="white" stroke="none" />
+                    <circle cx="9" cy="16" r="0.7" fill="white" stroke="none" />
+                    <circle cx="13" cy="16" r="0.7" fill="white" stroke="none" />
+                    <circle cx="17" cy="16" r="0.7" fill="white" stroke="none" />
+                    <circle cx="21" cy="16" r="0.7" fill="white" stroke="none" />
+                  </svg>
                 </div>
                 <div className="text-center md:text-left flex-1">
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-2">

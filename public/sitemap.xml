@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
   <url>
     <loc>https://chimneyforce.com/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +12,7 @@
   <!-- Connecticut Homepage -->
   <url>
     <loc>https://chimneyforce.com/ct</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,7 +20,7 @@
   <!-- New Jersey Homepage -->
   <url>
     <loc>https://chimneyforce.com/nj</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -29,19 +28,19 @@
   <!-- About Pages -->
   <url>
     <loc>https://chimneyforce.com/about</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/about</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/about</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -49,147 +48,63 @@
   <!-- Contact Pages -->
   <url>
     <loc>https://chimneyforce.com/contact</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/contact</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/contact</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-
-  <!-- Gas Fireplace & Log Sets Dedicated Page -->
-  <url>
-    <loc>https://chimneyforce.com/gas-fireplace-log-sets</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/ct/gas-fireplace-log-sets</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/nj/gas-fireplace-log-sets</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Connecticut City Pages -->
-  <url>
-    <loc>https://chimneyforce.com/ct/greenwich</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/ct/stamford</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/ct/west-hartford</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/ct/fairfield</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/ct/norwalk</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- New Jersey City Pages -->
-  <url>
-    <loc>https://chimneyforce.com/nj/marlboro</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/nj/manalapan</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/nj/middletown</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/nj/east-brunswick</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chimneyforce.com/nj/cherry-hill</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <!-- Service Pages (base) -->
   <url>
     <loc>https://chimneyforce.com/services/chimney-sweep-cleaning</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/services/chimney-inspections</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/services/chimney-leaks-water-damage</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/services/chimney-repair-masonry</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/services/chimney-caps-covers</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/services/chimney-liners</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/services/gas-fireplace-log-sets</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -197,43 +112,43 @@
   <!-- Service Pages (Connecticut) -->
   <url>
     <loc>https://chimneyforce.com/ct/services/chimney-sweep-cleaning</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/services/chimney-inspections</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/services/chimney-leaks-water-damage</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/services/chimney-repair-masonry</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/services/chimney-caps-covers</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/services/chimney-liners</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/ct/services/gas-fireplace-log-sets</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -241,45 +156,109 @@
   <!-- Service Pages (New Jersey) -->
   <url>
     <loc>https://chimneyforce.com/nj/services/chimney-sweep-cleaning</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/services/chimney-inspections</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/services/chimney-leaks-water-damage</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/services/chimney-repair-masonry</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/services/chimney-caps-covers</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/services/chimney-liners</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://chimneyforce.com/nj/services/gas-fireplace-log-sets</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Connecticut City Pages -->
+  <url>
+    <loc>https://chimneyforce.com/ct/greenwich</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/ct/stamford</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/ct/west-hartford</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/ct/fairfield</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/ct/norwalk</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- New Jersey City Pages -->
+  <url>
+    <loc>https://chimneyforce.com/nj/marlboro</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/nj/manalapan</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/nj/middletown</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/nj/east-brunswick</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chimneyforce.com/nj/cherry-hill</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>

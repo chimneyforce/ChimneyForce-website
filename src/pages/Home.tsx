@@ -8,6 +8,7 @@ import { useRegion } from '../context/RegionContext';
 const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 import { SERVICES } from '../data/servicesData';
 import { parseTitleOverride } from '../lib/titleOverride';
+import { USAFlag } from '../components/USAFlag';
 import {
   Shield, Clock, Phone, CheckCircle, Search, Sparkles,
   Wrench, ArrowRight, Star,
@@ -244,48 +245,18 @@ export const Home: React.FC = () => {
       </div>
 
       {/* ── Community discount banner ────────────────────── */}
-      <div className="bg-gradient-to-r from-emerald-900 to-emerald-800 border-b border-emerald-700/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 md:py-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-center">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-3.5 flex-shrink-0 opacity-70" viewBox="0 0 60 40" fill="none" stroke="white" strokeWidth="1.5">
-                <rect x="0.75" y="0.75" width="58.5" height="38.5" rx="2" />
-                <line x1="0" y1="6" x2="60" y2="6" />
-                <line x1="0" y1="12" x2="60" y2="12" />
-                <line x1="0" y1="18" x2="60" y2="18" />
-                <line x1="0" y1="24" x2="60" y2="24" />
-                <line x1="0" y1="30" x2="60" y2="30" />
-                <line x1="0" y1="36" x2="60" y2="36" />
-                <rect x="0.75" y="0.75" width="24" height="20" rx="1" />
-                <circle cx="5" cy="4" r="0.7" fill="white" stroke="none" />
-                <circle cx="9" cy="4" r="0.7" fill="white" stroke="none" />
-                <circle cx="13" cy="4" r="0.7" fill="white" stroke="none" />
-                <circle cx="17" cy="4" r="0.7" fill="white" stroke="none" />
-                <circle cx="21" cy="4" r="0.7" fill="white" stroke="none" />
-                <circle cx="7" cy="7" r="0.7" fill="white" stroke="none" />
-                <circle cx="11" cy="7" r="0.7" fill="white" stroke="none" />
-                <circle cx="15" cy="7" r="0.7" fill="white" stroke="none" />
-                <circle cx="19" cy="7" r="0.7" fill="white" stroke="none" />
-                <circle cx="5" cy="10" r="0.7" fill="white" stroke="none" />
-                <circle cx="9" cy="10" r="0.7" fill="white" stroke="none" />
-                <circle cx="13" cy="10" r="0.7" fill="white" stroke="none" />
-                <circle cx="17" cy="10" r="0.7" fill="white" stroke="none" />
-                <circle cx="21" cy="10" r="0.7" fill="white" stroke="none" />
-                <circle cx="7" cy="13" r="0.7" fill="white" stroke="none" />
-                <circle cx="11" cy="13" r="0.7" fill="white" stroke="none" />
-                <circle cx="15" cy="13" r="0.7" fill="white" stroke="none" />
-                <circle cx="19" cy="13" r="0.7" fill="white" stroke="none" />
-                <circle cx="5" cy="16" r="0.7" fill="white" stroke="none" />
-                <circle cx="9" cy="16" r="0.7" fill="white" stroke="none" />
-                <circle cx="13" cy="16" r="0.7" fill="white" stroke="none" />
-                <circle cx="17" cy="16" r="0.7" fill="white" stroke="none" />
-                <circle cx="21" cy="16" r="0.7" fill="white" stroke="none" />
-              </svg>
-              <span className="text-white font-extrabold text-sm md:text-base">6% Discount</span>
+      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 border-y border-emerald-700/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-3.5">
+          <div className="flex items-center justify-center gap-3 sm:gap-5">
+            <USAFlag className="w-7 h-5 flex-shrink-0" />
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
+              <span className="text-white font-extrabold text-sm md:text-base tracking-tight">6% Discount</span>
+              <span className="hidden sm:inline text-emerald-500">|</span>
+              <span className="text-emerald-200/90 text-xs md:text-sm font-medium">
+                Veterans, Active Duty Military & Teachers
+              </span>
             </div>
-            <span className="text-emerald-200 text-xs md:text-sm font-semibold">
-              Proudly offering 6% off for Veterans, Active Duty Military & Teachers — thank you for your service.
-            </span>
+            <USAFlag className="w-7 h-5 flex-shrink-0 hidden sm:block" />
           </div>
         </div>
       </div>

@@ -243,6 +243,21 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
+      {/* ── Community discount banner ────────────────────── */}
+      <div className="bg-gradient-to-r from-emerald-900 to-emerald-800 border-b border-emerald-700/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 md:py-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-center">
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4 text-emerald-300 flex-shrink-0" />
+              <span className="text-white font-extrabold text-sm md:text-base">6% Discount</span>
+            </div>
+            <span className="text-emerald-200 text-xs md:text-sm font-semibold">
+              Proudly offering 6% off for Veterans, Active Duty Military & Teachers — thank you for your service.
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* ── Services grid ────────────────────────────────── */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

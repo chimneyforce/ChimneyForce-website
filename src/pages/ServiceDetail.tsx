@@ -1185,6 +1185,37 @@ export const ServiceDetail: React.FC = () => {
           </div>
         </section>
 
+        {/* ── SECTION 7b: Community Discount ──────────────── */}
+        <section className="py-12 md:py-16 bg-emerald-950">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 to-emerald-800 p-8 md:p-10 border border-emerald-700/40">
+              <div className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                <div className="flex-shrink-0 w-16 h-16 bg-emerald-700/50 border border-emerald-500/30 rounded-2xl flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-emerald-300" />
+                </div>
+                <div className="text-center md:text-left flex-1">
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                    6% Off for Those Who Serve
+                  </h3>
+                  <p className="text-emerald-200 font-medium text-sm md:text-base leading-relaxed max-w-xl">
+                    We proudly offer a 6% discount to Veterans, Active Duty Military, and Teachers. Thank you for your dedication — let us take care of your home.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
+                  className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-emerald-900 px-6 py-3.5 rounded-xl font-extrabold text-sm hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
+                >
+                  <CalendarDays className="w-4 h-4" />
+                  Claim Discount
+                </button>
+              </div>
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-400/10 rounded-full blur-2xl pointer-events-none" />
+            </div>
+          </div>
+        </section>
+
         {/* ── SECTION 8: FAQ ────────────────────────────────── */}
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

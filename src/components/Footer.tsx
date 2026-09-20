@@ -153,7 +153,7 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Chimney Force, INC. All rights reserved.
           </p>
           <p className="font-medium text-gray-500 text-xs mt-2">
-            NJ HIC #13VH14064400 &nbsp;|&nbsp; CT HIC #0704493 &nbsp;|&nbsp; PA HIC #PA183498
+            NJ HIC #13VH14064400 &nbsp;|&nbsp; CT HIC #0704493 &nbsp;|&nbsp; PA HIC #PA226493
           </p>
         </div>
       </div>

@@ -18,7 +18,7 @@ export const SEO: React.FC<SEOProps> = ({
   canonical,
   keywords,
   ogType = 'website',
-  ogImage = 'https://chimneyforce.com/chimney_force_fin-01.png',
+  ogImage = 'https://chimneyforce.com/CF-team.webp',
   structuredData,
   noindex = false,
 }) => {

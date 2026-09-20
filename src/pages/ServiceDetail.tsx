@@ -598,7 +598,7 @@ function fallbackContent(serviceName: string): ServiceContent {
       before: '/sweep-before.webp',
       after: '/sweep-after.webp',
       caption: serviceName,
-      location: 'CT & NJ',
+      location: 'CT, NJ & PA',
     },
   };
 }
@@ -788,7 +788,7 @@ function useCountUp(target: number, duration = 1800, started = false) {
 
 export const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { region, statePrefix, isCT, isNJ } = useRegion();
+  const { region, statePrefix, isCT, isNJ, isPA } = useRegion();
   const [searchParams] = useSearchParams();
   const titleOverride = parseTitleOverride(searchParams.get('title'));
   const ctLocation = resolveCtLocation(
@@ -828,7 +828,8 @@ export const ServiceDetail: React.FC = () => {
   const getRegionText = () => {
     if (isCT) return 'Connecticut';
     if (isNJ) return 'New Jersey';
-    return 'Connecticut and New Jersey';
+    if (isPA) return 'Pennsylvania';
+    return 'Connecticut, New Jersey and Pennsylvania';
   };
 
   const service = SERVICES.find(s => s.slug === slug);
@@ -849,10 +850,10 @@ export const ServiceDetail: React.FC = () => {
   const content = CONTENT[service.slug] ?? fallbackContent(service.name);
   const Icon = service.icon;
 
-  const regionShort = isCT ? 'CT' : isNJ ? 'NJ' : 'CT & NJ';
+  const regionShort = isCT ? 'CT' : isNJ ? 'NJ' : isPA ? 'PA' : 'CT, NJ & PA';
   const seoTitle = `${service.name} | ${regionShort} | Chimney Force`;
   const seoDescription = `Expert ${service.name.toLowerCase()} services in ${getRegionText()}. Licensed & insured. Same-day service available. Call now!`;
-  const keywords = `${service.name.toLowerCase()}, chimney services, chimney force, ${isCT ? 'ct' : isNJ ? 'nj' : 'ct nj'}`;
+  const keywords = `${service.name.toLowerCase()}, chimney services, chimney force, ${isCT ? 'ct' : isNJ ? 'nj' : isPA ? 'pa' : 'ct nj pa'}`;
 
   const serviceSchema = createServiceSchema(service.name, seoDescription, getRegionText(), region.phoneNumbers[0]);
   const faqSchema = createFAQSchema(content.faqs);

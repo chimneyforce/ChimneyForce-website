@@ -14,12 +14,13 @@ interface RegionContextType {
   region: RegionData;
   isNJ: boolean;
   isCT: boolean;
+  isPA: boolean;
   isGlobal: boolean;
   statePrefix: string;
 }
 
 const HQ_DATA: RegionData = {
-  regionName: 'CT & NJ',
+  regionName: 'CT, NJ & PA',
   phoneNumbers: ['888-398-7707'],
   address: '750 MAIN STREET, SUITE 100',
   city: 'HARTFORD',
@@ -45,12 +46,22 @@ const NJ_DATA: RegionData = {
   zip: '08406',
 };
 
+const PA_DATA: RegionData = {
+  regionName: 'PA',
+  phoneNumbers: ['(610) 590-8707'],
+  address: '1000 Northbrook Dr #100',
+  city: 'Trevose',
+  state: 'PA',
+  zip: '19053',
+};
+
 const RegionContext = createContext<RegionContextType | undefined>(undefined);
 
 const getRegionFromPath = (pathname: string) => {
   const path = pathname.toLowerCase();
   const isNewJersey = path.startsWith('/nj');
   const isConnecticut = path.startsWith('/ct');
+  const isPennsylvania = path.startsWith('/pa');
   const isHomePage = path === '/';
 
   if (isHomePage) {
@@ -58,6 +69,7 @@ const getRegionFromPath = (pathname: string) => {
       region: HQ_DATA,
       isNJ: false,
       isCT: false,
+      isPA: false,
       isGlobal: true,
       statePrefix: '',
     };
@@ -66,6 +78,7 @@ const getRegionFromPath = (pathname: string) => {
       region: NJ_DATA,
       isNJ: true,
       isCT: false,
+      isPA: false,
       isGlobal: false,
       statePrefix: '/nj',
     };
@@ -74,8 +87,18 @@ const getRegionFromPath = (pathname: string) => {
       region: CT_DATA,
       isNJ: false,
       isCT: true,
+      isPA: false,
       isGlobal: false,
       statePrefix: '/ct',
+    };
+  } else if (isPennsylvania) {
+    return {
+      region: PA_DATA,
+      isNJ: false,
+      isCT: false,
+      isPA: true,
+      isGlobal: false,
+      statePrefix: '/pa',
     };
   }
 
@@ -83,6 +106,7 @@ const getRegionFromPath = (pathname: string) => {
     region: HQ_DATA,
     isNJ: false,
     isCT: false,
+    isPA: false,
     isGlobal: true,
     statePrefix: '',
   };

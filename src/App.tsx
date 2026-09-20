@@ -47,6 +47,7 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/ct" element={<Home />} />
                   <Route path="/nj" element={<Home />} />
+                  <Route path="/pa" element={<Home />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/sitemap" element={<Sitemap />} />
@@ -54,12 +55,16 @@ function App() {
                   <Route path="/services/:slug" element={<ServiceDetail />} />
                   <Route path="/ct/about" element={<About />} />
                   <Route path="/nj/about" element={<About />} />
+                  <Route path="/pa/about" element={<About />} />
                   <Route path="/ct/contact" element={<Contact />} />
                   <Route path="/nj/contact" element={<Contact />} />
+                  <Route path="/pa/contact" element={<Contact />} />
                   <Route path="/ct/services/:slug" element={<ServiceDetail />} />
                   <Route path="/nj/services/:slug" element={<ServiceDetail />} />
+                  <Route path="/pa/services/:slug" element={<ServiceDetail />} />
                   <Route path="/ct/:city" element={<CityPage />} />
                   <Route path="/nj/:city" element={<CityPage />} />
+                  <Route path="/pa/:city" element={<CityPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

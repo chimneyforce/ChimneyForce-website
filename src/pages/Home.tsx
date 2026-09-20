@@ -138,7 +138,7 @@ function TeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
 
 /* ── Main export ──────────────────────────────────────────── */
 export const Home: React.FC = () => {
-  const { region, isCT, isNJ, statePrefix } = useRegion();
+  const { region, isCT, isNJ, isPA, statePrefix } = useRegion();
   const [searchParams] = useSearchParams();
   const titleOverride = parseTitleOverride(searchParams.get('title'));
   const [statsStarted, setStatsStarted] = useState(false);
@@ -182,19 +182,22 @@ export const Home: React.FC = () => {
   const getSEOTitle = () => {
     if (isCT) return `Chimney Sweep & Repair Services in Connecticut | Chimney Force`;
     if (isNJ) return `Chimney Sweep & Repair Services in New Jersey | Chimney Force`;
-    return 'Professional Chimney Sweep & Repair Services CT & NJ | Chimney Force';
+    if (isPA) return `Chimney Sweep & Repair Services in Pennsylvania | Chimney Force`;
+    return 'Professional Chimney Sweep & Repair Services CT, NJ & PA | Chimney Force';
   };
 
   const getSEODescription = () => {
     if (isCT) return `Expert chimney sweep, inspection, cleaning & repair services throughout Connecticut. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
     if (isNJ) return `Expert chimney sweep, inspection, cleaning & repair services throughout New Jersey. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
-    return 'Professional chimney sweep, inspection, cleaning, and repair services in Connecticut and New Jersey. Licensed & insured. Same-day emergency service. Labor guarantee.';
+    if (isPA) return `Expert chimney sweep, inspection, cleaning & repair services throughout Pennsylvania. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
+    return 'Professional chimney sweep, inspection, cleaning, and repair services in Connecticut, New Jersey and Pennsylvania. Licensed & insured. Same-day emergency service. Labor guarantee.';
   };
 
   const getKeywords = () => {
     if (isCT) return 'chimney sweep ct, chimney cleaning connecticut, chimney inspection ct, chimney repair connecticut, fireplace services ct, chimney force';
     if (isNJ) return 'chimney sweep nj, chimney cleaning new jersey, chimney inspection nj, chimney repair new jersey, fireplace services nj, chimney force';
-    return 'chimney sweep, chimney cleaning, chimney inspection, chimney repair, fireplace services, ct, nj, connecticut, new jersey';
+    if (isPA) return 'chimney sweep pa, chimney cleaning pennsylvania, chimney inspection pa, chimney repair pennsylvania, fireplace services pa, chimney force';
+    return 'chimney sweep, chimney cleaning, chimney inspection, chimney repair, fireplace services, ct, nj, pa, connecticut, new jersey, pennsylvania';
   };
 
   const organizationSchema = createOrganizationSchema();

@@ -203,7 +203,7 @@ export const createOrganizationSchema = () => {
     url: 'https://chimneyforce.com',
     logo: 'https://chimneyforce.com/chimney_force_fin-01.png',
     image: 'https://chimneyforce.com/chimney_force_fin-01.png',
-    description: 'Professional chimney and fireplace services across Connecticut and New Jersey. Licensed, insured, and certified chimney experts providing inspection, cleaning, repair, and installation services.',
+    description: 'Professional chimney and fireplace services across Connecticut, New Jersey and Pennsylvania. Licensed, insured, and certified chimney experts providing inspection, cleaning, repair, and installation services.',
     foundingDate: '2010',
     telephone: '888-398-7707',
     email: 'Chimneyforceinc@gmail.com',

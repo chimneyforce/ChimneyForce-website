@@ -8,7 +8,7 @@ export interface ServiceFocus {
 export interface CityData {
   name: string;
   slug: string;
-  state: 'CT' | 'NJ';
+  state: 'CT' | 'NJ' | 'PA';
   serviceFocus: ServiceFocus;
 }
 
@@ -123,10 +123,66 @@ export const CITY_DATA: Record<string, CityData> = {
       targetMarket: 'Residential Homeowners',
     },
   },
+  'trevose': {
+    name: 'Trevose',
+    slug: 'trevose',
+    state: 'PA',
+    serviceFocus: {
+      title: 'Complete Chimney Services',
+      description: 'Full-service chimney inspection, cleaning, repair, and installation services for Trevose and the surrounding Bucks County area. Your trusted local chimney professionals.',
+      heroTitle: 'Professional Chimney Services in Trevose, PA',
+      targetMarket: 'Residential Homeowners',
+    },
+  },
+  'bensalem': {
+    name: 'Bensalem',
+    slug: 'bensalem',
+    state: 'PA',
+    serviceFocus: {
+      title: 'Chimney Inspection & Cleaning',
+      description: 'Expert chimney inspection and cleaning services for Bensalem homeowners. Keep your family safe with regular chimney maintenance from certified professionals.',
+      heroTitle: 'Expert Chimney Inspection & Cleaning in Bensalem, PA',
+      targetMarket: 'Residential Homeowners',
+    },
+  },
+  'langhorne': {
+    name: 'Langhorne',
+    slug: 'langhorne',
+    state: 'PA',
+    serviceFocus: {
+      title: 'Chimney Repair & Restoration',
+      description: 'Professional chimney repair and masonry restoration for Langhorne homes. From minor fixes to full rebuilds, we restore your chimney to peak condition.',
+      heroTitle: 'Chimney Repair & Restoration in Langhorne, PA',
+      targetMarket: 'Residential & Historic Properties',
+    },
+  },
+  'newtown': {
+    name: 'Newtown',
+    slug: 'newtown',
+    state: 'PA',
+    serviceFocus: {
+      title: 'Fireplace & Chimney Solutions',
+      description: 'Comprehensive fireplace and chimney services for Newtown homeowners. Expert inspections, repairs, liner installations, and waterproofing for Bucks County properties.',
+      heroTitle: 'Fireplace & Chimney Experts in Newtown, PA',
+      targetMarket: 'Residential Homeowners',
+    },
+  },
+  'doylestown': {
+    name: 'Doylestown',
+    slug: 'doylestown',
+    state: 'PA',
+    serviceFocus: {
+      title: 'Historic Chimney Preservation',
+      description: 'Specialized chimney preservation and repair services for Doylestown\'s historic and newer homes alike. Expert masonry work that respects your property\'s character.',
+      heroTitle: 'Chimney Preservation & Repair in Doylestown, PA',
+      targetMarket: 'Historic & Residential Properties',
+    },
+  },
 };
 
 export const CT_CITIES = Object.values(CITY_DATA).filter(city => city.state === 'CT');
 export const NJ_CITIES = Object.values(CITY_DATA).filter(city => city.state === 'NJ');
+export const PA_CITIES = Object.values(CITY_DATA).filter(city => city.state === 'PA');
 
 export const getCityData = (slug: string): CityData | undefined => {
   return CITY_DATA[slug];

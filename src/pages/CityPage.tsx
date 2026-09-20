@@ -183,7 +183,7 @@ export const CityPage: React.FC = () => {
 
   const breadcrumbs = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: cityData.state === 'CT' ? 'Connecticut' : 'New Jersey', url: `/${cityData.state.toLowerCase()}` },
+    { name: cityData.state === 'CT' ? 'Connecticut' : cityData.state === 'NJ' ? 'New Jersey' : 'Pennsylvania', url: `/${cityData.state.toLowerCase()}` },
     { name: cityData.name, url: `/${cityData.state.toLowerCase()}/${cityData.slug}` }
   ]);
 

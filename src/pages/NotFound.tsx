@@ -11,7 +11,7 @@ export const NotFound: React.FC = () => {
     <div className="bg-white min-h-screen">
       <SEO
         title="404 - Page Not Found | Chimney Force"
-        description="The page you're looking for could not be found. Return to Chimney Force homepage for professional chimney services in Connecticut and New Jersey."
+        description="The page you're looking for could not be found. Return to Chimney Force homepage for professional chimney services in Connecticut, New Jersey and Pennsylvania."
         canonical="/404"
       />
 

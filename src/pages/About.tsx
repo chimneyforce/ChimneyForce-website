@@ -6,12 +6,13 @@ import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../compon
 import { useRegion } from '../context/RegionContext';
 
 export const About: React.FC = () => {
-  const { isCT, isNJ, statePrefix } = useRegion();
+  const { isCT, isNJ, isPA, statePrefix } = useRegion();
 
   const getRegionText = () => {
     if (isCT) return `Connecticut`;
     if (isNJ) return `New Jersey`;
-    return "Connecticut and New Jersey";
+    if (isPA) return `Pennsylvania`;
+    return "Connecticut, New Jersey and Pennsylvania";
   };
 
   const organizationSchema = createOrganizationSchema();
@@ -22,7 +23,7 @@ export const About: React.FC = () => {
   ]);
 
   const seoTitle = `About Chimney Force | Professional Chimney Services in ${getRegionText()}`;
-  const seoDescription = "Learn about Chimney Force - Your trusted chimney and fireplace experts serving Connecticut and New Jersey since 2010. Licensed, insured, premium materials with 10,000+ satisfied customers.";
+  const seoDescription = "Learn about Chimney Force - Your trusted chimney and fireplace experts serving Connecticut, New Jersey and Pennsylvania since 2010. Licensed, insured, premium materials with 10,000+ satisfied customers.";
   const keywords = "about chimney force, chimney company ct nj, licensed chimney services, certified chimney sweep, professional chimney repair";
 
   return (

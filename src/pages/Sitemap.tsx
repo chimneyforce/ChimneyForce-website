@@ -4,7 +4,7 @@ import { Home, Info, Mail, MapPin, Wrench } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
-import { CT_CITIES, NJ_CITIES } from '../data/cityData';
+import { CT_CITIES, NJ_CITIES, PA_CITIES } from '../data/cityData';
 
 export const Sitemap: React.FC = () => {
   const { statePrefix } = useRegion();
@@ -13,7 +13,7 @@ export const Sitemap: React.FC = () => {
     <div className="bg-white">
       <SEO
         title="Site Map | Chimney Force"
-        description="Browse all pages and services offered by Chimney Force. Find chimney services in Connecticut and New Jersey including cleaning, repair, inspection, and more."
+        description="Browse all pages and services offered by Chimney Force. Find chimney services in Connecticut, New Jersey and Pennsylvania including cleaning, repair, inspection, and more."
         canonical="/sitemap"
       />
 
@@ -179,6 +179,52 @@ export const Sitemap: React.FC = () => {
               </ul>
             </div>
 
+            {/* Pennsylvania Services */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                  <Wrench className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-xl font-extrabold text-black">Pennsylvania Services</h2>
+              </div>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    to="/pa"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    PA Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/pa/about"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    PA About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/pa/contact"
+                    className="text-primary hover:text-red-700 font-bold hover:underline"
+                  >
+                    PA Contact
+                  </Link>
+                </li>
+                {SERVICES.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      to={`/pa/services/${service.slug}`}
+                      className="text-primary hover:text-red-700 font-bold hover:underline"
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Connecticut Cities */}
             <div className="bg-white p-6 rounded-2xl shadow-lg">
               <div className="flex items-center mb-4">
@@ -214,6 +260,28 @@ export const Sitemap: React.FC = () => {
                   <li key={city.slug}>
                     <Link
                       to={`/nj/${city.slug}`}
+                      className="text-primary hover:text-red-700 font-bold hover:underline"
+                    >
+                      {city.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Pennsylvania Cities */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                  <MapPin className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-xl font-extrabold text-black">Pennsylvania Cities</h2>
+              </div>
+              <ul className="space-y-2">
+                {PA_CITIES.map((city) => (
+                  <li key={city.slug}>
+                    <Link
+                      to={`/pa/${city.slug}`}
                       className="text-primary hover:text-red-700 font-bold hover:underline"
                     >
                       {city.name}

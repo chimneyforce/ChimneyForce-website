@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, Clock } from 'lucide-react';
 import { useRegion } from '../context/RegionContext';
-import { CT_CITIES, NJ_CITIES } from '../data/cityData';
+import { CT_CITIES, NJ_CITIES, PA_CITIES } from '../data/cityData';
 
 export const Footer: React.FC = () => {
   const { region, statePrefix } = useRegion();
@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
             <Link to={statePrefix || '/'} className="flex items-center mb-6 group" aria-label="Chimney Force Home">
               <img
                 src="/chimney_force_fin-01.webp"
-                alt="Chimney Force - Professional Chimney Services CT & NJ"
+                alt="Chimney Force - Professional Chimney Services CT, NJ & PA"
                 className="h-16 w-auto group-hover:scale-105 transition-transform duration-300 brightness-0 invert"
                 width="220"
                 height="123"
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
               />
             </Link>
             <p className="font-medium text-gray-400 mb-6 leading-relaxed text-base">
-              Professional chimney and fireplace services across Connecticut and New Jersey.
+              Professional chimney and fireplace services across Connecticut, New Jersey & Pennsylvania.
             </p>
             <div className="space-y-5">
               <div className="flex items-center space-x-3 group">
@@ -91,6 +91,19 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
+            <h3 className="text-base md:text-lg font-extrabold mb-4 md:mb-6 border-b-2 border-primary/30 pb-2 mt-8">Pennsylvania Cities</h3>
+            <ul className="space-y-2">
+              {PA_CITIES.map((city) => (
+                <li key={city.slug}>
+                  <Link
+                    to={`/pa/${city.slug}`}
+                    className="font-medium text-gray-400 hover:text-primary transition-colors duration-300 hover:translate-x-1 inline-block min-h-[44px] flex items-center text-base"
+                  >
+                    {city.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -126,6 +139,11 @@ export const Footer: React.FC = () => {
                   New Jersey Services
                 </Link>
               </li>
+              <li>
+                <Link to="/pa" className="font-medium text-gray-400 hover:text-primary transition-colors duration-300 hover:translate-x-1 inline-block min-h-[44px] flex items-center text-base">
+                  Pennsylvania Services
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -135,7 +153,7 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Chimney Force, INC. All rights reserved.
           </p>
           <p className="font-medium text-gray-500 text-xs mt-2">
-            NJ HIC #13VH14064400 &nbsp;|&nbsp; CT HIC #0704493
+            NJ HIC #13VH14064400 &nbsp;|&nbsp; CT HIC #0704493 &nbsp;|&nbsp; PA HIC #PA183498
           </p>
         </div>
       </div>

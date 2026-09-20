@@ -5,12 +5,13 @@ import { useRegion } from '../context/RegionContext';
 import { submitContactForm } from '../lib/contactSubmission';
 
 export const Contact: React.FC = () => {
-  const { region, isCT, isNJ, statePrefix } = useRegion();
+  const { region, isCT, isNJ, isPA, statePrefix } = useRegion();
 
   const getRegionText = () => {
     if (isCT) return `Connecticut`;
     if (isNJ) return `New Jersey`;
-    return "Connecticut & New Jersey";
+    if (isPA) return `Pennsylvania`;
+    return "Connecticut, New Jersey & Pennsylvania";
   };
 
   const breadcrumbs = createBreadcrumbSchema([
@@ -19,8 +20,8 @@ export const Contact: React.FC = () => {
   ]);
 
   const seoTitle = `Contact Chimney Force | Request Service in ${getRegionText()}`;
-  const seoDescription = "Contact Chimney Force for professional chimney services in CT & NJ. Same-day service available. Call now or fill out our quick contact form.";
-  const keywords = "contact chimney force, chimney services quote, chimney repair estimate, chimney cleaning appointment, ct nj chimney company";
+  const seoDescription = "Contact Chimney Force for professional chimney services in CT, NJ & PA. Same-day service available. Call now or fill out our quick contact form.";
+  const keywords = "contact chimney force, chimney services quote, chimney repair estimate, chimney cleaning appointment, ct nj pa chimney company";
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);

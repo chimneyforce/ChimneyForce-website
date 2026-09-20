@@ -24,7 +24,7 @@ export const About: React.FC = () => {
 
   const seoTitle = `About Chimney Force | Professional Chimney Services in ${getRegionText()}`;
   const seoDescription = "Learn about Chimney Force - Your trusted chimney and fireplace experts serving Connecticut, New Jersey and Pennsylvania since 2010. Licensed, insured, premium materials with 10,000+ satisfied customers.";
-  const keywords = "about chimney force, chimney company ct nj, licensed chimney services, certified chimney sweep, professional chimney repair";
+  const keywords = "about chimney force, chimney company ct nj pa, licensed chimney services, certified chimney sweep, professional chimney repair";
 
   return (
     <div className="bg-white">

@@ -91,7 +91,7 @@ export const createLocalBusinessSchema = (
       name: cityName,
       containedIn: {
         '@type': 'State',
-        name: state === 'CT' ? 'Connecticut' : 'New Jersey',
+        name: state === 'CT' ? 'Connecticut' : state === 'NJ' ? 'New Jersey' : 'Pennsylvania',
       },
     },
     serviceArea: serviceArea || cityName,
@@ -168,6 +168,7 @@ export const createServiceSchema = (serviceName: string, description: string, re
       areaServed: [
         { '@type': 'State', name: 'Connecticut' },
         { '@type': 'State', name: 'New Jersey' },
+        { '@type': 'State', name: 'Pennsylvania' },
       ],
     },
     serviceType: 'Chimney Services',
@@ -220,6 +221,14 @@ export const createOrganizationSchema = () => {
         addressRegion: 'NJ',
         addressCountry: 'US',
       },
+      {
+        '@type': 'PostalAddress',
+        streetAddress: '2522 Old Lincoln Hwy',
+        addressLocality: 'Trevose',
+        addressRegion: 'PA',
+        postalCode: '19053',
+        addressCountry: 'US',
+      },
     ],
     areaServed: [
       {
@@ -229,6 +238,10 @@ export const createOrganizationSchema = () => {
       {
         '@type': 'State',
         name: 'New Jersey',
+      },
+      {
+        '@type': 'State',
+        name: 'Pennsylvania',
       },
     ],
     sameAs: [

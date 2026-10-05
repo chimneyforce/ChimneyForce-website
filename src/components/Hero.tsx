@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Shield, Phone, Users, CalendarDays, MapPin } from 'lucide-react';
+import { CheckCircle, Shield, Phone, Users, CalendarDays, MapPin, BadgeCheck } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 import { useRegion } from '../context/RegionContext';
 
@@ -173,6 +173,10 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
                 <MapPin className="w-3 h-3 flex-shrink-0" />
                 Serving {region.regionName}
+              </div>
+              <div className="inline-flex items-center gap-2 bg-white/95 text-gray-900 px-3.5 py-2 rounded-full text-xs font-extrabold shadow-md ring-1 ring-white/30 backdrop-blur-sm">
+                <BadgeCheck className="w-4 h-4 text-green-600 flex-shrink-0" />
+                <span>{region.licenseNumbers.join(' · ')}</span>
               </div>
             </div>
 

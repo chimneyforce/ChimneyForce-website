@@ -8,6 +8,7 @@ export interface RegionData {
   city: string;
   state: string;
   zip: string;
+  licenseNumbers: string[];
 }
 
 interface RegionContextType {
@@ -26,6 +27,7 @@ const HQ_DATA: RegionData = {
   city: 'HARTFORD',
   state: 'CONNECTICUT',
   zip: '06103',
+  licenseNumbers: ['NJ HIC #13VH14064400', 'CT HIC #0704493', 'PA HIC #PA226493'],
 };
 
 const CT_DATA: RegionData = {
@@ -35,6 +37,7 @@ const CT_DATA: RegionData = {
   city: 'HARTFORD',
   state: 'CONNECTICUT',
   zip: '06103',
+  licenseNumbers: ['CT HIC #0704493'],
 };
 
 const NJ_DATA: RegionData = {
@@ -44,6 +47,7 @@ const NJ_DATA: RegionData = {
   city: 'Ventnor City',
   state: 'NJ',
   zip: '08406',
+  licenseNumbers: ['NJ HIC #13VH14064400'],
 };
 
 const PA_DATA: RegionData = {
@@ -53,6 +57,7 @@ const PA_DATA: RegionData = {
   city: 'Trevose',
   state: 'PA',
   zip: '19053',
+  licenseNumbers: ['PA HIC #PA226493'],
 };
 
 const RegionContext = createContext<RegionContextType | undefined>(undefined);

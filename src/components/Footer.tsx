@@ -130,6 +130,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/privacy-policy" className="font-medium text-gray-400 hover:text-primary transition-colors duration-300 hover:translate-x-1 inline-block min-h-[44px] flex items-center text-base">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-of-service" className="font-medium text-gray-400 hover:text-primary transition-colors duration-300 hover:translate-x-1 inline-block min-h-[44px] flex items-center text-base">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
                 <Link to="/ct" className="font-medium text-gray-400 hover:text-primary transition-colors duration-300 hover:translate-x-1 inline-block min-h-[44px] flex items-center text-base">
                   Connecticut Services
                 </Link>

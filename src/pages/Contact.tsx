@@ -31,6 +31,8 @@ export const Contact: React.FC = () => {
     phone: '',
     service: 'not-sure',
     message: '',
+    smsNonMarketingConsent: false,
+    smsMarketingConsent: false,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -61,6 +63,8 @@ export const Contact: React.FC = () => {
         phone: '',
         service: 'not-sure',
         message: '',
+        smsNonMarketingConsent: false,
+        smsMarketingConsent: false,
       });
       setTimeout(() => setSubmitted(false), 8000);
     } else {
@@ -279,6 +283,40 @@ export const Contact: React.FC = () => {
                       className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-primary/30 focus:border-primary font-medium transition-all resize-none disabled:opacity-60 disabled:cursor-not-allowed"
                     />
                   </div>
+
+                  <div className="space-y-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <p className="text-xs font-bold uppercase tracking-widest text-gray-600">Text message preferences (optional)</p>
+                    <label className="flex items-start gap-3 text-sm leading-relaxed text-gray-700 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.smsNonMarketingConsent}
+                        onChange={(e) => setFormData({ ...formData, smsNonMarketingConsent: e.target.checked })}
+                        disabled={isSubmitting}
+                        className="mt-1 h-5 w-5 flex-shrink-0 rounded border-gray-300 text-primary focus:ring-primary"
+                      />
+                      <span>
+                        By checking this box, I consent to receive non-marketing text messages from <strong>Chimney Force, INC</strong> about my inquiry, appointment, service updates, and customer support. Message frequency varies. Message and data rates may apply. Text HELP for assistance, reply STOP to opt out.
+                      </span>
+                    </label>
+                    <label className="flex items-start gap-3 text-sm leading-relaxed text-gray-700 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.smsMarketingConsent}
+                        onChange={(e) => setFormData({ ...formData, smsMarketingConsent: e.target.checked })}
+                        disabled={isSubmitting}
+                        className="mt-1 h-5 w-5 flex-shrink-0 rounded border-gray-300 text-primary focus:ring-primary"
+                      />
+                      <span>
+                        By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, and company updates, from <strong>Chimney Force, INC</strong>. Frequency varies. Message and data rates may apply. Text HELP for assistance, reply STOP to opt out.
+                      </span>
+                    </label>
+                    <p className="text-xs text-gray-600">
+                      Consent is optional and is not a condition of purchasing goods or services. See our{' '}
+                      <a href="/privacy-policy" className="font-bold text-primary underline hover:text-red-700">Privacy Policy</a>{' '}
+                      and <a href="/terms-of-service" className="font-bold text-primary underline hover:text-red-700">Terms of Service</a>.
+                    </p>
+                  </div>
+
                   <button
                     type="submit"
                     disabled={isSubmitting}

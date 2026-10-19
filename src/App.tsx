@@ -6,6 +6,8 @@ import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { loadElfsightPlatform } from './lib/elfsight';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfService } from './pages/TermsOfService';
 
 const CityPage = lazy(() => import('./pages/CityPage').then(module => ({ default: module.CityPage })));
 const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })));
@@ -51,6 +53,8 @@ function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/sitemap" element={<Sitemap />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms-of-service" element={<TermsOfService />} />
                   <Route path="/admin/reviews" element={<AdminReviews />} />
                   <Route path="/services/:slug" element={<ServiceDetail />} />
                   <Route path="/ct/about" element={<About />} />

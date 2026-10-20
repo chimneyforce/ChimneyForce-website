@@ -15,8 +15,6 @@ export interface ContactFormData {
   phone: string;
   service: string;
   message: string;
-  smsNonMarketingConsent?: boolean;
-  smsMarketingConsent?: boolean;
 }
 
 export interface SubmissionResult {
@@ -78,9 +76,7 @@ export async function submitContactForm(
         email: formData.email,
         phone: formData.phone,
         service: formData.service,
-        message: `${formData.message}\n\nSMS consent:\n- Non-marketing messages: ${formData.smsNonMarketingConsent ? 'Yes' : 'No'}\n- Marketing messages: ${formData.smsMarketingConsent ? 'Yes' : 'No'}`,
-        sms_non_marketing_consent: formData.smsNonMarketingConsent ? 'Yes' : 'No',
-        sms_marketing_consent: formData.smsMarketingConsent ? 'Yes' : 'No',
+        message: formData.message,
         reply_to: formData.email,
       }
     );

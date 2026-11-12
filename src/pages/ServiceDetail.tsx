@@ -10,7 +10,6 @@ import { SERVICES } from '../data/servicesData';
 const ReviewCarousel = React.lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
 const WorkShowcase = React.lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 import { submitQuoteRequest } from '../lib/contactSubmission';
-import { parseTitleOverride } from '../lib/titleOverride';
 import { resolveCtLocation } from '../lib/ctLocation';
 import { USAFlag } from '../components/USAFlag';
 
@@ -790,7 +789,6 @@ export const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { region, statePrefix, isCT, isNJ, isPA } = useRegion();
   const [searchParams] = useSearchParams();
-  const titleOverride = parseTitleOverride(searchParams.get('title'));
   const ctLocation = resolveCtLocation(
     searchParams.get('loc_interest_ms'),
     searchParams.get('loc_physical_ms')
@@ -921,7 +919,7 @@ export const ServiceDetail: React.FC = () => {
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.08] tracking-tight">
-                {titleOverride ?? content.hero.headline}
+                {content.hero.headline}
               </h1>
 
               <p className="text-base md:text-lg font-semibold text-secondary leading-tight">

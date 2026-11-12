@@ -6,7 +6,7 @@ import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../compon
 import { useRegion } from '../context/RegionContext';
 
 export const About: React.FC = () => {
-  const { isCT, isNJ, isPA, statePrefix } = useRegion();
+  const { isCT, isNJ, isPA } = useRegion();
 
   const getRegionText = () => {
     if (isCT) return `Connecticut`;
@@ -18,8 +18,8 @@ export const About: React.FC = () => {
   const organizationSchema = createOrganizationSchema();
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: 'Home', url: statePrefix || '/' },
-    { name: 'About', url: `${statePrefix}/about` }
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' }
   ]);
 
   const seoTitle = `About Chimney Force | Professional Chimney Services in ${getRegionText()}`;
@@ -32,7 +32,7 @@ export const About: React.FC = () => {
         title={seoTitle}
         description={seoDescription}
         keywords={keywords}
-        canonical={`${statePrefix}/about`}
+        canonical="/about"
         structuredData={[organizationSchema, breadcrumbs]}
       />
       <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">

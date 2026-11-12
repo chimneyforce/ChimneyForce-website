@@ -13,6 +13,7 @@ export const NotFound: React.FC = () => {
         title="404 - Page Not Found | Chimney Force"
         description="The page you're looking for could not be found. Return to Chimney Force homepage for professional chimney services in Connecticut, New Jersey and Pennsylvania."
         canonical="/404"
+        noindex
       />
 
       <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">

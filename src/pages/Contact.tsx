@@ -5,7 +5,7 @@ import { useRegion } from '../context/RegionContext';
 import { submitContactForm } from '../lib/contactSubmission';
 
 export const Contact: React.FC = () => {
-  const { region, isCT, isNJ, isPA, statePrefix } = useRegion();
+  const { region, isCT, isNJ, isPA } = useRegion();
 
   const getRegionText = () => {
     if (isCT) return `Connecticut`;
@@ -15,8 +15,8 @@ export const Contact: React.FC = () => {
   };
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: 'Home', url: statePrefix || '/' },
-    { name: 'Contact', url: `${statePrefix}/contact` }
+    { name: 'Home', url: '/' },
+    { name: 'Contact', url: '/contact' }
   ]);
 
   const seoTitle = `Contact Chimney Force | Request Service in ${getRegionText()}`;
@@ -100,7 +100,7 @@ export const Contact: React.FC = () => {
         title={seoTitle}
         description={seoDescription}
         keywords={keywords}
-        canonical={`${statePrefix}/contact`}
+        canonical="/contact"
         structuredData={breadcrumbs}
       />
       <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">

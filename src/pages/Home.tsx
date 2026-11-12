@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 const ReviewCarousel = lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
 const QuoteForm = lazy(() => import('../components/QuoteForm').then(m => ({ default: m.QuoteForm })));
@@ -7,7 +7,6 @@ import { SEO, createOrganizationSchema, createBreadcrumbSchema, createFAQSchema 
 import { useRegion } from '../context/RegionContext';
 const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 import { SERVICES } from '../data/servicesData';
-import { parseTitleOverride } from '../lib/titleOverride';
 import { USAFlag } from '../components/USAFlag';
 import {
   Shield, Clock, Phone, CheckCircle, Search, Sparkles,
@@ -139,8 +138,6 @@ function TeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
 /* ── Main export ──────────────────────────────────────────── */
 export const Home: React.FC = () => {
   const { region, isCT, isNJ, isPA, statePrefix } = useRegion();
-  const [searchParams] = useSearchParams();
-  const titleOverride = parseTitleOverride(searchParams.get('title'));
   const [statsStarted, setStatsStarted] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const ctaSectionRef = useRef<HTMLElement>(null);
@@ -218,7 +215,7 @@ export const Home: React.FC = () => {
 
       {/* ── Hero ─────────────────────────────────────────── */}
       <Hero
-        title={titleOverride ?? getTitle()}
+        title={getTitle()}
       />
 
       {/* ── Stats bar ────────────────────────────────────── */}

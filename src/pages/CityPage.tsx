@@ -343,7 +343,7 @@ export const CityPage: React.FC = () => {
         <div className="relative">
           <img
             src="/CF-team.webp"
-            alt="Chimney Force crew standing in front of service van"
+            alt={`Chimney Force crew serving ${cityData.name}, ${cityData.state} homeowners`}
             className="w-full h-auto block"
             width="800"
             height="599"

@@ -223,7 +223,7 @@ export const createOrganizationSchema = () => {
       },
       {
         '@type': 'PostalAddress',
-        streetAddress: '2522 Old Lincoln Hwy',
+        streetAddress: '1000 Northbrook Dr #100',
         addressLocality: 'Trevose',
         addressRegion: 'PA',
         postalCode: '19053',

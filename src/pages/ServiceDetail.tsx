@@ -851,16 +851,17 @@ export const ServiceDetail: React.FC = () => {
   const Icon = service.icon;
 
   const regionShort = isCT ? 'CT' : isNJ ? 'NJ' : isPA ? 'PA' : 'CT, NJ & PA';
-  const seoTitle = `${service.name} | ${regionShort} | Chimney Force`;
-  const seoDescription = `Expert ${service.name.toLowerCase()} services in ${getRegionText()}. Licensed & insured. Same-day service available. Call now!`;
+  const servicePath = `${statePrefix}/services/${service.slug}`;
+  const seoTitle = `${service.name} in ${regionShort} | Chimney Force`;
+  const seoDescription = `Professional ${service.name.toLowerCase()} in ${getRegionText()} by licensed, insured chimney technicians. Photo-documented work and same-day service available.`;
   const keywords = `${service.name.toLowerCase()}, chimney services, chimney force, ${isCT ? 'ct' : isNJ ? 'nj' : isPA ? 'pa' : 'ct nj pa'}`;
 
-  const serviceSchema = createServiceSchema(service.name, seoDescription, getRegionText(), region.phoneNumbers[0]);
+  const serviceSchema = createServiceSchema(service.name, seoDescription, getRegionText(), servicePath, region.phoneNumbers[0]);
   const faqSchema = createFAQSchema(content.faqs);
   const breadcrumbs = createBreadcrumbSchema([
     { name: 'Home', url: statePrefix || '/' },
     { name: 'Services', url: statePrefix || '/' },
-    { name: service.name, url: `${statePrefix}/services/${service.slug}` },
+    { name: service.name, url: servicePath },
   ]);
 
   return (
@@ -873,7 +874,7 @@ export const ServiceDetail: React.FC = () => {
         title={seoTitle}
         description={seoDescription}
         keywords={keywords}
-        canonical={`${statePrefix}/services/${service.slug}`}
+        canonical={servicePath}
         structuredData={[serviceSchema, breadcrumbs, faqSchema]}
       />
 

@@ -1,8 +1,9 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { NotFound } from './NotFound';
 import { Hero } from '../components/Hero';
 import { SEO, createLocalBusinessSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
-import { getCityData } from '../data/cityData';
+import { getCityData, CT_CITIES, NJ_CITIES, PA_CITIES } from '../data/cityData';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { USAFlag } from '../components/USAFlag';
@@ -13,7 +14,7 @@ import {
   Shield, Clock, Phone, CheckCircle, Search, Sparkles,
   Wrench, ArrowRight, Star,
   CalendarDays, Users, Award,
-  FileText,
+  FileText, MapPin,
 } from 'lucide-react';
 
 function useCountUp(target: number, duration = 1800, started = false) {
@@ -171,8 +172,13 @@ export const CityPage: React.FC = () => {
   }, []);
 
   if (!cityData) {
-    return <Navigate to="/" replace />;
+    return <NotFound />;
   }
+
+  const stateName = cityData.state === 'CT' ? 'Connecticut' : cityData.state === 'NJ' ? 'New Jersey' : 'Pennsylvania';
+  const stateSlug = cityData.state.toLowerCase();
+  const nearbyCities = (cityData.state === 'CT' ? CT_CITIES : cityData.state === 'NJ' ? NJ_CITIES : PA_CITIES)
+    .filter(c => c.slug !== cityData.slug);
 
   const localBusinessSchema = createLocalBusinessSchema(
     cityData.name,
@@ -183,14 +189,14 @@ export const CityPage: React.FC = () => {
 
   const breadcrumbs = createBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: cityData.state === 'CT' ? 'Connecticut' : cityData.state === 'NJ' ? 'New Jersey' : 'Pennsylvania', url: `/${cityData.state.toLowerCase()}` },
+    { name: stateName, url: `/${stateSlug}` },
     { name: cityData.name, url: `/${cityData.state.toLowerCase()}/${cityData.slug}` }
   ]);
 
   const faqSchema = createFAQSchema(FAQ_ITEMS);
 
-  const seoTitle = `Chimney Sweep & Repair Services in ${cityData.name}, ${cityData.state} | Chimney Force`;
-  const seoDescription = `Expert chimney sweep, inspection, cleaning & repair services in ${cityData.name}, ${cityData.state}. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
+  const seoTitle = `Chimney Sweep & Repair ${cityData.name}, ${cityData.state} | Chimney Force`;
+  const seoDescription = `Chimney sweep, inspection and repair in ${cityData.name}, ${cityData.state}. Local specialists in ${cityData.serviceFocus.title.toLowerCase()}. Licensed, insured, same-day service.`;
   const keywords = `chimney services ${cityData.name}, chimney sweep ${cityData.name}, chimney repair ${cityData.name} ${cityData.state}, fireplace services ${cityData.name}, chimney inspection ${cityData.name}`;
   const canonicalUrl = `/${cityData.state.toLowerCase()}/${cityData.slug}`;
 
@@ -206,7 +212,7 @@ export const CityPage: React.FC = () => {
 
       <Hero
         title={<>Expert Chimney & Fireplace{' '}<span className="text-white font-black">Services in {cityData.name}.</span></>}
-        subtitle={`Serving ${cityData.name}, ${cityData.state} with Professional Chimney Solutions`}
+        subtitle={`${cityData.serviceFocus.title} and full-service chimney care for ${cityData.name}, ${cityData.state} homeowners`}
       />
 
       {/* Stats bar */}
@@ -284,6 +290,50 @@ export const CityPage: React.FC = () => {
                 </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local specialty + nearby areas */}
+      <section className="py-16 md:py-20 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+          <div className="lg:col-span-3 reveal">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
+              <MapPin className="w-3.5 h-3.5" />
+              Local Specialty
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+              {cityData.serviceFocus.heroTitle}
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">{cityData.serviceFocus.description}</p>
+            <p className="text-gray-600 leading-relaxed">
+              Every {cityData.name} visit includes a written, photo-documented report, clear pricing before work begins, and a labor guarantee from licensed {stateName} technicians.
+            </p>
+          </div>
+          <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm reveal reveal-delay-2">
+            <h3 className="text-lg font-extrabold text-gray-900 mb-4">Also Serving Nearby in {stateName}</h3>
+            <ul className="space-y-1">
+              {nearbyCities.map(c => (
+                <li key={c.slug}>
+                  <Link
+                    to={`/${stateSlug}/${c.slug}`}
+                    className="group flex items-center justify-between gap-3 rounded-xl px-3 min-h-[44px] font-bold text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors"
+                  >
+                    Chimney Services in {c.name}
+                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  to={`/${stateSlug}`}
+                  className="group flex items-center justify-between gap-3 rounded-xl px-3 min-h-[44px] font-bold text-primary hover:bg-primary/5 transition-colors"
+                >
+                  All {stateName} Service Areas
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

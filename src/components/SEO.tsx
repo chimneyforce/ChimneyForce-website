@@ -31,7 +31,7 @@ export const SEO: React.FC<SEOProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      {noindex && <meta name="robots" content="noindex, follow" />}
 
       {/* Canonical URL */}
       <link rel="canonical" href={fullCanonical} />
@@ -43,8 +43,8 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:width" content="800" />
+      <meta property="og:image:height" content="599" />
       <meta property="og:locale" content="en_US" />
 
       {/* Twitter Card Tags */}
@@ -136,13 +136,13 @@ export const createLocalBusinessSchema = (
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
         opens: '08:00',
-        closes: '18:00',
+        closes: '20:00',
       },
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
+        dayOfWeek: 'Friday',
         opens: '09:00',
         closes: '16:00',
       },
@@ -151,13 +151,13 @@ export const createLocalBusinessSchema = (
 };
 
 // Helper function to create Service schema
-export const createServiceSchema = (serviceName: string, description: string, region: string, phoneNumber: string = '888-398-7707') => {
+export const createServiceSchema = (serviceName: string, description: string, region: string, path: string, phoneNumber: string = '888-398-7707') => {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName,
     description: description,
-    url: `https://chimneyforce.com/services/${serviceName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+    url: `https://chimneyforce.com${path}`,
     priceRange: '$$',
     provider: {
       '@type': 'LocalBusiness',

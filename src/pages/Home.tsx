@@ -180,17 +180,17 @@ export const Home: React.FC = () => {
   );
 
   const getSEOTitle = () => {
-    if (isCT) return `Chimney Sweep & Repair Services in Connecticut | Chimney Force`;
-    if (isNJ) return `Chimney Sweep & Repair Services in New Jersey | Chimney Force`;
-    if (isPA) return `Chimney Sweep & Repair Services in Pennsylvania | Chimney Force`;
-    return 'Professional Chimney Sweep & Repair Services CT, NJ & PA | Chimney Force';
+    if (isCT) return `Chimney Sweep & Repair in Connecticut | Chimney Force`;
+    if (isNJ) return `Chimney Sweep & Repair in New Jersey | Chimney Force`;
+    if (isPA) return `Chimney Sweep & Repair in Pennsylvania | Chimney Force`;
+    return 'Chimney Sweep & Repair in CT, NJ & PA | Chimney Force';
   };
 
   const getSEODescription = () => {
     if (isCT) return `Expert chimney sweep, inspection, cleaning & repair services throughout Connecticut. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
     if (isNJ) return `Expert chimney sweep, inspection, cleaning & repair services throughout New Jersey. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
     if (isPA) return `Expert chimney sweep, inspection, cleaning & repair services throughout Pennsylvania. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
-    return 'Professional chimney sweep, inspection, cleaning, and repair services in Connecticut, New Jersey and Pennsylvania. Licensed & insured. Same-day emergency service. Labor guarantee.';
+    return 'Chimney sweep, inspection, cleaning and repair across Connecticut, New Jersey and Pennsylvania. Licensed, insured, same-day service and a labor guarantee.';
   };
 
   const getKeywords = () => {

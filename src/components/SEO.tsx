@@ -45,6 +45,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="800" />
       <meta property="og:image:height" content="599" />
+      <meta property="og:image:alt" content="Chimney Force chimney service crew with their service van" />
       <meta property="og:locale" content="en_US" />
 
       {/* Twitter Card Tags */}
@@ -52,6 +53,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image:alt" content="Chimney Force chimney service crew with their service van" />
 
       {/* Structured Data */}
       {structuredData && (
@@ -249,13 +251,6 @@ export const createOrganizationSchema = () => {
       'https://www.instagram.com/chimneyforce',
       'https://www.linkedin.com/company/chimneyforce',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '98',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 };
 

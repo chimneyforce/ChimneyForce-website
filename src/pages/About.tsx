@@ -6,8 +6,7 @@ import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../compon
 import { useRegion } from '../context/RegionContext';
 
 export const About: React.FC = () => {
-  const region = useRegion();
-  const { isCT, isNJ, isPA } = region;
+  const { region, isCT, isNJ, isPA } = useRegion();
 
   const getRegionText = () => {
     if (isCT) return `Connecticut`;

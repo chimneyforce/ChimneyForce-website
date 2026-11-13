@@ -6,7 +6,8 @@ import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../compon
 import { useRegion } from '../context/RegionContext';
 
 export const About: React.FC = () => {
-  const { isCT, isNJ, isPA } = useRegion();
+  const region = useRegion();
+  const { isCT, isNJ, isPA } = region;
 
   const getRegionText = () => {
     if (isCT) return `Connecticut`;
@@ -172,11 +173,11 @@ export const About: React.FC = () => {
                   Book Now
                 </button>
                 <a
-                  href="tel:+18604796036"
+                  href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
                   className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-7 py-4 rounded-xl font-extrabold text-sm transition-all duration-200 backdrop-blur-xs border border-white/20"
                 >
                   <Phone className="w-4 h-4" />
-                  (860) 479-6036
+                  {region.phoneNumbers[0]}
                 </a>
               </div>
             </div>

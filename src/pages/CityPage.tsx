@@ -49,9 +49,9 @@ function FaqSection({ cityName }: { cityName: string }) {
   const toggle = (i: number) => setOpen(prev => (prev === i ? null : i));
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 reveal">
+        <div className="text-center mb-8 md:mb-10 reveal">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
             FAQ
           </div>
@@ -259,9 +259,9 @@ export const CityPage: React.FC = () => {
       </div>
 
       {/* Services grid */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 reveal">
+          <div className="text-center mb-8 md:mb-10 reveal">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               Our Services
@@ -295,7 +295,7 @@ export const CityPage: React.FC = () => {
       </section>
 
       {/* Local specialty + nearby areas */}
-      <section className="py-16 md:py-20 bg-gray-50 border-y border-gray-100">
+      <section className="py-12 md:py-16 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           <div className="lg:col-span-3 reveal">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
@@ -363,9 +363,9 @@ export const CityPage: React.FC = () => {
       <Suspense fallback={null}><WorkShowcase /></Suspense>
 
       {/* Process timeline */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="pt-4 pb-12 md:pt-6 md:pb-16 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 reveal">
+          <div className="text-center mb-8 md:mb-10 reveal">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
               <CircleCheckBig className="w-3.5 h-3.5" />
               Our Process
@@ -404,7 +404,7 @@ export const CityPage: React.FC = () => {
       <FaqSection cityName={cityData.name} />
 
       {/* Final CTA */}
-      <section ref={ctaSectionRef} className="py-20 md:py-28 relative overflow-hidden">
+      <section ref={ctaSectionRef} className="py-14 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <picture>
             <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />

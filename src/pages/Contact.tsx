@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, CircleCheckBig } from 'lucide-react';
-import { SEO, createBreadcrumbSchema } from '../components/SEO';
-import { useRegion } from '../context/RegionContext';
+import { buildSeoHead, createBreadcrumbSchema } from '../lib/seo';
+import { getRegionFromPath, useRegion } from '../context/RegionContext';
 import { submitContactForm } from '../lib/contactSubmission';
 
+const regionTextFor = ({ isCT, isNJ, isPA }: { isCT: boolean; isNJ: boolean; isPA: boolean }) => {
+  if (isCT) return `Connecticut`;
+  if (isNJ) return `New Jersey`;
+  if (isPA) return `Pennsylvania`;
+  return "Connecticut, New Jersey & Pennsylvania";
+};
+
+export const contactHead = (pathname: string) =>
+  buildSeoHead({
+    title: `Contact Chimney Force | Request Service in ${regionTextFor(getRegionFromPath(pathname))}`,
+    description: "Contact Chimney Force for professional chimney services in CT, NJ & PA. Same-day service available. Call now or fill out our quick contact form.",
+    keywords: "contact chimney force, chimney services quote, chimney repair estimate, chimney cleaning appointment, ct nj pa chimney company",
+    canonical: '/contact',
+    structuredData: createBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Contact', url: '/contact' }
+    ]),
+  });
+
 export const Contact: React.FC = () => {
-  const { region, isCT, isNJ, isPA } = useRegion();
-
-  const getRegionText = () => {
-    if (isCT) return `Connecticut`;
-    if (isNJ) return `New Jersey`;
-    if (isPA) return `Pennsylvania`;
-    return "Connecticut, New Jersey & Pennsylvania";
-  };
-
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: 'Home', url: '/' },
-    { name: 'Contact', url: '/contact' }
-  ]);
-
-  const seoTitle = `Contact Chimney Force | Request Service in ${getRegionText()}`;
-  const seoDescription = "Contact Chimney Force for professional chimney services in CT, NJ & PA. Same-day service available. Call now or fill out our quick contact form.";
-  const keywords = "contact chimney force, chimney services quote, chimney repair estimate, chimney cleaning appointment, ct nj pa chimney company";
+  const regionContext = useRegion();
+  const { region } = regionContext;
+  const getRegionText = () => regionTextFor(regionContext);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -96,13 +101,6 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <SEO
-        title={seoTitle}
-        description={seoDescription}
-        keywords={keywords}
-        canonical="/contact"
-        structuredData={breadcrumbs}
-      />
       <section className="py-16 md:py-20 bg-linear-to-b/srgb from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">

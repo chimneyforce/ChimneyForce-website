@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { ClientOnly } from '@tanstack/react-router';
+import { SiteLink as Link } from './SiteLink';
 import { Phone, Menu, X, CalendarDays } from 'lucide-react';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
@@ -297,7 +298,9 @@ export const Header: React.FC = () => {
                 </div>
               </div>
               <div className="p-4">
-                <div ref={widgetRef} className="elfsight-app-b3712e26-a013-4938-b012-63cf2dde6df7" data-elfsight-app-lazy></div>
+                <ClientOnly>
+                  <div ref={widgetRef} className="elfsight-app-b3712e26-a013-4938-b012-63cf2dde6df7" data-elfsight-app-lazy></div>
+                </ClientOnly>
               </div>
             </div>
           </div>

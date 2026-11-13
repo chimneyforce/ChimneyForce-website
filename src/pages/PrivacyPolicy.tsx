@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { SEO } from '../components/SEO';
+import { Link } from '@tanstack/react-router';
+import { buildSeoHead } from '../lib/seo';
+
+export const privacyPolicyHead = () =>
+  buildSeoHead({
+    title: 'Privacy Policy | Chimney Force',
+    description:
+      'Read the Chimney Force privacy policy, including how we handle contact information and text message consent.',
+    canonical: '/privacy-policy',
+    noindex: true,
+  });
 
 export const PrivacyPolicy: React.FC = () => (
   <div className="bg-white">
-    <SEO
-      title="Privacy Policy | Chimney Force"
-      description="Read the Chimney Force privacy policy, including how we handle contact information and text message consent."
-      canonical="/privacy-policy"
-      noindex
-    />
     <section className="py-16 md:py-24 bg-linear-to-b/srgb from-gray-50 to-white">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-700">
         <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">Chimney Force</p>

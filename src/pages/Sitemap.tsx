@@ -1,22 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { SiteLink as Link } from '../components/SiteLink';
 import { House, Info, Mail, MapPin, Wrench } from 'lucide-react';
-import { SEO } from '../components/SEO';
+import { buildSeoHead } from '../lib/seo';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { CT_CITIES, NJ_CITIES, PA_CITIES } from '../data/cityData';
+
+export const sitemapHead = () =>
+  buildSeoHead({
+    title: 'Site Map | Chimney Force',
+    description:
+      'Browse all pages and services offered by Chimney Force. Find chimney services in Connecticut, New Jersey and Pennsylvania including cleaning, repair, inspection, and more.',
+    canonical: '/sitemap',
+  });
 
 export const Sitemap: React.FC = () => {
   const { statePrefix } = useRegion();
 
   return (
     <div className="bg-white">
-      <SEO
-        title="Site Map | Chimney Force"
-        description="Browse all pages and services offered by Chimney Force. Find chimney services in Connecticut, New Jersey and Pennsylvania including cleaning, repair, inspection, and more."
-        canonical="/sitemap"
-      />
-
       <section className="py-16 md:py-20 bg-linear-to-b/srgb from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">

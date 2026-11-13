@@ -1,4 +1,5 @@
 import React from 'react';
+import { ClientOnly } from '@tanstack/react-router';
 import { Star } from 'lucide-react';
 
 export const ReviewCarousel: React.FC = () => {
@@ -21,7 +22,9 @@ export const ReviewCarousel: React.FC = () => {
         </div>
 
         {/* Elfsight widget — min-height reserves space to prevent layout shift */}
-        <div className="elfsight-app-ed9f7cb7-bfce-481d-a2fd-c565c4986687 min-h-[400px] md:min-h-[500px]" data-elfsight-app-lazy />
+        <ClientOnly fallback={<div className="min-h-[400px] md:min-h-[500px]" />}>
+          <div className="elfsight-app-ed9f7cb7-bfce-481d-a2fd-c565c4986687 min-h-[400px] md:min-h-[500px]" data-elfsight-app-lazy />
+        </ClientOnly>
       </div>
     </section>
   );

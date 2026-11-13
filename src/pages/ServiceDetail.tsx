@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link, useSearchParams } from 'react-router-dom';
+import { useLocation } from '@tanstack/react-router';
+import { SiteLink as Link } from '../components/SiteLink';
 import {
   CircleCheckBig, Phone, Shield, Award, Star,
   ArrowRight, Users, Sparkles, MapPin, CalendarDays, Info,
 } from 'lucide-react';
-import { SEO, createServiceSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
-import { useRegion } from '../context/RegionContext';
+import { buildSeoHead, createServiceSchema, createBreadcrumbSchema, createFAQSchema } from '../lib/seo';
+import { getRegionFromPath, useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 const ReviewCarousel = React.lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
 const WorkShowcase = React.lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
@@ -785,13 +786,52 @@ function useCountUp(target: number, duration = 1800, started = false) {
 /*  Main component                                             */
 /* ─────────────────────────────────────────────────────────── */
 
-export const ServiceDetail: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const { region, statePrefix, isCT, isNJ, isPA } = useRegion();
-  const [searchParams] = useSearchParams();
+const regionTextFor = ({ isCT, isNJ, isPA }: { isCT: boolean; isNJ: boolean; isPA: boolean }) => {
+  if (isCT) return 'Connecticut';
+  if (isNJ) return 'New Jersey';
+  if (isPA) return 'Pennsylvania';
+  return 'Connecticut, New Jersey and Pennsylvania';
+};
+
+export const serviceDetailHead = (slug: string, pathname: string) => {
+  const service = SERVICES.find(s => s.slug === slug);
+  if (!service) return {};
+
+  const regionContext = getRegionFromPath(pathname);
+  const { region, statePrefix, isCT, isNJ, isPA } = regionContext;
+  const regionText = regionTextFor(regionContext);
+  const content = CONTENT[service.slug] ?? fallbackContent(service.name);
+  const regionShort = isCT ? 'CT' : isNJ ? 'NJ' : isPA ? 'PA' : 'CT, NJ & PA';
+  const servicePath = `${statePrefix}/services/${service.slug}`;
+  const description = `Professional ${service.name.toLowerCase()} in ${regionText} by licensed, insured chimney technicians. Photo-documented work and same-day service available.`;
+
+  return buildSeoHead({
+    title: `${service.name} in ${regionShort} | Chimney Force`,
+    description,
+    keywords: `${service.name.toLowerCase()}, chimney services, chimney force, ${isCT ? 'ct' : isNJ ? 'nj' : isPA ? 'pa' : 'ct nj pa'}`,
+    canonical: servicePath,
+    structuredData: [
+      createServiceSchema(service.name, description, regionText, servicePath, region.phoneNumbers[0]),
+      createBreadcrumbSchema([
+        { name: 'Home', url: statePrefix || '/' },
+        { name: 'Services', url: statePrefix || '/' },
+        { name: service.name, url: servicePath },
+      ]),
+      createFAQSchema(content.faqs),
+    ],
+  });
+};
+
+const searchValue = (value: unknown) =>
+  value === undefined || value === null ? null : String(value);
+
+export const ServiceDetail: React.FC<{ slug: string }> = ({ slug }) => {
+  const regionContext = useRegion();
+  const { region, statePrefix, isCT } = regionContext;
+  const search = useLocation({ select: l => l.search as Record<string, unknown> });
   const ctLocation = resolveCtLocation(
-    searchParams.get('loc_interest_ms'),
-    searchParams.get('loc_physical_ms')
+    searchValue(search['loc_interest_ms']),
+    searchValue(search['loc_physical_ms'])
   );
   const servingLocation = isCT && ctLocation ? `${ctLocation}, CT` : region.regionName;
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -822,12 +862,7 @@ export const ServiceDetail: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
-  const getRegionText = () => {
-    if (isCT) return 'Connecticut';
-    if (isNJ) return 'New Jersey';
-    if (isPA) return 'Pennsylvania';
-    return 'Connecticut, New Jersey and Pennsylvania';
-  };
+  const getRegionText = () => regionTextFor(regionContext);
 
   const service = SERVICES.find(s => s.slug === slug);
 
@@ -847,33 +882,11 @@ export const ServiceDetail: React.FC = () => {
   const content = CONTENT[service.slug] ?? fallbackContent(service.name);
   const Icon = service.icon;
 
-  const regionShort = isCT ? 'CT' : isNJ ? 'NJ' : isPA ? 'PA' : 'CT, NJ & PA';
-  const servicePath = `${statePrefix}/services/${service.slug}`;
-  const seoTitle = `${service.name} in ${regionShort} | Chimney Force`;
-  const seoDescription = `Professional ${service.name.toLowerCase()} in ${getRegionText()} by licensed, insured chimney technicians. Photo-documented work and same-day service available.`;
-  const keywords = `${service.name.toLowerCase()}, chimney services, chimney force, ${isCT ? 'ct' : isNJ ? 'nj' : isPA ? 'pa' : 'ct nj pa'}`;
-
-  const serviceSchema = createServiceSchema(service.name, seoDescription, getRegionText(), servicePath, region.phoneNumbers[0]);
-  const faqSchema = createFAQSchema(content.faqs);
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: 'Home', url: statePrefix || '/' },
-    { name: 'Services', url: statePrefix || '/' },
-    { name: service.name, url: servicePath },
-  ]);
-
   return (
     <div className="bg-white">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-primary focus:text-white focus:rounded-lg focus:font-bold">
         Skip to main content
       </a>
-
-      <SEO
-        title={seoTitle}
-        description={seoDescription}
-        keywords={keywords}
-        canonical={servicePath}
-        structuredData={[serviceSchema, breadcrumbs, faqSchema]}
-      />
 
       {/* ── SECTION 1: Hero ─────────────────────────────────── */}
       <div className="relative min-h-[600px] md:min-h-[660px] lg:h-[720px] flex items-center overflow-hidden">

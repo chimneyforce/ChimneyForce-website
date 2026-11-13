@@ -1,10 +1,10 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { NotFound } from './NotFound';
+import { SiteLink as Link } from '../components/SiteLink';
+import { NotFound, notFoundHead } from './NotFound';
 import { Hero } from '../components/Hero';
-import { SEO, createLocalBusinessSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
+import { buildSeoHead, createLocalBusinessSchema, createBreadcrumbSchema, createFAQSchema } from '../lib/seo';
 import { getCityData, CT_CITIES, NJ_CITIES, PA_CITIES } from '../data/cityData';
-import { useRegion } from '../context/RegionContext';
+import { getRegionFromPath, useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
 import { USAFlag } from '../components/USAFlag';
 const ReviewCarousel = lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
@@ -132,10 +132,39 @@ function TeamCopy({ region }: { region: { phoneNumbers: [string, ...string[]] } 
   );
 }
 
-export const CityPage: React.FC = () => {
-  const { city } = useParams<{ city: string }>();
+export const cityPageHead = (city: string, pathname: string) => {
+  const cityData = getCityData(city);
+  if (!cityData) return notFoundHead();
+
+  const { region } = getRegionFromPath(pathname);
+  const stateName = cityData.state === 'CT' ? 'Connecticut' : cityData.state === 'NJ' ? 'New Jersey' : 'Pennsylvania';
+  const stateSlug = cityData.state.toLowerCase();
+
+  return buildSeoHead({
+    title: `Chimney Sweep & Repair ${cityData.name}, ${cityData.state} | Chimney Force`,
+    description: `Chimney sweep, inspection and repair in ${cityData.name}, ${cityData.state}. Local specialists in ${cityData.serviceFocus.title.toLowerCase()}. Licensed, insured, same-day service.`,
+    keywords: `chimney services ${cityData.name}, chimney sweep ${cityData.name}, chimney repair ${cityData.name} ${cityData.state}, fireplace services ${cityData.name}, chimney inspection ${cityData.name}`,
+    canonical: `/${cityData.state.toLowerCase()}/${cityData.slug}`,
+    structuredData: [
+      createLocalBusinessSchema(
+        cityData.name,
+        cityData.state,
+        region.phoneNumbers[0],
+        `${cityData.name}, ${cityData.state} and surrounding areas`
+      ),
+      createBreadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: stateName, url: `/${stateSlug}` },
+        { name: cityData.name, url: `/${cityData.state.toLowerCase()}/${cityData.slug}` }
+      ]),
+      createFAQSchema(FAQ_ITEMS),
+    ],
+  });
+};
+
+export const CityPage: React.FC<{ city: string }> = ({ city }) => {
   const { region, statePrefix } = useRegion();
-  const cityData = getCityData(city || '');
+  const cityData = getCityData(city);
 
   const [statsStarted, setStatsStarted] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -184,36 +213,8 @@ export const CityPage: React.FC = () => {
   const nearbyCities = (cityData.state === 'CT' ? CT_CITIES : cityData.state === 'NJ' ? NJ_CITIES : PA_CITIES)
     .filter(c => c.slug !== cityData.slug);
 
-  const localBusinessSchema = createLocalBusinessSchema(
-    cityData.name,
-    cityData.state,
-    region.phoneNumbers[0],
-    `${cityData.name}, ${cityData.state} and surrounding areas`
-  );
-
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: 'Home', url: '/' },
-    { name: stateName, url: `/${stateSlug}` },
-    { name: cityData.name, url: `/${cityData.state.toLowerCase()}/${cityData.slug}` }
-  ]);
-
-  const faqSchema = createFAQSchema(FAQ_ITEMS);
-
-  const seoTitle = `Chimney Sweep & Repair ${cityData.name}, ${cityData.state} | Chimney Force`;
-  const seoDescription = `Chimney sweep, inspection and repair in ${cityData.name}, ${cityData.state}. Local specialists in ${cityData.serviceFocus.title.toLowerCase()}. Licensed, insured, same-day service.`;
-  const keywords = `chimney services ${cityData.name}, chimney sweep ${cityData.name}, chimney repair ${cityData.name} ${cityData.state}, fireplace services ${cityData.name}, chimney inspection ${cityData.name}`;
-  const canonicalUrl = `/${cityData.state.toLowerCase()}/${cityData.slug}`;
-
   return (
     <div>
-      <SEO
-        title={seoTitle}
-        description={seoDescription}
-        keywords={keywords}
-        canonical={canonicalUrl}
-        structuredData={[localBusinessSchema, breadcrumbs, faqSchema]}
-      />
-
       <Hero
         title={<>Expert Chimney & Fireplace{' '}<span className="text-white font-black">Services in {cityData.name}.</span></>}
         subtitle={`${cityData.serviceFocus.title} and full-service chimney care for ${cityData.name}, ${cityData.state} homeowners`}

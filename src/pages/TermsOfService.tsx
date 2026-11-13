@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { SEO } from '../components/SEO';
+import { Link } from '@tanstack/react-router';
+import { buildSeoHead } from '../lib/seo';
+
+export const termsOfServiceHead = () =>
+  buildSeoHead({
+    title: 'Terms of Service | Chimney Force',
+    description: 'Review the Chimney Force website, service request, and text messaging terms of service.',
+    canonical: '/terms-of-service',
+    noindex: true,
+  });
 
 export const TermsOfService: React.FC = () => (
   <div className="bg-white">
-    <SEO
-      title="Terms of Service | Chimney Force"
-      description="Review the Chimney Force website, service request, and text messaging terms of service."
-      canonical="/terms-of-service"
-      noindex
-    />
     <section className="py-16 md:py-24 bg-linear-to-b/srgb from-gray-50 to-white">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-700">
         <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">Chimney Force</p>

@@ -1,7 +1,9 @@
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_CUSTOMER_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CUSTOMER_TEMPLATE_ID;
-const EMAILJS_BUSINESS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_BUSINESS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+import {
+  EMAILJS_SERVICE_ID,
+  EMAILJS_CUSTOMER_TEMPLATE_ID,
+  EMAILJS_BUSINESS_TEMPLATE_ID,
+  EMAILJS_PUBLIC_KEY,
+} from './config';
 
 export interface QuoteFormData {
   phone: string;
@@ -23,9 +25,6 @@ export interface SubmissionResult {
 }
 
 async function getEmailJS() {
-  if (!EMAILJS_SERVICE_ID || !EMAILJS_PUBLIC_KEY) {
-    return null;
-  }
   const emailjs = (await import('@emailjs/browser')).default;
   emailjs.init(EMAILJS_PUBLIC_KEY);
   return emailjs;
@@ -36,12 +35,8 @@ export async function submitQuoteRequest(
 ): Promise<SubmissionResult> {
   try {
     const emailjs = await getEmailJS();
-    if (!emailjs || !EMAILJS_BUSINESS_TEMPLATE_ID) {
-      return { success: false, error: 'Email service is not configured. Please call us directly.' };
-    }
-
     await emailjs.send(
-      EMAILJS_SERVICE_ID!,
+      EMAILJS_SERVICE_ID,
       EMAILJS_BUSINESS_TEMPLATE_ID,
       {
         name: formData.name || 'Quote Request',
@@ -64,12 +59,8 @@ export async function submitContactForm(
 ): Promise<SubmissionResult> {
   try {
     const emailjs = await getEmailJS();
-    if (!emailjs || !EMAILJS_BUSINESS_TEMPLATE_ID) {
-      return { success: false, error: 'Email service is not configured. Please call us directly.' };
-    }
-
     await emailjs.send(
-      EMAILJS_SERVICE_ID!,
+      EMAILJS_SERVICE_ID,
       EMAILJS_BUSINESS_TEMPLATE_ID,
       {
         name: formData.name,
@@ -81,21 +72,19 @@ export async function submitContactForm(
       }
     );
 
-    if (EMAILJS_CUSTOMER_TEMPLATE_ID) {
-      try {
-        await emailjs.send(
-          EMAILJS_SERVICE_ID!,
-          EMAILJS_CUSTOMER_TEMPLATE_ID,
-          {
-            name: formData.name,
-            email: formData.email,
-            service: formData.service,
-            reply_to: 'Chimneyforceinc@gmail.com',
-          }
-        );
-      } catch {
-        // Customer auto-reply failed but the main submission succeeded
-      }
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CUSTOMER_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          service: formData.service,
+          reply_to: 'Chimneyforceinc@gmail.com',
+        }
+      );
+    } catch {
+      // Customer auto-reply failed but the main submission succeeded
     }
 
     return { success: true };

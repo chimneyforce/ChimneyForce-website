@@ -1,21 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { SiteLink as Link } from '../components/SiteLink';
 import { House, Phone, Search } from 'lucide-react';
-import { SEO } from '../components/SEO';
+import { buildSeoHead } from '../lib/seo';
 import { useRegion } from '../context/RegionContext';
+
+export const notFoundHead = () =>
+  buildSeoHead({
+    title: '404 - Page Not Found | Chimney Force',
+    description:
+      "The page you're looking for could not be found. Return to Chimney Force homepage for professional chimney services in Connecticut, New Jersey and Pennsylvania.",
+    canonical: '/404',
+    noindex: true,
+  });
 
 export const NotFound: React.FC = () => {
   const { region, statePrefix } = useRegion();
 
   return (
     <div className="bg-white min-h-screen">
-      <SEO
-        title="404 - Page Not Found | Chimney Force"
-        description="The page you're looking for could not be found. Return to Chimney Force homepage for professional chimney services in Connecticut, New Jersey and Pennsylvania."
-        canonical="/404"
-        noindex
-      />
-
       <section className="py-16 md:py-24 bg-linear-to-br/srgb from-gray-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">

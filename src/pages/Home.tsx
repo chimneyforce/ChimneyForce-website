@@ -1,10 +1,10 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { SiteLink as Link } from '../components/SiteLink';
 import { Hero } from '../components/Hero';
 const ReviewCarousel = lazy(() => import('../components/ReviewCarousel').then(m => ({ default: m.ReviewCarousel })));
 const QuoteForm = lazy(() => import('../components/QuoteForm').then(m => ({ default: m.QuoteForm })));
-import { SEO, createOrganizationSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
-import { useRegion } from '../context/RegionContext';
+import { buildSeoHead, createOrganizationSchema, createBreadcrumbSchema, createFAQSchema } from '../lib/seo';
+import { getRegionFromPath, useRegion } from '../context/RegionContext';
 const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 import { SERVICES } from '../data/servicesData';
 import { USAFlag } from '../components/USAFlag';
@@ -135,9 +135,47 @@ function TeamCopy({ region }: { region: { phoneNumbers: [string, ...string[]] } 
   );
 }
 
+/* ── Head ─────────────────────────────────────────────────── */
+export const homeHead = (pathname: string) => {
+  const { isCT, isNJ, isPA, statePrefix } = getRegionFromPath(pathname);
+
+  const getSEOTitle = () => {
+    if (isCT) return `Chimney Sweep & Repair in Connecticut | Chimney Force`;
+    if (isNJ) return `Chimney Sweep & Repair in New Jersey | Chimney Force`;
+    if (isPA) return `Chimney Sweep & Repair in Pennsylvania | Chimney Force`;
+    return 'Chimney Sweep & Repair in CT, NJ & PA | Chimney Force';
+  };
+
+  const getSEODescription = () => {
+    if (isCT) return `Expert chimney sweep, inspection, cleaning & repair services throughout Connecticut. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
+    if (isNJ) return `Expert chimney sweep, inspection, cleaning & repair services throughout New Jersey. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
+    if (isPA) return `Expert chimney sweep, inspection, cleaning & repair services throughout Pennsylvania. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
+    return 'Chimney sweep, inspection, cleaning and repair across Connecticut, New Jersey and Pennsylvania. Licensed, insured, same-day service and a labor guarantee.';
+  };
+
+  const getKeywords = () => {
+    if (isCT) return 'chimney sweep ct, chimney cleaning connecticut, chimney inspection ct, chimney repair connecticut, fireplace services ct, chimney force';
+    if (isNJ) return 'chimney sweep nj, chimney cleaning new jersey, chimney inspection nj, chimney repair new jersey, fireplace services nj, chimney force';
+    if (isPA) return 'chimney sweep pa, chimney cleaning pennsylvania, chimney inspection pa, chimney repair pennsylvania, fireplace services pa, chimney force';
+    return 'chimney sweep, chimney cleaning, chimney inspection, chimney repair, fireplace services, ct, nj, pa, connecticut, new jersey, pennsylvania';
+  };
+
+  return buildSeoHead({
+    title: getSEOTitle(),
+    description: getSEODescription(),
+    keywords: getKeywords(),
+    canonical: statePrefix || '/',
+    structuredData: [
+      createOrganizationSchema(),
+      createBreadcrumbSchema([{ name: 'Home', url: statePrefix || '/' }]),
+      createFAQSchema(FAQ_ITEMS),
+    ],
+  });
+};
+
 /* ── Main export ──────────────────────────────────────────── */
 export const Home: React.FC = () => {
-  const { region, isCT, isNJ, isPA, statePrefix } = useRegion();
+  const { region, statePrefix } = useRegion();
   const [statsStarted, setStatsStarted] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const ctaSectionRef = useRef<HTMLElement>(null);
@@ -176,43 +214,10 @@ export const Home: React.FC = () => {
     </>
   );
 
-  const getSEOTitle = () => {
-    if (isCT) return `Chimney Sweep & Repair in Connecticut | Chimney Force`;
-    if (isNJ) return `Chimney Sweep & Repair in New Jersey | Chimney Force`;
-    if (isPA) return `Chimney Sweep & Repair in Pennsylvania | Chimney Force`;
-    return 'Chimney Sweep & Repair in CT, NJ & PA | Chimney Force';
-  };
-
-  const getSEODescription = () => {
-    if (isCT) return `Expert chimney sweep, inspection, cleaning & repair services throughout Connecticut. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
-    if (isNJ) return `Expert chimney sweep, inspection, cleaning & repair services throughout New Jersey. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
-    if (isPA) return `Expert chimney sweep, inspection, cleaning & repair services throughout Pennsylvania. Licensed & insured. Same-day service. Labor guarantee. Call now!`;
-    return 'Chimney sweep, inspection, cleaning and repair across Connecticut, New Jersey and Pennsylvania. Licensed, insured, same-day service and a labor guarantee.';
-  };
-
-  const getKeywords = () => {
-    if (isCT) return 'chimney sweep ct, chimney cleaning connecticut, chimney inspection ct, chimney repair connecticut, fireplace services ct, chimney force';
-    if (isNJ) return 'chimney sweep nj, chimney cleaning new jersey, chimney inspection nj, chimney repair new jersey, fireplace services nj, chimney force';
-    if (isPA) return 'chimney sweep pa, chimney cleaning pennsylvania, chimney inspection pa, chimney repair pennsylvania, fireplace services pa, chimney force';
-    return 'chimney sweep, chimney cleaning, chimney inspection, chimney repair, fireplace services, ct, nj, pa, connecticut, new jersey, pennsylvania';
-  };
-
-  const organizationSchema = createOrganizationSchema();
-  const breadcrumbs = createBreadcrumbSchema([{ name: 'Home', url: statePrefix || '/' }]);
-  const faqSchema = createFAQSchema(FAQ_ITEMS);
-
   const SERVICES_LOCAL = SERVICES;
 
   return (
     <div>
-      <SEO
-        title={getSEOTitle()}
-        description={getSEODescription()}
-        keywords={getKeywords()}
-        canonical={statePrefix || '/'}
-        structuredData={[organizationSchema, breadcrumbs, faqSchema]}
-      />
-
       {/* ── Hero ─────────────────────────────────────────── */}
       <Hero
         title={getTitle()}

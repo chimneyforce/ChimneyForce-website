@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo, ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from '@tanstack/react-router';
 
 export interface RegionData {
   regionName: string;
@@ -60,9 +60,11 @@ const PA_DATA: RegionData = {
   licenseNumbers: ['PA HIC #PA226493'],
 };
 
+export const isStateSlug = (value: string) => ['ct', 'nj', 'pa'].includes(value);
+
 const RegionContext = createContext<RegionContextType | undefined>(undefined);
 
-const getRegionFromPath = (pathname: string) => {
+export const getRegionFromPath = (pathname: string): RegionContextType => {
   const path = pathname.toLowerCase();
   const isNewJersey = path.startsWith('/nj');
   const isConnecticut = path.startsWith('/ct');
@@ -118,8 +120,8 @@ const getRegionFromPath = (pathname: string) => {
 };
 
 export const RegionProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const location = useLocation();
-  const regionData = useMemo(() => getRegionFromPath(location.pathname), [location.pathname]);
+  const pathname = useLocation({ select: (location) => location.pathname });
+  const regionData = useMemo(() => getRegionFromPath(pathname), [pathname]);
 
   return (
     <RegionContext.Provider value={regionData}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { SiteLink as Link } from './SiteLink';
 import { Phone, MapPin, Clock } from 'lucide-react';
 import { useRegion } from '../context/RegionContext';
 import { CT_CITIES, NJ_CITIES, PA_CITIES } from '../data/cityData';

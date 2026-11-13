@@ -1,68 +1,46 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-
-interface SEOProps {
+export interface SeoProps {
   title: string;
   description: string;
-  canonical?: string;
+  canonical: string;
   keywords?: string;
-  ogType?: string;
-  ogImage?: string;
   structuredData?: object | object[];
   noindex?: boolean;
 }
 
-export const SEO: React.FC<SEOProps> = ({
-  title,
-  description,
-  canonical,
-  keywords,
-  ogType = 'website',
-  ogImage = 'https://chimneyforce.com/CF-team.webp',
-  structuredData,
-  noindex = false,
-}) => {
-  const siteUrl = 'https://chimneyforce.com';
-  const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
+const SITE_URL = 'https://chimneyforce.com';
+const OG_IMAGE = 'https://chimneyforce.com/CF-team.webp';
+const OG_IMAGE_ALT = 'Chimney Force chimney service crew with their service van';
 
-  return (
-    <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      {noindex && <meta name="robots" content="noindex, follow" />}
+export const buildSeoHead = ({ title, description, canonical, keywords, structuredData, noindex = false }: SeoProps) => {
+  const fullCanonical = `${SITE_URL}${canonical}`;
 
-      {/* Canonical URL */}
-      <link rel="canonical" href={fullCanonical} />
-
-      {/* Open Graph Tags */}
-      <meta property="og:site_name" content="Chimney Force" />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={fullCanonical} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="800" />
-      <meta property="og:image:height" content="599" />
-      <meta property="og:image:alt" content="Chimney Force chimney service crew with their service van" />
-      <meta property="og:locale" content="en_US" />
-
-      {/* Twitter Card Tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content="Chimney Force chimney service crew with their service van" />
-
-      {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(Array.isArray(structuredData) ? structuredData : [structuredData])}
-        </script>
-      )}
-    </Helmet>
-  );
+  return {
+    meta: [
+      { title },
+      { name: 'description', content: description },
+      ...(keywords ? [{ name: 'keywords', content: keywords }] : []),
+      ...(noindex ? [{ name: 'robots', content: 'noindex, follow' }] : []),
+      { property: 'og:site_name', content: 'Chimney Force' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:url', content: fullCanonical },
+      { property: 'og:image', content: OG_IMAGE },
+      { property: 'og:image:width', content: '800' },
+      { property: 'og:image:height', content: '599' },
+      { property: 'og:image:alt', content: OG_IMAGE_ALT },
+      { property: 'og:locale', content: 'en_US' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: OG_IMAGE },
+      { name: 'twitter:image:alt', content: OG_IMAGE_ALT },
+      ...(structuredData
+        ? [{ 'script:ld+json': Array.isArray(structuredData) ? structuredData : [structuredData] }]
+        : []),
+    ],
+    links: [{ rel: 'canonical', href: fullCanonical }],
+  };
 };
 
 // Helper function to create LocalBusiness schema

@@ -2,39 +2,38 @@ import React, { lazy, Suspense } from 'react';
 import { Shield, Package, Users, Clock, CalendarDays, CircleCheckBig, Star, Phone } from 'lucide-react';
 const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 const QuoteForm = lazy(() => import('../components/QuoteForm').then(m => ({ default: m.QuoteForm })));
-import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../components/SEO';
-import { useRegion } from '../context/RegionContext';
+import { buildSeoHead, createOrganizationSchema, createBreadcrumbSchema } from '../lib/seo';
+import { getRegionFromPath, useRegion } from '../context/RegionContext';
+
+const regionTextFor = ({ isCT, isNJ, isPA }: { isCT: boolean; isNJ: boolean; isPA: boolean }) => {
+  if (isCT) return `Connecticut`;
+  if (isNJ) return `New Jersey`;
+  if (isPA) return `Pennsylvania`;
+  return "Connecticut, New Jersey and Pennsylvania";
+};
+
+export const aboutHead = (pathname: string) =>
+  buildSeoHead({
+    title: `About Chimney Force | Professional Chimney Services in ${regionTextFor(getRegionFromPath(pathname))}`,
+    description: "Learn about Chimney Force - Your trusted chimney and fireplace experts serving Connecticut, New Jersey and Pennsylvania since 2010. Licensed, insured, premium materials with 10,000+ satisfied customers.",
+    keywords: "about chimney force, chimney company ct nj pa, licensed chimney services, certified chimney sweep, professional chimney repair",
+    canonical: '/about',
+    structuredData: [
+      createOrganizationSchema(),
+      createBreadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'About', url: '/about' }
+      ]),
+    ],
+  });
 
 export const About: React.FC = () => {
-  const { region, isCT, isNJ, isPA } = useRegion();
-
-  const getRegionText = () => {
-    if (isCT) return `Connecticut`;
-    if (isNJ) return `New Jersey`;
-    if (isPA) return `Pennsylvania`;
-    return "Connecticut, New Jersey and Pennsylvania";
-  };
-
-  const organizationSchema = createOrganizationSchema();
-
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: 'Home', url: '/' },
-    { name: 'About', url: '/about' }
-  ]);
-
-  const seoTitle = `About Chimney Force | Professional Chimney Services in ${getRegionText()}`;
-  const seoDescription = "Learn about Chimney Force - Your trusted chimney and fireplace experts serving Connecticut, New Jersey and Pennsylvania since 2010. Licensed, insured, premium materials with 10,000+ satisfied customers.";
-  const keywords = "about chimney force, chimney company ct nj pa, licensed chimney services, certified chimney sweep, professional chimney repair";
+  const regionContext = useRegion();
+  const { region } = regionContext;
+  const getRegionText = () => regionTextFor(regionContext);
 
   return (
     <div className="bg-white">
-      <SEO
-        title={seoTitle}
-        description={seoDescription}
-        keywords={keywords}
-        canonical="/about"
-        structuredData={[organizationSchema, breadcrumbs]}
-      />
       <section className="py-16 md:py-20 bg-linear-to-b/srgb from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">

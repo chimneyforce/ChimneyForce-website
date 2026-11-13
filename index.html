@@ -42,13 +42,17 @@
 
     <!-- Inline critical above-the-fold styles -->
     <style>
-      *{box-sizing:border-box;margin:0;padding:0}
-      html{scroll-behavior:smooth}
-      body{font-family:Montserrat,ui-sans-serif,system-ui,sans-serif;color:#000;background:#fff;overflow-x:clip;-webkit-font-smoothing:antialiased}
-      h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
-      #root{min-height:100svh}
-      .bg-primary{background-color:#e40000}
-      .text-primary{color:#e40000}
+      @layer theme, base, components, utilities;
+      @layer base{
+        html{scroll-behavior:smooth}
+        body{font-family:Montserrat,ui-sans-serif,system-ui,sans-serif;color:#000;background:#fff;overflow-x:clip;-webkit-font-smoothing:antialiased}
+        h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
+        #root{min-height:100svh}
+      }
+      @layer utilities{
+        .bg-primary{background-color:#e40000}
+        .text-primary{color:#e40000}
+      }
     </style>
     <meta property="og:image" content="https://chimneyforce.com/CF-team.webp">
     <meta name="twitter:card" content="summary_large_image">

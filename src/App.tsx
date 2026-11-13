@@ -15,7 +15,6 @@ const Contact = lazy(() => import('./pages/Contact').then(module => ({ default: 
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail').then(module => ({ default: module.ServiceDetail })));
 const Sitemap = lazy(() => import('./pages/Sitemap').then(module => ({ default: module.Sitemap })));
 const NotFound = lazy(() => import('./pages/NotFound').then(module => ({ default: module.NotFound })));
-const AdminReviews = lazy(() => import('./pages/AdminReviews'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -55,7 +54,6 @@ function App() {
                   <Route path="/sitemap" element={<Sitemap />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/terms-of-service" element={<TermsOfService />} />
-                  <Route path="/admin/reviews" element={<AdminReviews />} />
                   <Route path="/services/:slug" element={<ServiceDetail />} />
                   <Route path="/ct/about" element={<About />} />
                   <Route path="/nj/about" element={<About />} />

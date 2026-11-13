@@ -20,7 +20,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'supabase-vendor': ['@supabase/supabase-js'],
           'icons': ['lucide-react'],
         },
         assetFileNames: 'assets/[name]-[hash][extname]',

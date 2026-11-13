@@ -154,7 +154,11 @@ export const CityPage: React.FC = () => {
       }),
       { threshold: 0.08 }
     );
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const observeReveals = () =>
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+    observeReveals();
+    const mutationObserver = new MutationObserver(observeReveals);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     const statsObserver = new IntersectionObserver(
       (entries) => { if (entries[0]?.isIntersecting) { setStatsStarted(true); statsObserver.disconnect(); } },
@@ -168,8 +172,8 @@ export const CityPage: React.FC = () => {
     );
     if (ctaSectionRef.current) ctaObserver.observe(ctaSectionRef.current);
 
-    return () => { revealObserver.disconnect(); statsObserver.disconnect(); ctaObserver.disconnect(); };
-  }, []);
+    return () => { revealObserver.disconnect(); mutationObserver.disconnect(); statsObserver.disconnect(); ctaObserver.disconnect(); };
+  }, [cityData]);
 
   if (!cityData) {
     return <NotFound />;

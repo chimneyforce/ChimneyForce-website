@@ -42,7 +42,7 @@ function App() {
         <div className="min-h-screen">
           <div className="max-w-[1600px] mx-auto bg-white min-h-screen flex flex-col lg:my-6 lg:rounded-2xl lg:shadow-2xl overflow-clip">
             <Header />
-            <main className="flex-grow">
+            <main className="grow">
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
                   <Route path="/" element={<Home />} />

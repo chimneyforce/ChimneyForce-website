@@ -102,7 +102,7 @@ export const Header: React.FC = () => {
                             className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group/item"
                             onClick={() => setIsServicesOpen(false)}
                           >
-                            <div className="w-8 h-8 flex-shrink-0 bg-primary/8 rounded-lg flex items-center justify-center group-hover/item:bg-primary/15 transition-colors">
+                            <div className="w-8 h-8 shrink-0 bg-primary/8 rounded-lg flex items-center justify-center group-hover/item:bg-primary/15 transition-colors">
                               <Icon className="w-4 h-4 text-primary" />
                             </div>
                             <div>
@@ -136,14 +136,14 @@ export const Header: React.FC = () => {
                 onClick={() => setIsBookingOpen(true)}
                 className="hidden lg:flex items-center gap-2 bg-gray-900 text-white px-5 py-2.5 rounded-xl font-extrabold text-sm hover:bg-gray-700 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg"
               >
-                <CalendarDays className="w-4 h-4 flex-shrink-0" />
+                <CalendarDays className="w-4 h-4 shrink-0" />
                 Book Now
               </button>
               <a
                 href={`tel:${region.phoneNumbers[0].replace(/\D/g, '')}`}
                 className="hidden lg:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-xl font-extrabold text-sm hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg"
               >
-                <Phone className="w-4 h-4 flex-shrink-0" />
+                <Phone className="w-4 h-4 shrink-0" />
                 <span className="font-extrabold">{region.phoneNumbers[0]}</span>
               </a>
 
@@ -167,7 +167,7 @@ export const Header: React.FC = () => {
                 className="md:hidden flex items-center gap-2 bg-primary text-white px-3 py-2.5 rounded-xl shadow-md active:scale-95 transition-transform duration-150 relative"
                 aria-label={`Call ${region.phoneNumbers[0]}`}
               >
-                <Phone className="w-4 h-4 flex-shrink-0" />
+                <Phone className="w-4 h-4 shrink-0" />
                 <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
               </a>
 
@@ -176,7 +176,7 @@ export const Header: React.FC = () => {
                 className="md:hidden flex items-center gap-1.5 bg-gray-900 text-white px-3 py-2.5 rounded-xl font-extrabold text-sm shadow-md active:scale-95 transition-transform duration-150"
                 aria-label="Book appointment"
               >
-                <CalendarDays className="w-4 h-4 flex-shrink-0" />
+                <CalendarDays className="w-4 h-4 shrink-0" />
                 <span>Book</span>
               </button>
 
@@ -215,7 +215,7 @@ export const Header: React.FC = () => {
                       className="flex items-center gap-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-all rounded-xl px-3 min-h-[48px]"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <Icon className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <Icon className="w-4 h-4 text-secondary shrink-0" />
                       {svc.name}
                     </Link>
                   );
@@ -262,11 +262,11 @@ export const Header: React.FC = () => {
       {/* Elfsight Booking Modal */}
       {isBookingOpen && (
         <div
-          className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-200 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs"
           onClick={(e) => { if (e.target === e.currentTarget) setIsBookingOpen(false); }}
         >
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col" style={{ height: 'calc(90vh - 2rem)' }}>
-            <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-gray-100">
+            <div className="shrink-0 flex items-center justify-between px-6 py-4 border-b border-gray-100">
               <div className="flex items-center gap-2">
                 <CalendarDays className="w-5 h-5 text-primary" />
                 <span className="font-extrabold text-gray-900">Book an Appointment</span>

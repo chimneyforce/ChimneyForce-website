@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CircleCheckBig } from 'lucide-react';
 import { SEO, createBreadcrumbSchema } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { submitContactForm } from '../lib/contactSubmission';
@@ -103,7 +103,7 @@ export const Contact: React.FC = () => {
         canonical="/contact"
         structuredData={breadcrumbs}
       />
-      <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-20 bg-linear-to-b/srgb from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mb-4 md:mb-6 leading-tight">
@@ -119,7 +119,7 @@ export const Contact: React.FC = () => {
               <h2 className="text-xl md:text-2xl font-extrabold text-black mb-6 leading-tight">Get In Touch</h2>
               <div className="space-y-6 mb-8">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -134,7 +134,7 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -149,7 +149,7 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -159,7 +159,7 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                     <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -176,8 +176,8 @@ export const Contact: React.FC = () => {
             <div className="bg-white rounded-2xl shadow-2xl p-8">
               <h2 className="text-2xl font-extrabold text-black mb-6">Send Us a Message</h2>
               {submitted ? (
-                <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-500 rounded-xl p-8 text-center">
-                  <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
+                <div className="bg-linear-to-br/srgb from-green-50 to-green-100 border-2 border-green-500 rounded-xl p-8 text-center">
+                  <CircleCheckBig className="w-20 h-20 text-green-500 mx-auto mb-4" />
                   <p className="text-2xl font-extrabold text-green-800 mb-3">Message Sent!</p>
                   <p className="font-medium text-green-700">
                     We'll get back to you within 24 hours.
@@ -283,7 +283,7 @@ export const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-primary to-red-700 text-white rounded-xl font-extrabold text-base md:text-lg hover:from-red-700 hover:to-primary hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full bg-linear-to-r/srgb from-primary to-red-700 text-white rounded-xl font-extrabold text-base md:text-lg hover:from-red-700 hover:to-primary hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>

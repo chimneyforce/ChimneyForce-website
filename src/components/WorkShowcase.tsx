@@ -84,10 +84,10 @@ function MobileCarousel() {
         {IMAGES.map((img, i) => (
           <div
             key={i}
-            className="snap-center flex-shrink-0 w-[78vw] sm:w-[55vw] relative rounded-2xl overflow-hidden"
+            className="snap-center shrink-0 w-[78vw] sm:w-[55vw] relative rounded-2xl overflow-hidden"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.12)' }}
           >
-            <div className="relative aspect-[4/5]">
+            <div className="relative aspect-4/5">
               <img
                 src={img.src}
                 alt={img.label}
@@ -97,10 +97,10 @@ function MobileCarousel() {
                 width="400"
                 height="500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t/srgb from-black/70 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <span className="inline-flex items-center gap-1.5 bg-white text-gray-900 text-[11px] font-extrabold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wide">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                   {img.label}
                 </span>
               </div>
@@ -193,8 +193,8 @@ function DesktopMarquee() {
       onMouseLeave={() => { pausedRef.current = false; }}
     >
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r/srgb from-white to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l/srgb from-white to-transparent z-20 pointer-events-none" />
 
       <div
         ref={trackRef}
@@ -204,10 +204,10 @@ function DesktopMarquee() {
         {doubled.map((img, i) => (
           <div
             key={i}
-            className="relative flex-shrink-0 w-[360px] rounded-2xl overflow-hidden group cursor-pointer"
+            className="relative shrink-0 w-[360px] rounded-2xl overflow-hidden group cursor-pointer"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.12)' }}
           >
-            <div className="relative aspect-[4/5]">
+            <div className="relative aspect-4/5">
               <img
                 src={img.src}
                 alt={img.label}
@@ -218,18 +218,18 @@ function DesktopMarquee() {
                 height="450"
               />
               {/* Overlay that intensifies on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent transition-opacity duration-300 group-hover:from-black/80" />
+              <div className="absolute inset-0 bg-linear-to-t/srgb from-black/70 via-black/5 to-transparent transition-opacity duration-300 group-hover:from-black/80" />
 
               {/* Pill label */}
               <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
                 <span className="inline-flex items-center gap-1.5 bg-white text-gray-900 text-[11px] font-extrabold px-3.5 py-1.5 rounded-full shadow-lg uppercase tracking-wide transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                   {img.label}
                 </span>
               </div>
 
               {/* Subtle top-right shine on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-bl from-white/5 via-transparent to-transparent" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-linear-to-bl/srgb from-white/5 via-transparent to-transparent" />
             </div>
           </div>
         ))}

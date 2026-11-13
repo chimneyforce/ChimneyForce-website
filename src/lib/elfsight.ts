@@ -8,7 +8,7 @@ export function loadElfsightPlatform(): Promise<void> {
 
   const existing = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
   if (existing) {
-    if (existing.dataset.loaded === 'true') return Promise.resolve();
+    if (existing.dataset['loaded'] === 'true') return Promise.resolve();
     loadPromise = new Promise<void>((resolve) => {
       existing.addEventListener('load', () => resolve(), { once: true });
       existing.addEventListener('error', () => resolve(), { once: true });
@@ -21,9 +21,9 @@ export function loadElfsightPlatform(): Promise<void> {
     script.id = SCRIPT_ID;
     script.src = ELFIGHT_SDK_URL;
     script.async = true;
-    script.dataset.loaded = 'false';
+    script.dataset['loaded'] = 'false';
     script.addEventListener('load', () => {
-      script.dataset.loaded = 'true';
+      script.dataset['loaded'] = 'true';
       resolve();
     }, { once: true });
     script.addEventListener('error', () => {

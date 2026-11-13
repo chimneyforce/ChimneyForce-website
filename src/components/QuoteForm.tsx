@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Star, Users, Phone, CheckCircle, CalendarDays } from 'lucide-react';
+import { ShieldCheck, Star, Users, Phone, CircleCheckBig, CalendarDays } from 'lucide-react';
 import { submitQuoteRequest } from '../lib/contactSubmission';
 
 const QUOTE_COUNT = (() => {
@@ -72,10 +72,10 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
   if (submitted) {
     return (
       <div className="bg-white rounded-2xl shadow-2xl overflow-hidden ring-1 ring-black/5">
-        <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-4">
+        <div className="bg-linear-to-r/srgb from-green-600 to-emerald-600 px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <CheckCircle className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+              <CircleCheckBig className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-lg font-extrabold text-white leading-tight">
@@ -101,7 +101,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
             <ol className="space-y-2">
               {['Our team reviews your request immediately', 'Expert technician calls to discuss your needs', 'We schedule at your most convenient time', 'Professional service with a labor guarantee'].map((s, i) => (
                 <li key={i} className="flex gap-2.5 text-sm text-gray-700">
-                  <span className="w-5 h-5 flex-shrink-0 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xs font-extrabold">{i + 1}</span>
+                  <span className="w-5 h-5 shrink-0 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xs font-extrabold">{i + 1}</span>
                   {s}
                 </li>
               ))}
@@ -113,9 +113,9 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
             <button
               type="button"
               onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-red-700 text-white rounded-xl font-extrabold text-sm hover:from-red-700 hover:to-primary active:scale-[0.98] transition-all duration-200 shadow-md min-h-[50px]"
+              className="w-full flex items-center justify-center gap-2 bg-linear-to-r/srgb from-primary to-red-700 text-white rounded-xl font-extrabold text-sm hover:from-red-700 hover:to-primary active:scale-[0.98] transition-all duration-200 shadow-md min-h-[50px]"
             >
-              <CalendarDays className="w-4 h-4 flex-shrink-0" />
+              <CalendarDays className="w-4 h-4 shrink-0" />
               Schedule My Inspection
             </button>
           </div>
@@ -127,12 +127,12 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
   return (
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden ring-1 ring-black/5">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4 flex items-start justify-between gap-4">
+      <div className="bg-linear-to-r/srgb from-gray-900 to-gray-800 px-6 py-4 flex items-start justify-between gap-4">
         <div>
           <h3 className="text-xl font-extrabold text-white leading-tight">Get Your Free Quote</h3>
           <p className="text-gray-400 text-xs font-medium mt-0.5">We call back in under 2 hours · No obligation</p>
         </div>
-        <div className="flex-shrink-0 flex flex-col items-end gap-0.5">
+        <div className="shrink-0 flex flex-col items-end gap-0.5">
           <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="fill-yellow-400 text-yellow-400" style={{ width: 13, height: 13 }} />
@@ -144,11 +144,11 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
 
       {/* Live activity strip */}
       <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
-        <span className="relative flex h-2 w-2 flex-shrink-0">
+        <span className="relative flex h-2 w-2 shrink-0">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
         </span>
-        <Users className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+        <Users className="w-3.5 h-3.5 text-green-600 shrink-0" />
         <span className="text-green-800 text-xs font-semibold">
           <strong>{QUOTE_COUNT} homeowners</strong> requested a quote this week
         </span>
@@ -222,7 +222,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-primary to-red-700 text-white rounded-xl font-extrabold text-base hover:from-red-700 hover:to-primary active:scale-[0.98] transition-all duration-200 shadow-lg hover:shadow-xl min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group"
+            className="w-full bg-linear-to-r/srgb from-primary to-red-700 text-white rounded-xl font-extrabold text-base hover:from-red-700 hover:to-primary active:scale-[0.98] transition-all duration-200 shadow-lg hover:shadow-xl min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group"
           >
             <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             <span className="relative flex items-center gap-2">
@@ -236,7 +236,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
                 </>
               ) : (
                 <>
-                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <Phone className="w-4 h-4 shrink-0" />
                   Chat With An Expert
                 </>
               )}
@@ -245,7 +245,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultService = 'not-sure
         </form>
 
         <div className="mt-4 flex items-center justify-center gap-2 bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5">
-          <ShieldCheck className="w-4 h-4 text-green-600 flex-shrink-0" />
+          <ShieldCheck className="w-4 h-4 text-green-600 shrink-0" />
           <span className="text-xs font-semibold text-gray-600">No obligation · No spam · 100% private</span>
         </div>
       </div>

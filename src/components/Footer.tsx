@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   const { region, statePrefix } = useRegion();
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" role="contentinfo">
+    <footer className="bg-linear-to-br/srgb from-gray-900 via-gray-800 to-gray-900 text-white" role="contentinfo">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="space-y-5">
               <div className="flex items-center space-x-3 group">
-                <Phone className="w-5 h-5 text-secondary group-hover:scale-110 transition-transform duration-300 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-secondary group-hover:scale-110 transition-transform duration-300 shrink-0" />
                 <div>
                   {region.phoneNumbers.map((phone, idx) => (
                     <a

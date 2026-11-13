@@ -10,7 +10,7 @@ export const TermsOfService: React.FC = () => (
       canonical="/terms-of-service"
       noindex
     />
-    <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-16 md:py-24 bg-linear-to-b/srgb from-gray-50 to-white">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-700">
         <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">Chimney Force</p>
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-950 mb-4">Terms of Service</h1>

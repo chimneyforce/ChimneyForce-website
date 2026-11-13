@@ -44,7 +44,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   const handleTouchMove = useCallback((e: TouchEvent) => {
     if (!isDragging) return;
     e.preventDefault();
-    handleMove(e.touches[0].clientX);
+    const touch = e.touches[0];
+    if (touch) handleMove(touch.clientX);
   }, [isDragging]);
 
   const handleStart = () => {
@@ -71,7 +72,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
     <div className="w-full select-none">
       <div
         ref={containerRef}
-        className="relative aspect-[4/3] overflow-hidden rounded-xl cursor-ew-resize shadow-2xl touch-none bg-gray-200 select-none"
+        className="relative aspect-4/3 overflow-hidden rounded-xl cursor-ew-resize shadow-2xl touch-none bg-gray-200 select-none"
         onMouseDown={handleStart}
         onTouchStart={handleStart}
       >
@@ -111,13 +112,13 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         </div>
 
         <div
-          className="absolute top-3 left-3 md:top-4 md:left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-tr-lg rounded-br-lg uppercase min-h-[32px] flex items-center select-none"
+          className="absolute top-3 left-3 md:top-4 md:left-4 bg-black/70 backdrop-blur-xs text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-tr-lg rounded-br-lg uppercase min-h-[32px] flex items-center select-none"
         >
           Before
         </div>
 
         <div
-          className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-tl-lg rounded-bl-lg uppercase min-h-[32px] flex items-center select-none"
+          className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-xs text-white px-3 py-2 text-xs md:text-sm font-extrabold rounded-tl-lg rounded-bl-lg uppercase min-h-[32px] flex items-center select-none"
         >
           After
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Info, Mail, MapPin, Wrench } from 'lucide-react';
+import { House, Info, Mail, MapPin, Wrench } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { useRegion } from '../context/RegionContext';
 import { SERVICES } from '../data/servicesData';
@@ -17,7 +17,7 @@ export const Sitemap: React.FC = () => {
         canonical="/sitemap"
       />
 
-      <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-20 bg-linear-to-b/srgb from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mb-4 md:mb-6 leading-tight">
@@ -33,7 +33,7 @@ export const Sitemap: React.FC = () => {
             <div className="bg-white p-6 rounded-2xl shadow-lg">
               <div className="flex items-center mb-4">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
-                  <Home className="w-5 h-5 text-primary" />
+                  <House className="w-5 h-5 text-primary" />
                 </div>
                 <h2 className="text-xl font-extrabold text-black">Main Pages</h2>
               </div>
@@ -313,7 +313,7 @@ export const Sitemap: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-12 bg-gradient-to-r from-primary to-red-700 rounded-2xl p-8 md:p-12 text-center text-white">
+          <div className="mt-12 bg-linear-to-r/srgb from-primary to-red-700 rounded-2xl p-8 md:p-12 text-center text-white">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
               Need Help Finding Something?
             </h2>
@@ -322,7 +322,7 @@ export const Sitemap: React.FC = () => {
             </p>
             <Link
               to={`${statePrefix}/contact`}
-              className="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-gray-100 motion-safe:hover:scale-105 motion-safe:active:scale-95 transition-all duration-300 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/50"
+              className="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-gray-100 motion-safe:hover:scale-105 motion-safe:active:scale-95 transition-all duration-300 shadow-2xl focus:outline-hidden focus:ring-4 focus:ring-white/50"
             >
               <Mail className="w-5 h-5 mr-3" />
               Contact Us

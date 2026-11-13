@@ -9,7 +9,7 @@ const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => (
 import { SERVICES } from '../data/servicesData';
 import { USAFlag } from '../components/USAFlag';
 import {
-  Shield, Clock, Phone, CheckCircle, Search, Sparkles,
+  Shield, Clock, Phone, CircleCheckBig, Search, Sparkles,
   Wrench, ArrowRight, Star,
   CalendarDays, Users, Award,
   FileText,
@@ -60,7 +60,7 @@ function FaqSection() {
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Common Questions</h2>
           <p className="mt-3 text-gray-600 font-medium">Everything you need to know before booking.</p>
         </div>
-        <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+        <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-xs">
           {FAQ_ITEMS.map((item, i) => (
             <div key={i}>
               <button
@@ -68,7 +68,7 @@ function FaqSection() {
                 className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left bg-white hover:bg-gray-50 transition-colors duration-150"
               >
                 <span className="text-sm md:text-base font-bold text-gray-900 leading-snug">{item.q}</span>
-                <span className={`flex-shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
+                <span className={`shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
                   open === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'
                 }`}>
                   <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${open === i ? 'text-primary -rotate-45' : 'text-gray-600 rotate-45'}`} />
@@ -88,7 +88,7 @@ function FaqSection() {
 }
 
 /* ── Team copy card ───────────────────────────────────────── */
-function TeamCopy({ region }: { region: { phoneNumbers: string[] } }) {
+function TeamCopy({ region }: { region: { phoneNumbers: [string, ...string[]] } }) {
   return (
     <div className="rounded-2xl px-6 py-7 shadow-2xl border border-white/10" style={{ backgroundColor: 'rgba(10,10,10,0.92)' }}>
       <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-5">
@@ -158,12 +158,12 @@ export const Home: React.FC = () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     const statsObserver = new IntersectionObserver(
-      (entries) => { if (entries[0].isIntersecting) { setStatsStarted(true); statsObserver.disconnect(); } },
+      (entries) => { if (entries[0]?.isIntersecting) { setStatsStarted(true); statsObserver.disconnect(); } },
       { threshold: 0.25 }
     );
     if (statsRef.current) statsObserver.observe(statsRef.current);
     const ctaObserver = new IntersectionObserver(
-      (entries) => { if (entries[0].isIntersecting) { setCtaVideoVisible(true); ctaObserver.disconnect(); } },
+      (entries) => { if (entries[0]?.isIntersecting) { setCtaVideoVisible(true); ctaObserver.disconnect(); } },
       { threshold: 0.1, rootMargin: '200px' }
     );
     if (ctaSectionRef.current) ctaObserver.observe(ctaSectionRef.current);
@@ -229,7 +229,7 @@ export const Home: React.FC = () => {
               { value: reviewsCount,      suffix: '+', label: '5-Star Reviews',    icon: Star   },
             ].map(({ value, suffix, label, icon: Icon }) => (
               <div key={label} className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 bg-primary/20 rounded-xl flex items-center justify-center shrink-0">
                   <Icon className="w-4.5 h-4.5 text-primary" style={{ width: 18, height: 18 }} />
                 </div>
                 <div>
@@ -245,10 +245,10 @@ export const Home: React.FC = () => {
       </div>
 
       {/* ── Community discount banner ────────────────────── */}
-      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 border-y border-emerald-700/40">
+      <div className="bg-linear-to-r/srgb from-emerald-900 via-emerald-800 to-emerald-900 border-y border-emerald-700/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-3.5">
           <div className="flex items-center justify-center gap-3 sm:gap-5">
-            <USAFlag className="w-7 h-5 flex-shrink-0" />
+            <USAFlag className="w-7 h-5 shrink-0" />
             <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
               <span className="text-white font-extrabold text-sm md:text-base tracking-tight">6% Discount</span>
               <span className="hidden sm:inline text-emerald-500">|</span>
@@ -256,7 +256,7 @@ export const Home: React.FC = () => {
                 Veterans, Active Duty Military & Teachers
               </span>
             </div>
-            <USAFlag className="w-7 h-5 flex-shrink-0 hidden sm:block" />
+            <USAFlag className="w-7 h-5 shrink-0 hidden sm:block" />
           </div>
         </div>
       </div>
@@ -282,9 +282,9 @@ export const Home: React.FC = () => {
               <Link
                 key={slug}
                 to={`${statePrefix}/services/${slug}`}
-                className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-4 bg-gradient-to-br from-white to-gray-50 border-2 border-gray-100 hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
+                className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-4 bg-linear-to-br/srgb from-white to-gray-50 border-2 border-gray-100 hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
               >
-                <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300 shrink-0">
                   <Icon className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
                 <span className="text-sm font-extrabold text-gray-900 group-hover:text-primary transition-colors duration-200 leading-snug flex-1">{name}</span>
@@ -326,7 +326,7 @@ export const Home: React.FC = () => {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 reveal">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4">
-              <CheckCircle className="w-3.5 h-3.5" />
+              <CircleCheckBig className="w-3.5 h-3.5" />
               Our Process
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">What To Expect</h2>
@@ -338,15 +338,15 @@ export const Home: React.FC = () => {
               { n: 1, icon: CalendarDays, title: 'Schedule Your Inspection',       desc: 'Choose a convenient appointment time online or by phone.' },
               { n: 2, icon: Search,       title: 'We Evaluate The Problem',        desc: "We'll inspect your chimney system and document any concerns." },
               { n: 3, icon: Award,        title: 'Review Photos & Findings',       desc: "We'll show you exactly what we found — no guesswork." },
-              { n: 4, icon: CheckCircle,  title: 'Receive Honest Recommendations', desc: 'Get clear options and transparent pricing, zero pressure.' },
+              { n: 4, icon: CircleCheckBig,  title: 'Receive Honest Recommendations', desc: 'Get clear options and transparent pricing, zero pressure.' },
               { n: 5, icon: Shield,       title: 'Move Forward With Confidence',   desc: 'Address issues now or plan for future maintenance on your terms.' },
             ].map(({ n, icon: Icon, title, desc }, i, arr) => (
               <li key={n} className={`reveal reveal-delay-${i + 1} relative pl-12 ${i < arr.length - 1 ? 'pb-10' : ''}`}>
-                <span className="absolute -left-[21px] top-0 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white text-sm font-extrabold shadow-md ring-4 ring-white">
+                <span className="absolute left-[-21px] top-0 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white text-sm font-extrabold shadow-md ring-4 ring-white">
                   {n}
                 </span>
                 <div className="flex items-center gap-2 mb-1">
-                  <Icon className="w-4 h-4 text-primary flex-shrink-0" />
+                  <Icon className="w-4 h-4 text-primary shrink-0" />
                   <h3 className="text-base font-extrabold text-gray-900 leading-tight">{title}</h3>
                 </div>
                 <p className="text-sm text-gray-600 font-medium leading-relaxed">{desc}</p>
@@ -389,11 +389,11 @@ export const Home: React.FC = () => {
           {/* Base dark veil */}
           <div className="absolute inset-0 bg-black/60" />
           {/* Left-anchored brand gradient so text column stays readable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r/srgb from-black/90 via-black/70 to-transparent" />
           {/* Bottom vignette */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t/srgb from-black/60 via-transparent to-transparent" />
           {/* Subtle red warmth bleed from center-right */}
-          <div className="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-bl/srgb from-primary/20 via-transparent to-transparent" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -401,7 +401,7 @@ export const Home: React.FC = () => {
 
             <div className="reveal">
               <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-8">
-                <span className="relative flex h-2 w-2 flex-shrink-0">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-60" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                 </span>
@@ -429,12 +429,12 @@ export const Home: React.FC = () => {
               <ul className="space-y-3 mb-10">
                 {[
                   { icon: <Search className="w-4 h-4" />,      text: 'Free consultation — no obligation' },
-                  { icon: <CheckCircle className="w-4 h-4" />, text: 'Photo documentation of every job' },
+                  { icon: <CircleCheckBig className="w-4 h-4" />, text: 'Photo documentation of every job' },
                   { icon: <FileText className="w-4 h-4" />,    text: 'Written condition report' },
                   { icon: <Wrench className="w-4 h-4" />,      text: 'Recommendations when needed' },
                 ].map(({ icon, text }) => (
                   <li key={text} className="flex items-center gap-3 text-gray-300 text-sm font-medium">
-                    <span className="text-secondary flex-shrink-0">{icon}</span>
+                    <span className="text-secondary shrink-0">{icon}</span>
                     {text}
                   </li>
                 ))}

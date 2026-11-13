@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 export interface RegionData {
   regionName: string;
-  phoneNumbers: string[];
+  phoneNumbers: [string, ...string[]];
   address: string;
   city: string;
   state: string;

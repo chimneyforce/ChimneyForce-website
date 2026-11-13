@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import {
-  CheckCircle, Phone, Shield, Award, Star,
+  CircleCheckBig, Phone, Shield, Award, Star,
   ArrowRight, Users, Sparkles, MapPin, CalendarDays, Info,
 } from 'lucide-react';
 import { SEO, createServiceSchema, createBreadcrumbSchema, createFAQSchema } from '../components/SEO';
@@ -668,11 +668,11 @@ function HeroForm() {
 
   return (
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden ring-1 ring-black/5">
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-4">
+      <div className="bg-linear-to-r/srgb from-gray-900 to-gray-800 px-6 py-4">
         <h2 className="text-lg font-extrabold text-white leading-tight">Get a Free Consultation</h2>
       </div>
       <div className="bg-green-50 border-b border-green-100 px-5 py-2 flex items-center gap-2">
-        <span className="relative flex h-2 w-2 flex-shrink-0">
+        <span className="relative flex h-2 w-2 shrink-0">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-70" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
         </span>
@@ -680,9 +680,9 @@ function HeroForm() {
       </div>
       <div className="p-5 sm:p-6">
         {submitted ? (
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 text-center animate-scaleIn">
+          <div className="bg-linear-to-br/srgb from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 text-center animate-scaleIn">
             <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-              <CheckCircle className="w-8 h-8 text-green-600" />
+              <CircleCheckBig className="w-8 h-8 text-green-600" />
             </div>
             <p className="text-xl font-extrabold text-green-800 mb-1">
               {form.name ? `Got it, ${form.name.split(' ')[0]}!` : 'Request Confirmed!'}
@@ -698,7 +698,7 @@ function HeroForm() {
               <ol className="space-y-1.5">
                 {['Our team reviews your request immediately', 'Expert technician calls to discuss your needs', 'We schedule at your most convenient time', 'Professional service — labor guarantee included'].map((s, i) => (
                   <li key={i} className="flex gap-2 text-xs text-gray-600">
-                    <span className="font-extrabold text-green-600 w-3 flex-shrink-0">{i + 1}.</span>{s}
+                    <span className="font-extrabold text-green-600 w-3 shrink-0">{i + 1}.</span>{s}
                   </li>
                 ))}
               </ol>
@@ -708,7 +708,7 @@ function HeroForm() {
               onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
               className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-red-700 text-white rounded-xl font-extrabold text-sm active:scale-[0.98] transition-all duration-200 shadow-md min-h-[50px]"
             >
-              <CalendarDays className="w-4 h-4 flex-shrink-0" />
+              <CalendarDays className="w-4 h-4 shrink-0" />
               Schedule My Inspection
             </button>
           </div>
@@ -751,11 +751,11 @@ function HeroForm() {
               {submitting ? (
                 <><svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>Sending...</>
               ) : (
-                <><Phone className="w-4 h-4 flex-shrink-0" />Chat With An Expert</>
+                <><Phone className="w-4 h-4 shrink-0" />Chat With An Expert</>
               )}
             </button>
             <div className="flex items-center justify-center gap-2 bg-gray-100 rounded-full px-4 py-2">
-              <Shield className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+              <Shield className="w-3.5 h-3.5 text-green-600 shrink-0" />
               <span className="text-xs font-semibold text-gray-600">No obligation &nbsp;·&nbsp; No spam &nbsp;·&nbsp; 100% private</span>
             </div>
           </form>
@@ -807,17 +807,16 @@ export const ServiceDetail: React.FC = () => {
   const [staticLoaded, setStaticLoaded] = useState(false);
   const [showAnimated, setShowAnimated] = useState(false);
   useEffect(() => {
-    if (staticLoaded) {
-      const t = setTimeout(() => setShowAnimated(true), 100);
-      return () => clearTimeout(t);
-    }
+    if (!staticLoaded) return undefined;
+    const t = setTimeout(() => setShowAnimated(true), 100);
+    return () => clearTimeout(t);
   }, [staticLoaded]);
 
   useEffect(() => {
     const el = statsRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setStatsStarted(true); obs.disconnect(); }
+      if (entry?.isIntersecting) { setStatsStarted(true); obs.disconnect(); }
     }, { threshold: 0.2 });
     obs.observe(el);
     return () => obs.disconnect();
@@ -879,7 +878,7 @@ export const ServiceDetail: React.FC = () => {
       {/* ── SECTION 1: Hero ─────────────────────────────────── */}
       <div className="relative min-h-[600px] md:min-h-[660px] lg:h-[720px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          {!staticLoaded && <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-700" />}
+          {!staticLoaded && <div className="absolute inset-0 bg-linear-to-br/srgb from-gray-900 to-gray-700" />}
           <picture>
             <source media="(max-width: 480px)" srcSet="/hero-fireplace-480.webp" type="image/webp" />
             <source media="(max-width: 768px)" srcSet="/hero-fireplace-768.webp" type="image/webp" />
@@ -900,9 +899,9 @@ export const ServiceDetail: React.FC = () => {
             </video>
           )}
           <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r/srgb from-black/90 via-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t/srgb from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-bl/srgb from-primary/20 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
@@ -913,7 +912,7 @@ export const ServiceDetail: React.FC = () => {
               {/* Pills row — location */}
               <div className="flex flex-wrap items-center gap-2 animate-fadeInDown">
                 <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
-                  <MapPin className="w-3 h-3 flex-shrink-0" />
+                  <MapPin className="w-3 h-3 shrink-0" />
                   Serving {servingLocation}
                 </div>
               </div>
@@ -935,11 +934,11 @@ export const ServiceDetail: React.FC = () => {
                 {content.hero.trustBadges.map((badge, i) => (
                   <div
                     key={badge}
-                    className="inline-flex items-center gap-1.5 bg-black/50 border border-white/15 rounded-lg px-2.5 py-1.5 backdrop-blur-sm animate-badgePop"
+                    className="inline-flex items-center gap-1.5 bg-black/50 border border-white/15 rounded-lg px-2.5 py-1.5 backdrop-blur-xs animate-badgePop"
                     style={{ animationDelay: `${0.32 + i * 0.07}s` }}
                   >
-                    <div className="w-5 h-5 flex-shrink-0 bg-green-500/20 border border-green-500/30 rounded flex items-center justify-center">
-                      <CheckCircle className="w-3 h-3 text-green-400" />
+                    <div className="w-5 h-5 shrink-0 bg-green-500/20 border border-green-500/30 rounded-sm flex items-center justify-center">
+                      <CircleCheckBig className="w-3 h-3 text-green-400" />
                     </div>
                     <span className="text-xs font-bold text-white leading-tight whitespace-nowrap">{badge}</span>
                   </div>
@@ -947,8 +946,8 @@ export const ServiceDetail: React.FC = () => {
               </div>
 
               <div>
-                <div className="inline-flex items-center gap-3 bg-gray-900/80 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 shadow-lg">
-                  <Users className="w-5 h-5 text-secondary flex-shrink-0" />
+                <div className="inline-flex items-center gap-3 bg-gray-900/80 backdrop-blur-xs border border-white/10 rounded-full px-5 py-2.5 shadow-lg">
+                  <Users className="w-5 h-5 text-secondary shrink-0" />
                   <span className="text-white text-sm font-medium">
                     <strong className="font-extrabold text-white">10,000+</strong> homeowners served
                   </span>
@@ -956,8 +955,8 @@ export const ServiceDetail: React.FC = () => {
               </div>
 
               {slug === 'gas-fireplace-log-sets' && (
-                <div className="flex items-start gap-2.5 bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-sm max-w-xl">
-                  <Info className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-xs max-w-xl">
+                  <Info className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                   <p className="text-xs text-gray-300 leading-relaxed">
                     <span className="font-bold text-white">Note:</span> Plumbing side of gas fireplace services may be performed by qualified specialty sub-contractors.
                   </p>
@@ -983,7 +982,7 @@ export const ServiceDetail: React.FC = () => {
               { value: reviewsCount,      suffix: '+', label: '5-Star Reviews',    icon: Star   },
             ].map(({ value, suffix, label, icon: Icon }) => (
               <div key={label} className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 bg-primary/20 rounded-xl flex items-center justify-center shrink-0">
                   <Icon className="text-primary" style={{ width: 18, height: 18 }} />
                 </div>
                 <div>
@@ -1001,10 +1000,10 @@ export const ServiceDetail: React.FC = () => {
       <main id="main-content">
 
         {/* ── Community discount bar ─────────────────────────── */}
-        <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 border-y border-emerald-700/40">
+        <div className="bg-linear-to-r/srgb from-emerald-900 via-emerald-800 to-emerald-900 border-y border-emerald-700/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-3.5">
             <div className="flex items-center justify-center gap-3 sm:gap-5">
-              <USAFlag className="w-7 h-5 flex-shrink-0" />
+              <USAFlag className="w-7 h-5 shrink-0" />
               <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
                 <span className="text-white font-extrabold text-sm md:text-base tracking-tight">6% Discount</span>
                 <span className="hidden sm:inline text-emerald-500">|</span>
@@ -1012,13 +1011,13 @@ export const ServiceDetail: React.FC = () => {
                   Veterans, Active Duty Military & Teachers
                 </span>
               </div>
-              <USAFlag className="w-7 h-5 flex-shrink-0 hidden sm:block" />
+              <USAFlag className="w-7 h-5 shrink-0 hidden sm:block" />
             </div>
           </div>
         </div>
 
         {/* ── SECTION 2: Do I Need A Chimney Sweep? ─────────── */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
+        <section className="py-16 md:py-24 bg-linear-to-b/srgb from-white to-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* Header */}
@@ -1038,10 +1037,10 @@ export const ServiceDetail: React.FC = () => {
               {content.needSection.items.map((item) => (
                 <div
                   key={item}
-                  className="flex items-start gap-4 bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-200 group"
+                  className="flex items-start gap-4 bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-xs hover:shadow-md hover:border-primary/20 transition-all duration-200 group"
                 >
-                  <div className="w-8 h-8 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/15 transition-colors">
-                    <CheckCircle className="w-4 h-4 text-primary" />
+                  <div className="w-8 h-8 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/15 transition-colors">
+                    <CircleCheckBig className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-gray-800 font-semibold text-sm leading-snug pt-1">{item}</span>
                 </div>
@@ -1102,8 +1101,8 @@ export const ServiceDetail: React.FC = () => {
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {content.included.items.map((item) => (
                 <div key={item} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-4 group hover:border-success/20 hover:bg-success/5 transition-all duration-200">
-                  <div className="w-8 h-8 flex-shrink-0 bg-success/10 rounded-lg flex items-center justify-center group-hover:bg-success/20 transition-colors">
-                    <CheckCircle className="w-4 h-4 text-success" />
+                  <div className="w-8 h-8 shrink-0 bg-success/10 rounded-lg flex items-center justify-center group-hover:bg-success/20 transition-colors">
+                    <CircleCheckBig className="w-4 h-4 text-success" />
                   </div>
                   <span className="text-sm font-semibold text-gray-800">{item}</span>
                 </div>
@@ -1130,12 +1129,12 @@ export const ServiceDetail: React.FC = () => {
         <section className="py-16 md:py-20 bg-gray-950">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative overflow-hidden rounded-3xl">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 md:p-12 lg:p-14">
+              <div className="bg-linear-to-br/srgb from-gray-900 to-gray-800 p-8 md:p-12 lg:p-14">
 
                 {/* Top row */}
                 <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
                   <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-md">
-                    <MapPin className="w-3 h-3 flex-shrink-0" />
+                    <MapPin className="w-3 h-3 shrink-0" />
                     Serving {servingLocation}
                   </div>
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">
@@ -1152,8 +1151,8 @@ export const ServiceDetail: React.FC = () => {
                     <div className="space-y-3 mb-8">
                       {content.offer.items.map((item) => (
                         <div key={item} className="flex items-center gap-3">
-                          <div className="w-6 h-6 flex-shrink-0 bg-primary/20 border border-primary/40 rounded-full flex items-center justify-center">
-                            <CheckCircle className="w-3.5 h-3.5 text-primary" />
+                          <div className="w-6 h-6 shrink-0 bg-primary/20 border border-primary/40 rounded-full flex items-center justify-center">
+                            <CircleCheckBig className="w-3.5 h-3.5 text-primary" />
                           </div>
                           <span className="text-white font-semibold text-base">{item}</span>
                         </div>
@@ -1189,7 +1188,7 @@ export const ServiceDetail: React.FC = () => {
                 <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-gray-400 text-sm">
                   {['Labor Guarantee', 'No Hidden Fees', 'Licensed & Insured', 'Same-Week Appointments'].map((item) => (
                     <div key={item} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <CircleCheckBig className="w-4 h-4 text-green-400 shrink-0" />
                       <span className="font-semibold">{item}</span>
                     </div>
                   ))}
@@ -1206,9 +1205,9 @@ export const ServiceDetail: React.FC = () => {
         {/* ── SECTION 7b: Community Discount ──────────────── */}
         <section className="py-12 md:py-16 bg-emerald-950">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 to-emerald-800 p-8 md:p-10 border border-emerald-700/40">
+            <div className="relative overflow-hidden rounded-2xl bg-linear-to-br/srgb from-emerald-900 to-emerald-800 p-8 md:p-10 border border-emerald-700/40">
               <div className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                <div className="flex-shrink-0 w-16 h-16 bg-emerald-700/50 border border-emerald-500/30 rounded-2xl flex items-center justify-center">
+                <div className="shrink-0 w-16 h-16 bg-emerald-700/50 border border-emerald-500/30 rounded-2xl flex items-center justify-center">
                   <USAFlag className="w-10 h-7" />
                 </div>
                 <div className="text-center md:text-left flex-1">
@@ -1222,7 +1221,7 @@ export const ServiceDetail: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => window.dispatchEvent(new Event('chimney-open-booking'))}
-                  className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-emerald-900 px-6 py-3.5 rounded-xl font-extrabold text-sm hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
+                  className="shrink-0 inline-flex items-center gap-2 bg-white text-emerald-900 px-6 py-3.5 rounded-xl font-extrabold text-sm hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
                 >
                   <CalendarDays className="w-4 h-4" />
                   Claim Discount
@@ -1244,7 +1243,7 @@ export const ServiceDetail: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Common Questions</h2>
               <p className="mt-3 text-gray-600 font-medium">Everything you need to know before booking.</p>
             </div>
-            <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+            <div className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-xs">
               {content.faqs.map((faq, i) => (
                 <div key={i}>
                   <button
@@ -1253,7 +1252,7 @@ export const ServiceDetail: React.FC = () => {
                     aria-expanded={openFAQ === i}
                   >
                     <span className="text-sm md:text-base font-bold text-gray-900 leading-snug">{faq.q}</span>
-                    <span className={`flex-shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${openFAQ === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'}`}>
+                    <span className={`shrink-0 w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${openFAQ === i ? 'border-primary bg-primary/10 rotate-45' : 'border-gray-200'}`}>
                       <ArrowRight className={`w-3.5 h-3.5 transition-all duration-200 ${openFAQ === i ? 'text-primary -rotate-45' : 'text-gray-600 rotate-45'}`} />
                     </span>
                   </button>
@@ -1283,15 +1282,15 @@ export const ServiceDetail: React.FC = () => {
               <source src="/hero-fireplace.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-black/60" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r/srgb from-black/90 via-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t/srgb from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-bl/srgb from-primary/20 via-transparent to-transparent" />
           </div>
 
           <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center text-white">
-              <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 backdrop-blur-sm px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-6">
-                <span className="relative flex h-2 w-2 flex-shrink-0">
+              <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 backdrop-blur-xs px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest mb-6">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                 </span>
@@ -1309,7 +1308,7 @@ export const ServiceDetail: React.FC = () => {
               <div className="flex flex-wrap justify-center gap-4 mb-10">
                 {content.finalCta.bullets.map((b) => (
                   <div key={b} className="flex items-center gap-2 text-white">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    <CircleCheckBig className="w-4 h-4 text-green-400 shrink-0" />
                     <span className="text-sm font-semibold">{b}</span>
                   </div>
                 ))}
@@ -1326,7 +1325,7 @@ export const ServiceDetail: React.FC = () => {
                 </button>
                 <Link
                   to={`${statePrefix}/contact`}
-                  className="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white/40 text-white px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-xs border-2 border-white/40 text-white px-8 py-4 rounded-xl font-extrabold text-lg hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   <Award className="w-5 h-5" />
                   Speak With An Expert

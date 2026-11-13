@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Shield, Package, Users, Clock, CalendarDays, CheckCircle, Star, Phone } from 'lucide-react';
+import { Shield, Package, Users, Clock, CalendarDays, CircleCheckBig, Star, Phone } from 'lucide-react';
 const WorkShowcase = lazy(() => import('../components/WorkShowcase').then(m => ({ default: m.WorkShowcase })));
 const QuoteForm = lazy(() => import('../components/QuoteForm').then(m => ({ default: m.QuoteForm })));
 import { SEO, createOrganizationSchema, createBreadcrumbSchema } from '../components/SEO';
@@ -35,7 +35,7 @@ export const About: React.FC = () => {
         canonical="/about"
         structuredData={[organizationSchema, breadcrumbs]}
       />
-      <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-20 bg-linear-to-b/srgb from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mb-4 md:mb-6 leading-tight">
@@ -71,26 +71,26 @@ export const About: React.FC = () => {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Shield className="w-6 h-6 text-primary flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-primary shrink-0" />
                   <span className="font-medium text-gray-700">Fully Insured & Licensed</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Package className="w-6 h-6 text-primary flex-shrink-0" />
+                  <Package className="w-6 h-6 text-primary shrink-0" />
                   <span className="font-medium text-gray-700">Labor Guarantee & Quality Parts</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Users className="w-6 h-6 text-primary flex-shrink-0" />
+                  <Users className="w-6 h-6 text-primary shrink-0" />
                   <span className="font-medium text-gray-700">10,000+ Satisfied Customers</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Clock className="w-6 h-6 text-primary flex-shrink-0" />
+                  <Clock className="w-6 h-6 text-primary shrink-0" />
                   <span className="font-medium text-gray-700">Same-Day Emergency Service</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-primary to-red-700 rounded-2xl p-12 text-center text-white">
+          <div className="bg-linear-to-br/srgb from-primary to-red-700 rounded-2xl p-12 text-center text-white">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
               Our Commitment to Excellence
             </h2>
@@ -114,16 +114,16 @@ export const About: React.FC = () => {
             <img src="/hero-fireplace.jpg" alt="" aria-hidden="true" className="w-full h-full object-cover" loading="lazy" decoding="async" width="1920" height="1080" />
           </picture>
           <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r/srgb from-black/90 via-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t/srgb from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-bl/srgb from-primary/20 via-transparent to-transparent" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-secondary text-gray-900 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-8">
-                <span className="relative flex h-2 w-2 flex-shrink-0">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-700 opacity-60" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                 </span>
@@ -150,13 +150,13 @@ export const About: React.FC = () => {
 
               <ul className="space-y-3 mb-10">
                 {[
-                  { icon: <CheckCircle className="w-4 h-4" />, text: 'Licensed, insured & certified technicians' },
-                  { icon: <CheckCircle className="w-4 h-4" />, text: '100% satisfaction guarantee on every job' },
-                  { icon: <CheckCircle className="w-4 h-4" />, text: 'Same-day emergency service available' },
-                  { icon: <CheckCircle className="w-4 h-4" />, text: 'Free consultation — no obligation' },
+                  { icon: <CircleCheckBig className="w-4 h-4" />, text: 'Licensed, insured & certified technicians' },
+                  { icon: <CircleCheckBig className="w-4 h-4" />, text: '100% satisfaction guarantee on every job' },
+                  { icon: <CircleCheckBig className="w-4 h-4" />, text: 'Same-day emergency service available' },
+                  { icon: <CircleCheckBig className="w-4 h-4" />, text: 'Free consultation — no obligation' },
                 ].map(({ icon, text }) => (
                   <li key={text} className="flex items-center gap-3 text-gray-300 text-sm font-medium">
-                    <span className="text-secondary flex-shrink-0">{icon}</span>
+                    <span className="text-secondary shrink-0">{icon}</span>
                     {text}
                   </li>
                 ))}
@@ -173,7 +173,7 @@ export const About: React.FC = () => {
                 </button>
                 <a
                   href="tel:+18604796036"
-                  className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-7 py-4 rounded-xl font-extrabold text-sm transition-all duration-200 backdrop-blur-sm border border-white/20"
+                  className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-7 py-4 rounded-xl font-extrabold text-sm transition-all duration-200 backdrop-blur-xs border border-white/20"
                 >
                   <Phone className="w-4 h-4" />
                   (860) 479-6036
